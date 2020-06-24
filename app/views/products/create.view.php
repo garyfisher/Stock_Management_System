@@ -46,7 +46,11 @@
     <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
         <label >{ label_sell_price }</label>
         <input type="text" name="sell_price" value="@post (sell_price)" max="10"  data-pattern="^[0-9]+(\.[0-9]{1,8})?$" >
-
+    </div>
+	
+	<div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
+        <label >{ label_promo_price }</label>
+        <input type="text" name="promo_price" value="@post (promo_price)" max="10"  data-pattern="^[0-9]+(\.[0-9]{1,8})?$" >
     </div>
 
     <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">

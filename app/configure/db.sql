@@ -124,7 +124,8 @@ CREATE TABLE `app_products` (
   `Quantity` decimal(22,6) NOT NULL,
   `Barcode` varchar(45) NOT NULL,
   `SellPrice` decimal(24,8) NOT NULL,
-  `BuyPrice` decimal(24,8) NOT NULL
+  `BuyPrice` decimal(24,8) NOT NULL,
+  `PromoPrice` decimal(24,8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE `app_products`

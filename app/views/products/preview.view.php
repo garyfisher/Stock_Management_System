@@ -22,6 +22,7 @@
             <div class="col-2 property_products"><b>{ label_category_product }</b> : { products->Name }</div>
             <div class="col-2 property_products"><b>{ label_buy_price }</b> : @Currency (#products->BuyPrice)</div>
             <div class="col-2 property_products"><b>{ label_sell_price }</b> : @Currency (#products->SellPrice)</div>
+			<div class="col-2 property_products"><b>{ label_promo_price }</b> : @Currency (#products->SellPrice)</div>
             @if (#products->Tax != '')
             <div class="col-2 property_products"><b>{ label_tax }</b> : @number_parse (#products->Tax)</div>
             @endif

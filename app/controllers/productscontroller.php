@@ -46,6 +46,7 @@ class ProductsController extends AbsController
                 'barcode'       => 'require|max:44|min:1|type:barcode|unique:app_products',
                 'sell_price'    => 'required|max:25|type:alpha_decimal',
                 'buy_price'     => 'required|max:25|type:alpha_decimal',
+                'promo_price'     => 'required|max:25|type:alpha_decimal',
                 'unit_id'       => 'required|foreign:app_units.UnitId',
                 'tax'           => 'max:25|type:discount',
                 'categoryId'    => 'required|foreign:app_products_categories.ProductCategoryId',
@@ -62,6 +63,7 @@ class ProductsController extends AbsController
                 $ProductsModel->Barcode = $this->getPost('barcode');
                 $ProductsModel->SellPrice = $this->Currency->inside_currency($this->getPost('sell_price'));
                 $ProductsModel->BuyPrice = $this->Currency->inside_currency($this->getPost('buy_price'));
+                $ProductsModel->PromoPrice = $this->Currency->inside_currency($this->getPost('promo_price'));
                 $ProductsModel->CategoryId = $this->getPost('categoryId');
                 if($ProductsModel->create()){ /// $usersModel->create()
                     Messenger::getInstance()->create($this->Language->get('success_product_added'),Messenger::APP_TYPE_SUCCESS);
@@ -101,6 +103,7 @@ class ProductsController extends AbsController
                 'barcode'       => 'require|max:44|min:1|type:barcode|same_unq:app_products',
                 'sell_prince'   => 'max:25|type:alpha_decimal',
                 'buy_prince'   => 'max:25|type:alpha_decimal',
+                'promo_prince'   => 'max:25|type:alpha_decimal',
                 'unit_id'       => 'required|foreign:app_units.UnitId',
                 'categoryId'    => 'required|foreign:app_products_categories.ProductCategoryId',
             ];
@@ -112,6 +115,7 @@ class ProductsController extends AbsController
                 $ProductsModel->CategoryId  = $this->getPost('categoryId');
                 $ProductsModel->SellPrice   = $this->Currency->inside_currency($this->getPost('sell_price'));
                 $ProductsModel->BuyPrice    = $this->Currency->inside_currency($this->getPost('buy_price'));
+                $ProductsModel->PromoPrice    = $this->Currency->inside_currency($this->getPost('promo_price'));
                 $ProductsModel->UnitId      = $this->getPost('unit_id');
                 $ProductsModel->Barcode     = $this->getPost('barcode');
                 $ProductsModel->Quantity    = $this->getPost('quantity');

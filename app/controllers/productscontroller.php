@@ -38,6 +38,7 @@ class ProductsController extends AbsController
             $valid = new Validate($this->Language);
             $valid->data = $_POST;
             $valid->rules = [
+                'kod'         => 'required|max:240|min:3|type:text',
                 'title'         => 'required|max:240|min:3|type:text',
                 'madeCountry'   => 'max:40|key_exists:countries',
                 'quantity'      => 'required|max:23|type:quantity',
@@ -51,6 +52,7 @@ class ProductsController extends AbsController
             ];
             if($valid->check()){ // $valid->check()
                 $ProductsModel = new ProductsModel();
+                $ProductsModel->kod = $this->getPost('kod');
                 $ProductsModel->Title = $this->getPost('title');
                 $ProductsModel->MadeCountry = $this->getPost('madeCountry');
                 $ProductsModel->Quantity = $this->getPost('quantity');
@@ -90,6 +92,7 @@ class ProductsController extends AbsController
             $valid->primary = ['ProductId'=>$id];
             $valid->data = $_POST;
             $valid->rules = [
+                'kod'         => 'required|max:255|min:3|type:text',
                 'title'         => 'required|max:50|min:3|type:text',
                 'madeCountry'   => 'max:40|key_exists:countries',
                 'quantity'      => 'required|max:23|type:quantity',
@@ -103,6 +106,7 @@ class ProductsController extends AbsController
             ];
             if($valid->check()){ // $valid->check()
                 $ProductsModel->ProductId = $this->getGet('id');
+                $ProductsModel->kod = $this->getPost('kod');
                 $ProductsModel->Title = $this->getPost('title');
                 $ProductsModel->MadeCountry = $this->getPost('madeCountry');
                 $ProductsModel->CategoryId  = $this->getPost('categoryId');

@@ -6,6 +6,7 @@
     <thead>
     <tr>
         <th width="100px">{ text_product_id }</th>
+		<th>{ text_kod }</th>
         <th>{ text_title }</th>
         <th>{ text_category_name }</th>
         <th>{ text_made_country }</th>
@@ -25,6 +26,7 @@
     @foreach (#Products as $Product)
     <tr>
         <td>{! $Product->ProductId !}</td>
+		<td data-cut-title="15">{! $Product->kod !}</td>
         <td data-cut-title="15">{! $Product->Title !}</td>
         <td>{! $Product->Name !}</td>
         <td>{ countries[$Product->MadeCountry] }</td>

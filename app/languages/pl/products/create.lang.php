@@ -1,8 +1,8 @@
 <?php
 
 
-$_['text_title_form'] = 'New product';
-$_['title_page'] = 'New product';
+$_['text_title_form'] = 'Nowy produkt';
+$_['title_page'] = 'Nowy produkt';
 
 
 

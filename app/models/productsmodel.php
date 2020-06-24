@@ -9,7 +9,7 @@ use Store\Core\Validate;
 class ProductsModel extends AbsModel
 {
 
-    public $ProductId, $Title, $Tax, $UnitId , $MadeCountry, $AddedDate, $CategoryId, $Quantity, $NotificationQuantity, $Barcode, $SellPrice, $BuyPrice;
+    public $ProductId, $kod, $Title, $Tax, $UnitId , $MadeCountry, $AddedDate, $CategoryId, $Quantity, $NotificationQuantity, $Barcode, $SellPrice, $BuyPrice;
     const TABLE = 'app_products';
     const ForeignKey = 'ProductId';
 
@@ -23,14 +23,14 @@ class ProductsModel extends AbsModel
 
     public function create()
     {
-        $insetValues = [$this->Title,$this->MadeCountry,$this->Tax,$this->UnitId,$this->CategoryId,$this->Quantity,$this->NotificationQuantity,$this->Barcode,$this->SellPrice,$this->BuyPrice];
-        return DB::insert('insert into '. self::TABLE .' (Title,MadeCountry,Tax,UnitId,CategoryId,Quantity,NotificationQuantity,Barcode,SellPrice,BuyPrice,AddedDate) values (?,?,?,?,?,?,?,?,?,?,now())',$insetValues);
+        $insetValues = [$this->kod,$this->Title,$this->MadeCountry,$this->Tax,$this->UnitId,$this->CategoryId,$this->Quantity,$this->NotificationQuantity,$this->Barcode,$this->SellPrice,$this->BuyPrice];
+        return DB::insert('insert into '. self::TABLE .' (kod,Title,MadeCountry,Tax,UnitId,CategoryId,Quantity,NotificationQuantity,Barcode,SellPrice,BuyPrice,AddedDate) values (?,?,?,?,?,?,?,?,?,?,now())',$insetValues);
     }
 
     public function update()
     {
-        $updateValues = [$this->Title,$this->MadeCountry,$this->Tax,$this->UnitId,$this->CategoryId,$this->Quantity,$this->NotificationQuantity,$this->Barcode,$this->SellPrice,$this->BuyPrice,$this->ProductId];
-        return DB::update("update ". self::TABLE ." set  Title=?, MadeCountry=?, Tax=?,UnitId=? , CategoryId=? , Quantity=?, NotificationQuantity=?, Barcode=?, SellPrice=?, BuyPrice=? WHERE ProductId=?",$updateValues);
+        $updateValues = [$this->kod,$this->Title,$this->MadeCountry,$this->Tax,$this->UnitId,$this->CategoryId,$this->Quantity,$this->NotificationQuantity,$this->Barcode,$this->SellPrice,$this->BuyPrice,$this->ProductId];
+        return DB::update("update ". self::TABLE ." set  kod=?, Title=?, MadeCountry=?, Tax=?,UnitId=? , CategoryId=? , Quantity=?, NotificationQuantity=?, Barcode=?, SellPrice=?, BuyPrice=? WHERE ProductId=?",$updateValues);
     }
 
     public function delete()

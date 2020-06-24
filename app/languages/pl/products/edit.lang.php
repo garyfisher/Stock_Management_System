@@ -1,7 +1,7 @@
 <?php
 
-$_['text_title_form'] = 'Edit product';
-$_['title_page'] = 'Edit product';
+$_['text_title_form'] = 'Edytuj produkt';
+$_['title_page'] = 'Edytuj produkt';
 
 
 

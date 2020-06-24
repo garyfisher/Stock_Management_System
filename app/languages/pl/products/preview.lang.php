@@ -1,6 +1,6 @@
 <?php
 
-$_['title_page'] = 'Product';
+$_['title_page'] = 'Produkt';
 
 
 

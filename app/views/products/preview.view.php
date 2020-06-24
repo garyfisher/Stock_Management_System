@@ -12,6 +12,7 @@
             </div>
 
             <div class="col-2 property_products"><b>{ label_title }</b> : { products->Title }</div>
+			<div class="col-2 property_products"><b>{ label_kod }</b> : { products->kod }</div>
             <div class="col-2 property_products"><b>{ label_quantity_in }</b> : { products->UnitName }</div>
             <div class="col-2 property_products"><b>{ label_quantity }</b> : <bdi>@format_num (#products->Quantity) { products->UnitCode }</bdi></div>
             @if (#products->NotificationQuantity != '')

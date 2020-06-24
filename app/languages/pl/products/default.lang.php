@@ -1,18 +1,19 @@
 <?php
 
 
-$_['title_page'] = 'Products';
-$_['text_new_product'] = 'New product';
-$_['text_product_id'] = 'id';
-$_['text_title'] = 'Title';
-$_['text_added_date'] = 'Added';
-$_['text_made_country'] = 'Made in';
-$_['text_quantity'] = 'Quantity';
+$_['title_page'] = 'Produkty';
+$_['text_new_product'] = 'Nowy produkt';
+$_['text_product_id'] = 'Id';
+$_['text_title'] = 'Nazwa produktu';
+$_['text_kod'] = 'Kod';
+$_['text_added_date'] = 'Dodany';
+$_['text_made_country'] = 'Zrobiono w';
+$_['text_quantity'] = 'Ilość';
 $_['text_piece'] = 'piece';
-$_['text_sell_price'] = 'Sell price';
-$_['text_buy_price'] = 'Buy price';
-$_['text_category_name'] = 'Category name';
-$_['text_quantity_in'] = 'Quantity in';
-$_['text_tax'] = 'Tax';
-$_['text_barcode'] = 'Barcode';
+$_['text_sell_price'] = 'Cena sprzedaży';
+$_['text_buy_price'] = 'Cena kupna';
+$_['text_category_name'] = 'Nazwa Kategorii';
+$_['text_quantity_in'] = 'Jednostka';
+$_['text_tax'] = 'VAT';
+$_['text_barcode'] = 'Kod EAN';
 

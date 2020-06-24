@@ -2,133 +2,133 @@
 
 
 
-$_['title_index'] = 'Dashboard';
+$_['title_index'] = 'Strona Główna';
 
 
 // tables
-$_['text_control'] = 'Control';
+$_['text_control'] = 'Opcje';
 
-$_['title_edit'] = 'Edit';
+$_['title_edit'] = 'Edycja';
 
-$_['title_delete'] = 'Delete';
-
-
-
-$_['ago'] = 'ago';
-$_['just_now'] = 'just now';
-
-
-$_['text_new_products'] = 'New product';
-$_['text_new_categories'] = 'new category';
-$_['text_new_user'] = 'new user';
-$_['text_new_permission'] = 'New permission';
-$_['text_new_group'] = 'New group';
-$_['text_new_expenses'] = 'New expanse';
-
-$_['text_new_purchases'] = 'New Invoice purchases';
-$_['text_new_sales'] = 'New Invoice sales';
-
-$_['text_new_notifications'] = 'New notification';
-$_['text_new_supplier'] = 'New supplier';
-$_['text_new_client'] = 'New client';
+$_['title_delete'] = 'Usuń';
 
 
 
-$_['text_dashboard'] = 'Dashboard';
-$_['text_users'] = 'Users';
-$_['text_users_management'] = 'Users Management';
+$_['ago'] = 'temu';
+$_['just_now'] = 'właśnie';
+
+
+$_['text_new_products'] = 'Nowy produkt';
+$_['text_new_categories'] = 'nowa kategoria';
+$_['text_new_user'] = 'nowy użytkownik';
+$_['text_new_permission'] = 'Nowe uprawienia';
+$_['text_new_group'] = 'Nowa grupa';
+$_['text_new_expenses'] = 'Nowa płatność';
+
+$_['text_new_purchases'] = 'Nowa faktura zakupu';
+$_['text_new_sales'] = 'Nowa faktura sprzedaży';
+
+$_['text_new_notifications'] = 'Nowe powiadomienia';
+$_['text_new_supplier'] = 'Nowy dostawca';
+$_['text_new_client'] = 'Nowy klient';
+
+
+
+$_['text_dashboard'] = 'Strona Główna';
+$_['text_users'] = 'Użytkownicy';
+$_['text_users_management'] = 'Zarządzanie użytkownikami';
 $_['text_accountants'] = 'Accountants';
-$_['text_products'] = 'Products';
-$_['text_suppliers'] = 'Suppliers';
-$_['text_clients'] = 'Clients';
-$_['text_store'] = 'Store';
-$_['text_permissions'] = 'Permissions';
-$_['text_logout'] = 'LogOut';
-$_['text_categories'] = 'Categories';
-$_['text_all_users'] = 'All Users';
-$_['text_add_new_user'] = 'Add New User';
-$_['text_save'] = 'Save';
-$_['text_and_space'] = ' and ';
+$_['text_products'] = 'Produkty';
+$_['text_suppliers'] = 'Dostawcy';
+$_['text_clients'] = 'Klienci';
+$_['text_store'] = 'Sklep';
+$_['text_permissions'] = 'Uprawnienia';
+$_['text_logout'] = 'Wyloguj';
+$_['text_categories'] = 'Kategorie';
+$_['text_all_users'] = 'Wszyscy użytkownicy';
+$_['text_add_new_user'] = 'Dodaj nowego użytkownika';
+$_['text_save'] = 'Zapisz';
+$_['text_and_space'] = ' i ';
 
-$_['text_welcome'] = 'Welcome';
-$_['text_group_users'] = 'Users group';
-$_['text_suppliers'] = 'Suppliers';
-$_['text_profile'] = 'Profile';
-$_['text_settings'] = 'Settings';
-$_['text_edit_account'] = 'Edit account';
-$_['text_expenses'] = 'Expanses';
-$_['text_expenses_management'] = 'Expanses managment';
-$_['text_store'] = 'Stock';
-$_['text_transactions'] = 'Transaction';
+$_['text_welcome'] = 'Witaj';
+$_['text_group_users'] = 'Grupy użytkowników';
+$_['text_suppliers'] = 'Dostawcy';
+$_['text_profile'] = 'Profil';
+$_['text_settings'] = 'Ustawienia';
+$_['text_edit_account'] = 'Edycja konta';
+$_['text_expenses'] = 'Płatności';
+$_['text_expenses_management'] = 'Zarządzanie wydatkami';
+$_['text_store'] = 'Zasoby';
+$_['text_transactions'] = 'Transakcje';
 $_['text_system'] = 'System';
-$_['text_units'] = 'Standard Units';
-$_['text_notifications'] = 'Notifications';
-$_['text_purchases'] = 'Invoice Purchases';
-$_['text_sales'] = 'Invoice Sales';
-$_['text_all_users'] = 'All users';
-$_['text_save'] = 'Save';
-$_['text_and_space'] = ' And ';
-$_['on_time'] = 'On the hour';
-$_['text_not_found_not'] = 'There is no recent alert';
-$_['text_use_scanner_to_add_sale'] = 'Use a scanner to sell';
-$_['text_backup'] = 'Backup';
-$_['text_print'] = 'Print';
+$_['text_units'] = 'Jednostki standardowe';
+$_['text_notifications'] = 'Powiadomienia';
+$_['text_purchases'] = 'Faktury zakupu';
+$_['text_sales'] = 'Faktury sprzedaży';
+$_['text_all_users'] = 'Wszyscy użytkownicy';
+$_['text_save'] = 'Zapisz';
+$_['text_and_space'] = ' i ';
+$_['on_time'] = 'Na godzinę';
+$_['text_not_found_not'] = 'Brak ostatniego powiadomienia';
+$_['text_use_scanner_to_add_sale'] = 'Sprzedaj za pomocą skanera';
+$_['text_backup'] = 'Kopia zapasowa';
+$_['text_print'] = 'Drukuj';
 $_['text_author'] = 'Abderrazzak Oukssa';
-$_['text_themes'] = 'Themes';
+$_['text_themes'] = 'Wygląd';
 $_['text_light'] = 'Light';
 $_['text_dark'] = 'Dark';
 $_['text_blue'] = 'Blue';
 $_['text_purple'] = 'Purple';
-$_['text_show_all'] = 'Show all';
+$_['text_show_all'] = 'Pokaż wszystko';
 
 
 
-$_['title_index'] = 'Dashboard';
+$_['title_index'] = 'Strona Główna';
 
 
 // tables
-$_['text_control'] = 'Control';
+$_['text_control'] = 'Opcje';
 
-$_['title_edit'] = 'Edit';
-$_['title_delete'] = 'Delete';
-$_['title_preview'] = 'Preview';
+$_['title_edit'] = 'Edycja';
+$_['title_delete'] = 'Usuń';
+$_['title_preview'] = 'Pokaż';
 
 
 // titles attribute elementes
-$_['title_lang'] = 'Language';
-$_['title_notifications'] = 'Notifications';
+$_['title_lang'] = 'Język';
+$_['title_notifications'] = 'Powiadomienia';
 
 
 
 
 $_['date_ago_eleven_up'] = [
-    'y' => 'year',
-    'm' => 'monday',
-    'w' => 'week',
-    'd' => 'day',
-    'h' => 'hour',
-    'i' => 'minute',
-    's' => 'second',
+    'y' => 'rok',
+    'm' => 'miesiąc',
+    'w' => 'tydzień',
+    'd' => 'dzień',
+    'h' => 'godzina',
+    'i' => 'minuta',
+    's' => 'sekunda',
 ];
 
 $_['date_ago_ten_tow'] = [
-    'y' => 'years',
-    'm' => 'mondays',
-    'w' => 'weeks',
-    'd' => 'days',
-    'h' => 'hours',
-    'i' => 'minutes',
-    's' => 'seconds',
+    'y' => 'lat',
+    'm' => 'miesięcy',
+    'w' => 'tygodni',
+    'd' => 'dni',
+    'h' => 'godziny',
+    'i' => 'minuty',
+    's' => 'sekundy',
 ];
 
 $_['date_ago_tow'] = [
-    'y' => 'year',
-    'm' => 'monday',
-    'w' => 'week',
-    'd' => 'day',
-    'h' => 'hour',
-    'i' => 'minute',
-    's' => 'second',
+    'y' => 'rok',
+    'm' => 'miesiąc',
+    'w' => 'tydzień',
+    'd' => 'dzień',
+    'h' => 'godzina',
+    'i' => 'minuta',
+    's' => 'sekunda',
 ];
 
 
@@ -136,13 +136,13 @@ $_['date_ago_tow'] = [
 // notifications
 
 
-$_['not_title_1'] = 'Update your account';
-$_['not_content_1'] = 'your account has been updated by %s ';
+$_['not_title_1'] = 'Zaktualizuj swoje konto';
+$_['not_content_1'] = 'twoje konto zostało zaktualizowane przez %s ';
 
 
 
 
-$_['not_title_profile_1'] = 'please complete your profile';
+$_['not_title_profile_1'] = 'uzupełnij swój profil';
 $_['not_content_profile_1'] = 'Please complete your profile of this | link |';
 
 $_['not_title_3'] = 'Finished a product';

@@ -1,12 +1,12 @@
 <?php
 
-$_['title_page'] = 'Dashboard';
-$_['text_sold'] = 'Sold';
-$_['text_buyer'] = 'Buyer';
-$_['text_client'] = 'Client';
-$_['text_supplier'] = 'Supplier';
-$_['text_sales_count'] = 'Number of sales';
-$_['text_purchases_count'] = 'Number of purchases';
+$_['title_page'] = 'Strona Główna';
+$_['text_sold'] = 'Sprzedaż';
+$_['text_buyer'] = 'Zakupy';
+$_['text_client'] = 'Klienci';
+$_['text_supplier'] = 'Dostawcy';
+$_['text_sales_count'] = 'Ilość sprzedaży';
+$_['text_purchases_count'] = 'Ilość zakupów';
 
 //
 //$_['text_sold'] = 'مبيعة';
@@ -15,27 +15,27 @@ $_['text_purchases_count'] = 'Number of purchases';
 //$_['text_supplier'] = 'مورد';
 //$_['text_sales_count'] = 'عدد المبيعات';
 //$_['text_purchases_count'] = 'عدد المشتريات';
-$_['text_sales_total_in'] = 'Total sales in';
-$_['text_purchases_total_in'] = 'Total purchases in';
-$_['text_expenses_total_in'] = 'Total expanses in';
-$_['text_sold_sell'] = 'The number of purchases and sales in each month of this year';
-$_['text_best_sales'] = 'Best sales';
-$_['text_profit_in'] = 'Profits in';
-$_['text_expanded_in'] = 'Expanses in';
-$_['text_profit_vs_expenses'] = 'profits vs expenses';
-$_['text_last_sales'] = 'Last %s sales';
+$_['text_sales_total_in'] = 'Całkowita sprzedaż w';
+$_['text_purchases_total_in'] = 'Całkowite zakupy w';
+$_['text_expenses_total_in'] = 'Wydatki ogółem w';
+$_['text_sold_sell'] = 'Liczba zakupów i sprzedaży w każdym miesiącu tego roku';
+$_['text_best_sales'] = 'Najlepsza sprzedaż';
+$_['text_profit_in'] = 'Zyski w';
+$_['text_expanded_in'] = 'Wydatki w';
+$_['text_profit_vs_expenses'] = 'zyski a wydatki';
+$_['text_last_sales'] = 'Ostatnia %s sprzedaż';
 
 // labels of table
-$_['text_title'] = 'Title';
-$_['text_quantity'] = 'Quantity';
-$_['text_price'] = 'Price';
-$_['text_client_name'] = 'Client name';
-$_['text_paid'] = 'paid in (%)';
-$_['text_unpaid'] = 'unpaid in (%)';
+$_['text_title'] = 'Tytuł';
+$_['text_quantity'] = 'Ilość';
+$_['text_price'] = 'Cena';
+$_['text_client_name'] = 'Nazwa klienta';
+$_['text_paid'] = 'płatne w (%)';
+$_['text_unpaid'] = 'niezapłacone w (%)';
 
-$_['text_quick_link'] = 'Quick Links';
+$_['text_quick_link'] = 'Szybkie linki';
 
-$_['text_invoice_sales_status'] = 'Sales invoices by payment status';
+$_['text_invoice_sales_status'] = 'Faktury sprzedaży według statusu płatności';
 
 
 

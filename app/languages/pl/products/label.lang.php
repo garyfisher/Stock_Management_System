@@ -2,14 +2,15 @@
 
 
 
-$_['label_title'] = 'Title';
-$_['label_made_country'] = 'Made in';
-$_['label_quantity'] = 'quantity';
-$_['label_category_product'] = 'Product name';
-$_['label_sell_price'] = 'Sell price';
-$_['label_buy_price'] = 'Buy price';
-$_['label_quantity_in'] = 'Quantity in';
-$_['label_tax'] = 'Tax';
-$_['label_barcode'] = 'Barcode';
-$_['label_notification_quantity'] = 'Alert when the quantity reaches to';
-$_['label_added_date'] = 'Created';
+$_['label_title'] = 'Nazwa produktu';
+$_['label_kod'] = 'Kod produktu';
+$_['label_made_country'] = 'Zrobiono w';
+$_['label_quantity'] = 'Ilość';
+$_['label_category_product'] = 'Kategoria';
+$_['label_sell_price'] = 'Cena sprzedaży';
+$_['label_buy_price'] = 'Cena zakupu';
+$_['label_quantity_in'] = 'Jednostka';
+$_['label_tax'] = 'VAT';
+$_['label_barcode'] = 'Kod EAN';
+$_['label_notification_quantity'] = 'Alarmuj, gdy ilość osiągnie';
+$_['label_added_date'] = 'Utworzony';

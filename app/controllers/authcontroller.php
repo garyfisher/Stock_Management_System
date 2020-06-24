@@ -44,7 +44,7 @@ class AuthController extends AbsController
             $valid->data = $_POST;
 
             $valid->rules = [
-                'username' => 'required|max:15|min:3|type:alpha_dash',
+                'username' => 'required|max:15|min:3|type:text',
                 'password' => 'required|max:18|min:6|type:alpha_pass',
             ];
 

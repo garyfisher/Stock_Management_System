@@ -20,7 +20,7 @@
         </div>
         <div class="input-group-s col-1">
         <label >{ label_username }</label>
-            <input type="text" name="username" value="@post (username)" min="3" max="15"  data-pattern="^(?=[A-z\p{Arabic}]*[0-9_-])(?=[0-9]*[A-z\p{Arabic}]).{3,15}$">
+            <input type="text" name="username" value="@post (username)" min="3" max="15"  data-pattern="^[\w\(\):?!\-\,\.\/\' 0-9\u0600-\u06FF]{3,240}$">
         </div>
 
 

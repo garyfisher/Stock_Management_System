@@ -41,7 +41,7 @@ class UsersController extends AbsController
             $valid->data = $_POST;
             $valid->primary['UserId'] = $id ;
             $valid->rules = [
-                'username' => 'required|max:15|min:3|type:alpha_dash|same_unq:app_users',
+                'username' => 'required|max:15|min:3|type:text|same_unq:app_users',
                 'email' => 'required|max:50|min:6|type:email|same_unq:app_users',
                 'password' => 'max:18|min:6|type:alpha_pass|confirmation:confirm_password',
                 'confirm_password' => 'max:18|min:6|type:alpha_pass',
@@ -177,7 +177,7 @@ class UsersController extends AbsController
             $valid = new Validate($this->Language);
             $valid->data = $_POST;
             $valid->rules = [
-                'username' => 'required|max:15|min:3|type:alpha_dash|unique:app_users',
+                'username' => 'required|max:15|min:3|type:text|unique:app_users',
                 'email' => 'required|max:50|min:6|type:email|unique:app_users',
                 'password' => 'required|max:18|min:6|type:alpha_pass|confirmation:confirm_password',
                 'confirm_password' => 'required|max:18|min:6|type:alpha_pass',

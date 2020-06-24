@@ -2,7 +2,7 @@
     <span class="form-title bn">{ text_title_form }</span>
     <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
         <label >{ label_username }</label>
-        <input type="text" name="username" value="{ User->Username }" min="3" max="15"  data-pattern="^(?=[A-z\p{Arabic}]*[0-9_-])(?=[0-9]*[A-z\p{Arabic}]).{3,15}$" >
+        <input type="text" name="username" value="{ User->Username }" min="3" max="15"  data-pattern="^[\w\(\):?!\-\,\.\/\' 0-9\u0600-\u06FF]{3,240}$" >
     </div>
 
     <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">

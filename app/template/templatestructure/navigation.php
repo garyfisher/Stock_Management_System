@@ -163,9 +163,9 @@
 <div class="up-menu justify-space-bet">
     <div class="menu-end align-center">
         @is_permission_user (sales)
-        <span id="scanner-barcode" data-bottom-title="{ text_use_scanner_to_add_sale }">
+        <!-- <span id="scanner-barcode" data-bottom-title="{ text_use_scanner_to_add_sale }">
             <i class="fas fa-barcode"></i>
-        </span>
+        </span> -->
         @end
         @is_permission_user (notifications)
         <span class="notifications">
@@ -211,7 +211,7 @@
                 <li><a href="/Auth/Logout/">{ text_logout }</a></li>
             </ul>
         </span>
-        <a id='lang' href="/languages/change/" data-bottom-title="{ title_lang }"><i class="fas fa-language"></i></a>
+        <!-- <a id='lang' href="/languages/change/" data-bottom-title="{ title_lang }"><i class="fas fa-language"></i></a> -->
     </div>
     <div class="up-m-left">
         <i class="fas fa-chevron-left control-menu"></i>

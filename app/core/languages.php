@@ -12,7 +12,7 @@ class Languages
     public $Language, $lexicon = array() , $feed_key;
 
 
-    const myLang = ['ar','en'];
+    const myLang = ['ar','en','pl'];
 
     const DefaultLang = 'ar';
 
@@ -186,7 +186,7 @@ class Languages
     public function changeTo()
     {
 
-        return $this->cookie->get() == 'ar' ? 'en' : 'ar' ;
+        return $this->cookie->get() == 'pl' ? 'en' : 'pl' ;
     }
 
     public function getDir()

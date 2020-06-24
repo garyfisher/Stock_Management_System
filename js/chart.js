@@ -118,6 +118,29 @@ else if (lang == 'en') {
         'December' : 'December',
     }
 }
+else if (lang == 'pl') {
+    var dictionary = {
+        'number_of_product' : 'Liczba produktów',
+        'title_pur_sell' : 'Liczba produktów',
+        'unpaid' : 'nie zapłacony',
+        'paid' : 'zapłacony',
+        'expanses' : 'Obszar',
+        'profits' : 'Zysk',
+        'count_sales' : 'Liczba sprzedaży',
+        'January' : 'Styczeń',
+        'February' : 'Luty',
+        'March' : 'Marzec',
+        'April' : 'Kwiecień',
+        'May' : 'Maj',
+        'June' : 'Czerwiec',
+        'July' : 'Lipiec',
+        'August' : 'Sierpień',
+        'September' : 'Wrzesień',
+        'October' : 'Październik',
+        'November' : 'Listopad',
+        'December' : 'Grudzień',
+    }
+}
 
 var array_mondays = [dictionary.January,dictionary.February,dictionary.March,dictionary.April,dictionary.May,dictionary.June,dictionary.July,dictionary.August,dictionary.September,dictionary.October,dictionary.November,dictionary.December];
 

@@ -21,6 +21,10 @@ function isJson(str) {
 
         lang = {
             quantity_instock: "The current quantity is",
+        } else if(langType == 'pl'){
+
+        lang = {
+            quantity_instock: "Obecna ilość to",
         }
 
     }

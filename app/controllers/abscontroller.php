@@ -99,7 +99,7 @@ abstract class AbsController
             $this->operators_user();
         }
         $this->Language->set_lexicon($this->Data);
-        $file = VIEWS_PATH . DS . $this->controller  . DS . $this->action . '.view.php';
+        $file = VIEWS_PATH . DS . strtolower($this->controller)  . DS . $this->action . '.view.php';
         $fileNotFound = VIEWS_PATH . DS . strtolower(Controller::NOT_FOUND_CONTROLLER) . DS  .Controller::NOT_FOUND_ACTION . '.view.php';
         if(file_exists($file) && $this->action != Controller::NOT_FOUND_ACTION){
             $this->tpl($file)->render();

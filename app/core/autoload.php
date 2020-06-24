@@ -3,7 +3,7 @@
 spl_autoload_register(function ($className)
 {
 	$className = strtolower($className); // replace uppercase to lowercase
-	$className = str_replace(strtolower(APP_NAME_SPACE) . '\\' , '' , $className) ; // remove app name space in Class
+	$className = str_replace('\\','/', str_replace(strtolower(APP_NAME_SPACE) . '\\' , '' , $className)); // remove app name space in Class
 
 	$ClassFile = APP_PATH . DS . $className . '.php'; /*** class file */
 

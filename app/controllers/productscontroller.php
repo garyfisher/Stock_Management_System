@@ -38,7 +38,7 @@ class ProductsController extends AbsController
             $valid = new Validate($this->Language);
             $valid->data = $_POST;
             $valid->rules = [
-                'kod'         => 'required|max:240|min:3|type:text',
+                'kod'           => 'required|max:240|min:3|type:text',
                 'title'         => 'required|max:240|min:3|type:text',
                 'madeCountry'   => 'max:40|key_exists:countries',
                 'quantity'      => 'required|max:23|type:quantity',
@@ -46,7 +46,7 @@ class ProductsController extends AbsController
                 'barcode'       => 'require|max:44|min:1|type:barcode|unique:app_products',
                 'sell_price'    => 'required|max:25|type:alpha_decimal',
                 'buy_price'     => 'required|max:25|type:alpha_decimal',
-                'promo_price'     => 'required|max:25|type:alpha_decimal',
+                'promo_price'   => 'required|max:25|type:alpha_decimal',
                 'unit_id'       => 'required|foreign:app_units.UnitId',
                 'tax'           => 'max:25|type:discount',
                 'categoryId'    => 'required|foreign:app_products_categories.ProductCategoryId',
@@ -65,6 +65,7 @@ class ProductsController extends AbsController
                 $ProductsModel->BuyPrice = $this->Currency->inside_currency($this->getPost('buy_price'));
                 $ProductsModel->PromoPrice = $this->Currency->inside_currency($this->getPost('promo_price'));
                 $ProductsModel->CategoryId = $this->getPost('categoryId');
+                $ProductsModel->AddedName = $this->Session->User->Username;
                 if($ProductsModel->create()){ /// $usersModel->create()
                     Messenger::getInstance()->create($this->Language->get('success_product_added'),Messenger::APP_TYPE_SUCCESS);
                     $this->clear_request();
@@ -121,6 +122,7 @@ class ProductsController extends AbsController
                 $ProductsModel->Quantity    = $this->getPost('quantity');
                 $ProductsModel->NotificationQuantity = $this->getPost('notification_quantity');
                 $ProductsModel->Tax         = self::decimal_insert($this->getPost('tax'));
+				$ProductsModel->ModifyName  = $this->Session->User->Username;
                 if($ProductsModel->update()){
                     Messenger::getInstance()->create($this->Language->get('success_product_updated'),Messenger::APP_TYPE_SUCCESS);
                     $this->clear_request();

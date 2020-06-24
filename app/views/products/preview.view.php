@@ -28,6 +28,9 @@
             @endif
             <div class="col-2 property_products"><b>{ label_barcode }</b> : { products->Barcode }</div>
             <div class="col-2 property_products"><b>{ label_added_date }</b> : @full_date_format (#products->AddedDate)</div>
+			<div class="col-2 property_products"><b>{ label_added_name }</b> : { products->AddedName }</div>
+			<div class="col-2 property_products"><b>{ label_modify_date }</b> : @full_date_format (#products->ModifyDate)</div>
+			<div class="col-2 property_products"><b>{ label_modify_name }</b> : { products->ModifyName }</div>
 
         </div>
 

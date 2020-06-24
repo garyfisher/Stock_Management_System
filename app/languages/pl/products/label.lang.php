@@ -15,3 +15,6 @@ $_['label_tax'] = 'VAT';
 $_['label_barcode'] = 'Kod EAN';
 $_['label_notification_quantity'] = 'Alarmuj, gdy ilość osiągnie';
 $_['label_added_date'] = 'Utworzony';
+$_['label_added_name'] = 'Utworzony przez';
+$_['label_modify_date'] = 'Zmodyfikowany';
+$_['label_modify_name'] = 'Zmodyfikowany przez';

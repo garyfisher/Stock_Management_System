@@ -122,7 +122,7 @@ class ProductsController extends AbsController
                 $ProductsModel->Quantity    = $this->getPost('quantity');
                 $ProductsModel->NotificationQuantity = $this->getPost('notification_quantity');
                 $ProductsModel->Tax         = self::decimal_insert($this->getPost('tax'));
-				$ProductsModel->ModifyName  = $this->Session->User->Username;
+                $ProductsModel->ModifyName  = $this->Session->User->Username;
                 if($ProductsModel->update()){
                     Messenger::getInstance()->create($this->Language->get('success_product_updated'),Messenger::APP_TYPE_SUCCESS);
                     $this->clear_request();

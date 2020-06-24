@@ -1,7 +1,7 @@
 <form class="f-row form-style purchases-invoice-create" method="post" autocomplete="off">
     <span class="form-title bn">{ text_title_form }</span>
 
-    <div class="input-group-s radio-g col-md-down-1 col-md-up-2">
+    <div class="input-group-s radio-g col-md-down-2 col-md-up-2">
         <label >{ label_payment_type } :</label>
         <label class="checkmark-p" for="1">
             <input type="radio" id="1" value="1" name="payment_type" @if ($this->getPost('payment_type') == '1') checked @endif  >
@@ -14,6 +14,18 @@
         <label class="checkmark-p" for="3">
             <input type="radio" id="3" value="3" name="payment_type" @if ($this->getPost('payment_type') == '3') checked @endif >
             { array_payment_type[3] }
+        </label>
+    </div>
+
+    <div class="input-group-s radio-g col-md-down-1 col-lg-up-2 col-md-up-2">
+        <label >{ label_OrderDelivered } :</label>
+        <label class="checkmark-p" for="0">
+            <input type="radio" id="0" value="0" name="OrderDelivered" @if (#PurchasesInvoices->OrderDelivered == '0') checked @endif  >
+            { array_OrderDelivered[0] }
+        </label>
+        <label class="checkmark-p" for="1">
+            <input type="radio" id="1" value="1" name="OrderDelivered" @if (#PurchasesInvoices->OrderDelivered == '1') checked @endif >
+            { array_OrderDelivered[1] }
         </label>
     </div>
 

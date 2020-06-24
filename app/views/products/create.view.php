@@ -21,10 +21,10 @@
         </select>
     </div>
 
-    <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
+    <!-- <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
         <label >{ label_quantity }</label>
         <input type="text" name="quantity" value="@post (quantity)" max="10"  data-pattern="^[0-9]{1,16}(\.[0-9]{1,6})?$" >
-    </div>
+    </div> -->
 
     <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
         <label >{ label_notification_quantity }</label>

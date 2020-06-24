@@ -6,6 +6,7 @@ $_['text_new_purchase'] = 'New purchase invoice';
 $_['text_purchase_id'] = 'id';
 $_['text_payment_type'] = 'Payment type';
 $_['text_payment_status'] = 'Payment status';
+$_['text_OrderDelivered'] = 'Zamówienie dostarczone?';
 $_['text_created_date'] = 'Created';
 $_['text_discount'] = 'Discount';
 $_['text_username'] = 'Created by';

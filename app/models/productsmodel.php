@@ -23,14 +23,14 @@ class ProductsModel extends AbsModel
 
     public function create()
     {
-        $insetValues = [$this->kod,$this->Title,$this->MadeCountry,$this->Tax,$this->UnitId,$this->CategoryId,$this->Quantity,$this->NotificationQuantity,$this->Barcode,$this->SellPrice,$this->BuyPrice,$this->PromoPrice,$this->AddedName];
-        return DB::insert('insert into '. self::TABLE .' (kod,Title,MadeCountry,Tax,UnitId,CategoryId,Quantity,NotificationQuantity,Barcode,SellPrice,BuyPrice,PromoPrice,AddedDate,AddedName) values (?,?,?,?,?,?,?,?,?,?,?,?,now(),?)',$insetValues);
+        $insetValues = [$this->kod,$this->Title,$this->MadeCountry,$this->Tax,$this->UnitId,$this->CategoryId,/*$this->Quantity,*/$this->NotificationQuantity,$this->Barcode,$this->SellPrice,$this->BuyPrice,$this->PromoPrice,$this->AddedName];
+        return DB::insert('insert into '. self::TABLE .' (kod,Title,MadeCountry,Tax,UnitId,CategoryId,/*Quantity,*/NotificationQuantity,Barcode,SellPrice,BuyPrice,PromoPrice,AddedDate,AddedName) values (?,?,?,?,?,?,?,?,?,?,?,?,now(),?)',$insetValues);
     }
 
     public function update()
     {
-        $updateValues = [$this->kod,$this->Title,$this->MadeCountry,$this->Tax,$this->UnitId,$this->CategoryId,$this->Quantity,$this->NotificationQuantity,$this->Barcode,$this->SellPrice,$this->BuyPrice,$this->PromoPrice,$this->ModifyName,$this->ProductId];
-        return DB::update("update ". self::TABLE ." set  kod=?, Title=?, MadeCountry=?, Tax=?,UnitId=? , CategoryId=? , Quantity=?, NotificationQuantity=?, Barcode=?, SellPrice=?, BuyPrice=?, PromoPrice=?, ModifyDate = now(), ModifyName=? WHERE ProductId=?",$updateValues);
+        $updateValues = [$this->kod,$this->Title,$this->MadeCountry,$this->Tax,$this->UnitId,$this->CategoryId,/*$this->Quantity,*/$this->NotificationQuantity,$this->Barcode,$this->SellPrice,$this->BuyPrice,$this->PromoPrice,$this->ModifyName,$this->ProductId];
+        return DB::update("update ". self::TABLE ." set  kod=?, Title=?, MadeCountry=?, Tax=?,UnitId=? , CategoryId=? , /*Quantity=?,*/ NotificationQuantity=?, Barcode=?, SellPrice=?, BuyPrice=?, PromoPrice=?, ModifyDate = now(), ModifyName=? WHERE ProductId=?",$updateValues);
     }
 
     public function delete()

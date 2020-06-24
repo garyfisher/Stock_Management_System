@@ -41,6 +41,7 @@ class PurchasesController extends AbsController
             $valid->data = $_POST;
             $valid->rules = [
                 'payment_type'  => 'required|list:1,2,3',
+                'OrderDelivered'=> 'required|list:0,1',
                 'discount'      => 'required|max:24|type:discount',
                 'supplier_name' => 'required|foreign:app_suppliers.SupplierId',
                 'product_name'  => 'required|foreign:app_products.ProductId',
@@ -53,6 +54,7 @@ class PurchasesController extends AbsController
                 $PurchasesInvoicesModel = new PurchasesInvoicesModel();
                 $PurchasesInvoicesModel->PaymentType = $this->getPost('payment_type');
                 $PurchasesInvoicesModel->PaymentStatus = 0;
+                $PurchasesInvoicesModel->OrderDelivered = $this->getPost('OrderDelivered');
                 $PurchasesInvoicesModel->Discount = self::decimal_insert($this->getPost('discount'));
                 $PurchasesInvoicesModel->SupplierId = $this->getPost('supplier_name');
                 $PurchasesInvoicesModel->UserId = $this->Session->User->UserId;
@@ -127,6 +129,7 @@ class PurchasesController extends AbsController
             $valid->rules = [
                 'payment_type'  => 'required|list:1,2,3',
                 'payment_status'=> 'required|list:0,1',
+                'OrderDelivered'=> 'required|list:0,1',
                 'discount'      => 'required|max:9|type:discount',
                 'supplier_name' => 'required|foreign:app_suppliers.SupplierId',
                 'product_id'    => 'required|is_array|foreign:app_products.ProductId|post_unq:product',
@@ -139,6 +142,7 @@ class PurchasesController extends AbsController
                 $PurchasesInvoicesModel->InvoiceId = $this->getGet('id');
                 $PurchasesInvoicesModel->PaymentType = $this->getPost('payment_type');
                 $PurchasesInvoicesModel->PaymentStatus = $this->getPost('payment_status');
+                $PurchasesInvoicesModel->OrderDelivered = $this->getPost('OrderDelivered');
                 $PurchasesInvoicesModel->Discount = self::decimal_insert($this->getPost('discount'));
                 $PurchasesInvoicesModel->SupplierId = $this->getPost('supplier_name');
                 $PurchasesInvoicesModel->UserId = $this->Session->User->UserId;

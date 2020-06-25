@@ -153,6 +153,7 @@ CREATE TABLE `app_products` (
   `UnitId` tinyint(3) UNSIGNED NOT NULL,
   `NotificationQuantity` decimal(22,6) DEFAULT NULL,
   `CategoryId` tinyint(3) UNSIGNED NOT NULL,
+  `WarehouseId` tinyint(3) UNSIGNED NOT NULL,
   `Quantity` decimal(22,6) NOT NULL,
   `Barcode` varchar(45) NOT NULL,
   `SellPrice` decimal(24,8) NOT NULL,
@@ -162,8 +163,10 @@ CREATE TABLE `app_products` (
   UNIQUE KEY `Barcode` (`Barcode`),
   UNIQUE KEY `kod` (`kod`) USING BTREE,
   KEY `CategoryId` (`CategoryId`),
+  KEY `WarehouseId` (`WarehouseId`) USING BTREE,
   KEY `UnitId` (`UnitId`),
   CONSTRAINT `app_products_ibfk_1` FOREIGN KEY (`CategoryId`) REFERENCES `app_products_categories` (`ProductCategoryId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `app_products_ibfk_1` FOREIGN KEY (`WarehouseId`) REFERENCES `app_products_warehouses` (`ProductWarehouseId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `app_products_ibfk_2` FOREIGN KEY (`UnitId`) REFERENCES `app_units` (`UnitId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

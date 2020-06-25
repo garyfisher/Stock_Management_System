@@ -392,6 +392,8 @@ ajaxUserauthData($(".suppliers-create input[name='phone']"), '/suppliers/exist',
 
 ajaxUserauthData($(".products-categories-create input[name='name']"), '/ProductsCategories/Exist', 'name', 1);
 
+ajaxUserauthData($(".products-warehouses-create input[name='name']"), '/ProductsWarehouses/Exist', 'name', 1);
+
 /// Ajax Pages edit
 
 ajaxUserauthData($(".users-edit input[name='email']"), '/users/exist', 'email', 1, true);
@@ -408,7 +410,7 @@ ajaxUserauthData($(".permissions-edit input[name='permission']"), '/Permissions/
 
 ajaxUserauthData($(".products-categories-edit input[name='name']"), '/ProductsCategories/Exist', 'name', 1,true);
 
-
+ajaxUserauthData($(".products-warehouses-edit input[name='name']"), '/ProductsWarehouses/Exist', 'name', 1,true);
 
 
 

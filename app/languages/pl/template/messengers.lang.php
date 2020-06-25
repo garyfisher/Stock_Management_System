@@ -43,6 +43,7 @@ $_['warning_unit_not_exist'] = 'this unit is not exist';
 $_['warning_group_not_exist'] = 'this group is not exist';
 $_['warning_not_delete_group_self'] = 'You can\'t delete your group';
 $_['warning_productCategory_not_exist'] = 'this category is not exist';
+$_['warning_productWarehouse_not_exist'] = 'this warehouse is not exist';
 $_['warning_client_not_exist'] = 'this client is not exist';
 $_['warning_expense_not_exist'] = 'this expanse is not exist';
 $_['warning_purchase_not_exist'] = 'This invoice does not exist';
@@ -74,6 +75,10 @@ $_['success_supplier_added'] = 'supplier Added successfully';
 $_['success_productsCategories_updated'] = 'Products category updated successfully';
 $_['success_productsCategories_delete'] = 'Products category deleted successfully';
 $_['success_productsCategories_added'] = 'Products category Added successfully';
+
+$_['success_productsWarehouses_updated'] = 'Products warehouse updated successfully';
+$_['success_productsWarehouses_delete'] = 'Products warehouse deleted successfully';
+$_['success_productsWarehouses_added'] = 'Products warehouse Added successfully';
 
 $_['success_product_updated'] = 'product updated successfully';
 $_['success_product_delete'] = 'product deleted successfully';

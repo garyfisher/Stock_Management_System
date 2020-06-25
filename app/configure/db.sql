@@ -1,3 +1,25 @@
+/* DROP */
+DROP TABLE if exists `app_expenses`;
+DROP TABLE if exists `app_expenses_categories`;
+DROP TABLE if exists `app_notifications_users`;
+DROP TABLE if exists `app_notifications`;
+DROP TABLE if exists `app_purchases`;
+DROP TABLE if exists `app_purchases_invoices`;
+DROP TABLE if exists `app_sales`;
+DROP TABLE if exists `app_sales_invoices`;
+DROP TABLE if exists `app_clients`;
+DROP TABLE if exists `app_suppliers`;
+DROP TABLE if exists `app_products`;
+DROP TABLE if exists `app_products_warehouses`;
+DROP TABLE if exists `app_products_categories`;
+DROP TABLE if exists `app_units`;
+DROP TABLE if exists `app_base_units`;
+DROP TABLE if exists `app_users_profile`;
+DROP TABLE if exists `app_permissions_users`;
+DROP TABLE if exists `app_users`;
+DROP TABLE if exists `app_permissions_groups`;
+DROP TABLE if exists `app_groups`;
+DROP TABLE if exists `app_permissions`;
 
 /* Create Table App_Permissions */
 CREATE TABLE `app_permissions` (
@@ -17,7 +39,7 @@ CREATE TABLE `app_groups` (
   UNIQUE KEY `GroupName` (`GroupName`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
- INSERT INTO `app_groups` SET `GroupId` = '1', `GroupName` = 'Admin' ;
+INSERT INTO `app_groups` SET `GroupId` = '1', `GroupName` = 'Admin' ;
 
 /* Create Table App_Permissions_Groups */
 CREATE TABLE `app_permissions_groups` (
@@ -52,8 +74,7 @@ CREATE TABLE `app_users` (
   CONSTRAINT `app_users_ibfk_1` FOREIGN KEY (`GroupId`) REFERENCES `app_groups` (`GroupId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
- INSERT INTO `app_users` SET `UserId` = '1', `Username` = 'Admin_1', `Email` = 'user@Admin.com', `Password` = 'aa7b6fd1dfc6676b4b74a87860e0ba9a9e5f5fc2', `Phone` = '0638816350', `Registered` = now(), `LastLogin` = '0', `Sex` = '2', `GroupId` = '1', `Status` = '1' ;
-
+INSERT INTO `app_users` SET `UserId` = '1', `Username` = 'Admin_1', `Email` = 'user@Admin.com', `Password` = 'aa7b6fd1dfc6676b4b74a87860e0ba9a9e5f5fc2', `Phone` = '0638816350', `Registered` = now(), `LastLogin` = '0', `Sex` = '2', `GroupId` = '1', `Status` = '1' ;
 
 /* Create Table App_Permissions_Users */
 CREATE TABLE `app_permissions_users` (
@@ -110,9 +131,17 @@ CREATE TABLE `app_products_categories` (
   PRIMARY KEY (`ProductCategoryId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
+/* Create Table App_Products_Warehouses */
+CREATE TABLE `app_products_warehouses` (
+  `ProductWarehouseId` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `Name` varchar(40) NOT NULL,
+  `Description` text NOT NULL,
+  PRIMARY KEY (`ProductWarehouseId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 /* Create Table App_Products */
 CREATE TABLE `app_products` (
-  `ProductId` int(10) UNSIGNED NOT NULL,
+  `ProductId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `kod` varchar(255) NOT NULL,
   `Title` varchar(50) NOT NULL,
   `Tax` varchar(25) NOT NULL DEFAULT '0',
@@ -128,23 +157,15 @@ CREATE TABLE `app_products` (
   `Barcode` varchar(45) NOT NULL,
   `SellPrice` decimal(24,8) NOT NULL,
   `BuyPrice` decimal(24,8) NOT NULL,
-  `PromoPrice` decimal(24,8) NOT NULL
+  `PromoPrice` decimal(24,8) NOT NULL,
+  PRIMARY KEY (`ProductId`),
+  UNIQUE KEY `Barcode` (`Barcode`),
+  UNIQUE KEY `kod` (`kod`) USING BTREE,
+  KEY `CategoryId` (`CategoryId`),
+  KEY `UnitId` (`UnitId`),
+  CONSTRAINT `app_products_ibfk_1` FOREIGN KEY (`CategoryId`) REFERENCES `app_products_categories` (`ProductCategoryId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `app_products_ibfk_2` FOREIGN KEY (`UnitId`) REFERENCES `app_units` (`UnitId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-ALTER TABLE `app_products`
-  ADD PRIMARY KEY (`ProductId`),
-  ADD UNIQUE KEY `Barcode` (`Barcode`),
-  ADD UNIQUE KEY `kod` (`kod`) USING BTREE,
-  ADD KEY `CategoryId` (`CategoryId`),
-  ADD KEY `UnitId` (`UnitId`);
-
-ALTER TABLE `app_products`
-  MODIFY `ProductId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `app_products`
-  ADD CONSTRAINT `app_products_ibfk_1` FOREIGN KEY (`CategoryId`) REFERENCES `app_products_categories` (`ProductCategoryId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `app_products_ibfk_2` FOREIGN KEY (`UnitId`) REFERENCES `app_units` (`UnitId`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /* Create Table App_Suppliers */
 CREATE TABLE `app_suppliers` (
@@ -203,7 +224,7 @@ CREATE TABLE `app_sales` (
 
 /* Create Table App_Purchases_Invoices */
 CREATE TABLE `app_purchases_invoices` (
-  `InvoiceId` int(10) UNSIGNED NOT NULL,
+  `InvoiceId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `PaymentType` varchar(15) NOT NULL,
   `PaymentStatus` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
   `OrderDelivered` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
@@ -212,21 +233,13 @@ CREATE TABLE `app_purchases_invoices` (
   `Discount` varchar(25) NOT NULL,
   `SupplierId` smallint(5) UNSIGNED NOT NULL,
   `UserId` int(10) UNSIGNED NOT NULL,
-  `ModifyUser` varchar(255) NOT NULL
+  `ModifyUser` varchar(255) NOT NULL,
+  PRIMARY KEY (`InvoiceId`),
+  KEY `SupplierId` (`SupplierId`),
+  KEY `UserId` (`UserId`),
+  CONSTRAINT `app_purchases_invoices_ibfk_1` FOREIGN KEY (`SupplierId`) REFERENCES `app_suppliers` (`SupplierId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `app_purchases_invoices_ibfk_2` FOREIGN KEY (`UserId`) REFERENCES `app_users` (`UserId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-ALTER TABLE `app_purchases_invoices`
-  ADD PRIMARY KEY (`InvoiceId`),
-  ADD KEY `SupplierId` (`SupplierId`),
-  ADD KEY `UserId` (`UserId`);
-
-ALTER TABLE `app_purchases_invoices`
-  MODIFY `InvoiceId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE `app_purchases_invoices`
-  ADD CONSTRAINT `app_purchases_invoices_ibfk_1` FOREIGN KEY (`SupplierId`) REFERENCES `app_suppliers` (`SupplierId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `app_purchases_invoices_ibfk_2` FOREIGN KEY (`UserId`) REFERENCES `app_users` (`UserId`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /* Create Table App_Purchases */
 CREATE TABLE `app_purchases` (

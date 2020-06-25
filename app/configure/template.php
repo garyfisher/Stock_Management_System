@@ -84,7 +84,7 @@ return [
                 CSS_PATH . DS . "dataTablesEditeCss.css",
             ],
             '_productscategories' => CSS_PATH . DS .'productscategories.css',
-            '_expensescategories' => CSS_PATH . DS .'expensescategories.css',
+            '_productswarehouses' => CSS_PATH . DS .'productscategories.css',
             '_notifications' => CSS_PATH . DS .'notifications.css',
             '_notfound' => CSS_PATH . DS .'permissions.css',
             '_profile' => PLUGINS_CSS_PATH . DS .'croppie.css',

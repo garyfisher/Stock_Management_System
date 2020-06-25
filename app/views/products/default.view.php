@@ -9,6 +9,7 @@
 		<th>{ text_kod }</th>
         <th>{ text_title }</th>
         <th>{ text_category_name }</th>
+        <th>{ text_warehouse_name }</th>
         <!-- <th>{ text_made_country }</th> -->
         <th>{ text_quantity }</th>
         <!--<th>{ text_barcode }</th>
@@ -30,6 +31,7 @@
 		<td data-cut-title="15">{! $Product->kod !}</td>
         <td data-cut-title="15">{! $Product->Title !}</td>
         <td>{! $Product->Name !}</td>
+        <td>{! $Product->NameWarehouses !}</td>
         <!-- <td>{ countries[$Product->MadeCountry] }</td> -->
         <td data-bottom-title="{! self::format_quantity($Product->Quantity) _ $Product->UnitName !}" ><bdi>{! self::format_quantity($Product->Quantity) _ $Product->UnitCode !}</bdi></td>
         <!-- <td>{! $Product->Barcode !}</td>

@@ -14,6 +14,7 @@ $_['text_sell_price'] = 'Cena sprzedaży';
 $_['text_buy_price'] = 'Cena kupna';
 $_['text_promo_price'] = 'Cena promocyjna';
 $_['text_category_name'] = 'Nazwa Kategorii';
+$_['text_warehouse_name'] = 'Magazyn';
 $_['text_quantity_in'] = 'Jednostka';
 $_['text_tax'] = 'VAT';
 $_['text_barcode'] = 'Kod EAN';

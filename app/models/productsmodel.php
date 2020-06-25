@@ -9,7 +9,7 @@ use Store\Core\Validate;
 class ProductsModel extends AbsModel
 {
 
-    public $ProductId, $kod, $Title, $Tax, $UnitId , $MadeCountry, $AddedDate, $CategoryId, $Quantity, $NotificationQuantity, $Barcode, $SellPrice, $BuyPrice, $PromoPrice, $AddedName, $ModifyDate, $ModifyName;
+    public $ProductId, $kod, $Title, $Tax, $UnitId , $MadeCountry, $AddedDate, $CategoryId, $WarehouseId, /*$Quantity,*/ $NotificationQuantity, $Barcode, $SellPrice, $BuyPrice, $PromoPrice, $AddedName, $ModifyDate, $ModifyName;
     const TABLE = 'app_products';
     const ForeignKey = 'ProductId';
 
@@ -23,14 +23,14 @@ class ProductsModel extends AbsModel
 
     public function create()
     {
-        $insetValues = [$this->kod,$this->Title,$this->MadeCountry,$this->Tax,$this->UnitId,$this->CategoryId,/*$this->Quantity,*/$this->NotificationQuantity,$this->Barcode,$this->SellPrice,$this->BuyPrice,$this->PromoPrice,$this->AddedName];
-        return DB::insert('insert into '. self::TABLE .' (kod,Title,MadeCountry,Tax,UnitId,CategoryId,/*Quantity,*/NotificationQuantity,Barcode,SellPrice,BuyPrice,PromoPrice,AddedDate,AddedName) values (?,?,?,?,?,?,?,?,?,?,?,?,now(),?)',$insetValues);
+        $insetValues = [$this->kod,$this->Title,$this->MadeCountry,$this->Tax,$this->UnitId,$this->CategoryId,$this->WarehouseId,/*$this->Quantity,*/$this->NotificationQuantity,$this->Barcode,$this->SellPrice,$this->BuyPrice,$this->PromoPrice,$this->AddedName];
+        return DB::insert('insert into '. self::TABLE .' (kod,Title,MadeCountry,Tax,UnitId,CategoryId,WarehouseId, /*Quantity,*/ NotificationQuantity,Barcode,SellPrice,BuyPrice,PromoPrice,AddedDate,AddedName) values (?,?,?,?,?,?,?,?,?,?,?,?,now(),?)',$insetValues);
     }
 
     public function update()
     {
-        $updateValues = [$this->kod,$this->Title,$this->MadeCountry,$this->Tax,$this->UnitId,$this->CategoryId,/*$this->Quantity,*/$this->NotificationQuantity,$this->Barcode,$this->SellPrice,$this->BuyPrice,$this->PromoPrice,$this->ModifyName,$this->ProductId];
-        return DB::update("update ". self::TABLE ." set  kod=?, Title=?, MadeCountry=?, Tax=?,UnitId=? , CategoryId=? , /*Quantity=?,*/ NotificationQuantity=?, Barcode=?, SellPrice=?, BuyPrice=?, PromoPrice=?, ModifyDate = now(), ModifyName=? WHERE ProductId=?",$updateValues);
+        $updateValues = [$this->kod,$this->Title,$this->MadeCountry,$this->Tax,$this->UnitId,$this->CategoryId,$this->WarehouseId,/*$this->Quantity,*/$this->NotificationQuantity,$this->Barcode,$this->SellPrice,$this->BuyPrice,$this->PromoPrice,$this->ModifyName,$this->ProductId];
+        return DB::update("update ". self::TABLE ." set  kod=?, Title=?, MadeCountry=?, Tax=?,UnitId=? , CategoryId=? , WarehouseId=? , /*Quantity=?,*/ NotificationQuantity=?, Barcode=?, SellPrice=?, BuyPrice=?, PromoPrice=?, ModifyDate = now(), ModifyName=? WHERE ProductId=?",$updateValues);
     }
 
     public function delete()
@@ -108,10 +108,10 @@ class ProductsModel extends AbsModel
     public static function inner_join($col=null,$val=null,$magic = '=')
     {
         if($col != null && $val!= null){
-            $re = DB::statement("select app_products_categories.* , app_products.* , app_units.Name as UnitName, app_units.Code as UnitCode from " . self::TABLE . " inner join app_products_categories on app_products_categories.ProductCategoryId = app_products.CategoryId inner join app_units on app_units.UnitId = app_products.UnitId WHERE $col $magic ?",[$val],true)->get();
+            $re = DB::statement("select app_products_categories.* , app_products_warehouses.Name as NameWarehouses , app_products.* , app_units.Name as UnitName, app_units.Code as UnitCode from " . self::TABLE . " inner join app_products_categories on app_products_categories.ProductCategoryId = app_products.CategoryId inner join app_products_warehouses on app_products_warehouses.ProductWarehouseId = app_products.WarehouseId inner join app_units on app_units.UnitId = app_products.UnitId WHERE $col $magic ?",[$val],true)->get();
             return $re[0];
         }
-        return DB::statement("select app_products_categories.* , app_products.* , app_units.Name as UnitName, app_units.Code as UnitCode from " . self::TABLE . " inner join app_products_categories on app_products_categories.ProductCategoryId = app_products.CategoryId inner join app_units on app_units.UnitId = app_products.UnitId",[],true)->get();
+        return DB::statement("select app_products_categories.* , app_products_warehouses.Name as NameWarehouses , app_products.* , app_units.Name as UnitName, app_units.Code as UnitCode from " . self::TABLE . " inner join app_products_categories on app_products_categories.ProductCategoryId = app_products.CategoryId inner join app_products_warehouses on app_products_warehouses.ProductWarehouseId = app_products.WarehouseId inner join app_units on app_units.UnitId = app_products.UnitId",[],true)->get();
     }
 
 

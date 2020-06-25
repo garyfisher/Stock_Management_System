@@ -25,6 +25,7 @@ class DB
         'App_Base_Units',
         'App_Units',
         'App_Products_Categories',
+        'App_Products_Warehouses',
         'App_Products',
         'App_Suppliers',
         'App_Clients',
@@ -164,37 +165,27 @@ class DB
 
     public static function database_create()
     {
-        $b = self::$DB->query("SHOW DATABASES LIKE '".SELF::$dbname."'");
-
-        $database = $b->fetch(\PDO::FETCH_OBJ);
-
-        if (empty($database)){
+        self::$DB->query("USE `".SELF::$dbname."`");
+        $TABELS_my = self::$tabels;
+        $TABELS = self::$DB->query("SHOW TABLES");
+        $TABELS = $TABELS->fetchAll();
+        $TABELS = self::array_flatten($TABELS);
+        sort($TABELS);
+        sort($TABELS_my);
+        $TABELS = array_map('strtolower',$TABELS);
+        $TABELS_my = array_map('strtolower',$TABELS_my);
+        if ($TABELS != $TABELS_my){
 
             if (file_exists(CONFIG_PATH . DS . 'db.sql'))
             {
                 $sql = file_get_contents(CONFIG_PATH . DS . 'db.sql');
-                self::$DB->query("CREATE DATABASE ".SELF::$dbname);
+                //self::$DB->query("CREATE DATABASE ".SELF::$dbname);
                 self::$DB->query("USE `".SELF::$dbname."`");
                 self::$DB->query($sql);
                 Helper::redirect('/Auth/Logout');
             }else{
                 return false;
             }
-        }else{
-            self::$DB->query("USE `".SELF::$dbname."`");
-            $TABELS_my = self::$tabels;
-            $TABELS = self::$DB->query("SHOW TABLES");
-            $TABELS = $TABELS->fetchAll();
-            $TABELS = self::array_flatten($TABELS);
-            sort($TABELS);
-            sort($TABELS_my);
-            $TABELS = array_map('strtolower',$TABELS);
-            $TABELS_my = array_map('strtolower',$TABELS_my);
-            if ($TABELS != $TABELS_my){
-                self::$DB->query("DROP DATABASE `".SELF::$dbname."`");
-                self::redirect('/install/');
-            }
-
         }
 
         return true;

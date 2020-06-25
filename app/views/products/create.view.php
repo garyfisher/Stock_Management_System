@@ -74,6 +74,17 @@
             @endforeach
         </select>
     </div>
+	
+	<div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
+        <label>{ label_warehouse_product }</label>
+        <select name="warehouseId">
+            <option value="0" disabled selected>{ label_warehouse_product }</option>
+            @foreach (#Warehouses as $Warehouse)
+                <option value="{! $Warehouse->ProductWarehouseId; !}" @if ($this->getPost('WarehouseId') == $Warehouse->ProductWarehouseId)
+                    selected @endif > {! $Warehouse->Name !}</option>
+            @endforeach
+        </select>
+    </div>
 
 
     <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">

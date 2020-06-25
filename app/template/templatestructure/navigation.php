@@ -28,6 +28,12 @@
                 @is_permission_user (ProductsCategories/Create)
                 <li><a href="/ProductsCategories/Create"><i class="fas fa-plus"></i>{ text_new_categories }</a></li>
                 @end
+                @is_permission_user (ProductsWarehouse)
+                <li><a href="/ProductsWarehouses/"><i class="fas fa-bars"></i>{ text_warehouses }</a></li>
+                @end
+                @is_permission_user (ProductsWarehouse/Create)
+                <li><a href="/ProductsWarehouses/Create"><i class="fas fa-plus"></i>{ text_new_warehouses }</a></li>
+                @end
             </ul>
         </li>
         @end

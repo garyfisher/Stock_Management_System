@@ -6,6 +6,7 @@ namespace Store\Controllers;
 use Store\Core\Messenger;
 use Store\Core\Validate;
 use Store\Models\ProductsCategoriesModel;
+use Store\Models\ProductsWarehousesModel;
 use Store\Models\ProductsModel;
 use Store\Models\UnitsModel;
 
@@ -29,8 +30,10 @@ class ProductsController extends AbsController
         $this->Language->load('products.label');
         $this->Language->load('products.create');
         $Categories = new ProductsCategoriesModel();
+        $Warehouses = new ProductsWarehousesModel();
         $Units = new UnitsModel();
         $this->Data['Categories'] = $Categories->getAll();
+        $this->Data['Warehouses'] = $Warehouses->getAll();
         $this->Data['Units'] = $Units->getAll();
 
 
@@ -50,6 +53,7 @@ class ProductsController extends AbsController
                 'unit_id'       => 'required|foreign:app_units.UnitId',
                 'tax'           => 'max:25|type:discount',
                 'categoryId'    => 'required|foreign:app_products_categories.ProductCategoryId',
+                'warehouseId'    => 'required|foreign:app_products_warehouses.ProductWarehouseId',
             ];
             if($valid->check()){ // $valid->check()
                 $ProductsModel = new ProductsModel();
@@ -65,6 +69,7 @@ class ProductsController extends AbsController
                 $ProductsModel->BuyPrice = $this->Currency->inside_currency($this->getPost('buy_price'));
                 $ProductsModel->PromoPrice = $this->Currency->inside_currency($this->getPost('promo_price'));
                 $ProductsModel->CategoryId = $this->getPost('categoryId');
+                $ProductsModel->WarehouseId = $this->getPost('warehouseId');
                 $ProductsModel->AddedName = $this->Session->User->Username;
                 if($ProductsModel->create()){ /// $usersModel->create()
                     Messenger::getInstance()->create($this->Language->get('success_product_added'),Messenger::APP_TYPE_SUCCESS);
@@ -85,6 +90,7 @@ class ProductsController extends AbsController
         $this->Language->load('products.edit');
         $ProductsModel = new ProductsModel();
         $Categories = new ProductsCategoriesModel();
+        $Warehouses = new ProductsWarehousesModel();
         $id = self::getGet('id');
         $Units = new UnitsModel();
         $this->Data['Units'] = $Units->getAll();
@@ -107,6 +113,7 @@ class ProductsController extends AbsController
                 'promo_prince'   => 'max:25|type:alpha_decimal',
                 'unit_id'       => 'required|foreign:app_units.UnitId',
                 'categoryId'    => 'required|foreign:app_products_categories.ProductCategoryId',
+                'warehouseId'    => 'required|foreign:app_products_warehouses.ProductWarehouseId',
             ];
             if($valid->check()){ // $valid->check()
                 $ProductsModel->ProductId = $this->getGet('id');
@@ -114,6 +121,7 @@ class ProductsController extends AbsController
                 $ProductsModel->Title = $this->getPost('title');
                 $ProductsModel->MadeCountry = $this->getPost('madeCountry');
                 $ProductsModel->CategoryId  = $this->getPost('categoryId');
+                $ProductsModel->WarehouseId = $this->getPost('warehouseId');
                 $ProductsModel->SellPrice   = $this->Currency->inside_currency($this->getPost('sell_price'));
                 $ProductsModel->BuyPrice    = $this->Currency->inside_currency($this->getPost('buy_price'));
                 $ProductsModel->PromoPrice    = $this->Currency->inside_currency($this->getPost('promo_price'));
@@ -135,6 +143,7 @@ class ProductsController extends AbsController
             if(Validate::valid_unique($id,'app_products','ProductId')){
                 $this->Data['Products']     = $ProductsModel->getByKey($id);
                 $this->Data['Categories']   = $Categories->getAll();
+                $this->Data['Warehouses']   = $Warehouses->getAll();
             }else{
                 Messenger::getInstance()->create($this->Language->get('warning_product_not_exist'),Messenger::APP_TYPE_WARNING);
                 self::redirect('/Products/');

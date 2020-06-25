@@ -19,7 +19,8 @@ $_['just_now'] = 'właśnie';
 
 
 $_['text_new_products'] = 'Nowy produkt';
-$_['text_new_categories'] = 'nowa kategoria';
+$_['text_new_categories'] = 'Nowa kategoria';
+$_['text_new_warehouses'] = 'Nowy magazyn';
 $_['text_new_user'] = 'nowy użytkownik';
 $_['text_new_permission'] = 'Nowe uprawienia';
 $_['text_new_group'] = 'Nowa grupa';
@@ -45,6 +46,7 @@ $_['text_store'] = 'Sklep';
 $_['text_permissions'] = 'Uprawnienia';
 $_['text_logout'] = 'Wyloguj';
 $_['text_categories'] = 'Kategorie';
+$_['text_warehouses'] = 'Magazyny';
 $_['text_all_users'] = 'Wszyscy użytkownicy';
 $_['text_add_new_user'] = 'Dodaj nowego użytkownika';
 $_['text_save'] = 'Zapisz';

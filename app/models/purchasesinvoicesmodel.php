@@ -7,7 +7,7 @@ use Store\core\Input;
 
 class PurchasesInvoicesModel extends AbsModel
 {
-    public $InvoiceId, $PaymentType , $PaymentStatus, $OrderDelivered, $CreatedDate, $Discount, $SupplierId, $UserId;
+    public $InvoiceId, $PaymentType , $PaymentStatus, $OrderDelivered, $CreatedDate, $Discount, $SupplierId, $UserId, $ModifyUser;
     const TABLE = 'app_purchases_invoices';
     const ForeignKey = 'InvoiceId';
 
@@ -27,8 +27,8 @@ class PurchasesInvoicesModel extends AbsModel
 
     public function update()
     {
-        $updateValues = [$this->PaymentType,$this->PaymentStatus,$this->OrderDelivered,$this->Discount,$this->SupplierId,$this->UserId,$this->InvoiceId];
-        return DB::update("update ". self::TABLE ." set  PaymentType=?, PaymentStatus=? , OrderDelivered=?, Discount=? , SupplierId=?, UserId=? WHERE InvoiceId=?",$updateValues);
+        $updateValues = [$this->PaymentType,$this->PaymentStatus,$this->OrderDelivered,$this->Discount,$this->SupplierId,$this->ModifyUser,$this->InvoiceId];
+        return DB::update("update ". self::TABLE ." set  PaymentType=?, PaymentStatus=? , OrderDelivered=?, Discount=? , SupplierId=?, ModifyUser=?, ModifyDate=now() WHERE InvoiceId=?",$updateValues);
     }
 
     public function delete()

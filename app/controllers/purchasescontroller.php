@@ -145,7 +145,7 @@ class PurchasesController extends AbsController
                 $PurchasesInvoicesModel->OrderDelivered = $this->getPost('OrderDelivered');
                 $PurchasesInvoicesModel->Discount = self::decimal_insert($this->getPost('discount'));
                 $PurchasesInvoicesModel->SupplierId = $this->getPost('supplier_name');
-                $PurchasesInvoicesModel->UserId = $this->Session->User->UserId;
+                $PurchasesInvoicesModel->ModifyUser = $this->Session->User->Username;
                 if($PurchasesInvoicesModel->update()){
                     $PurchasesModel = new PurchasesModel();
                     $ProductsModel = new ProductsModel();

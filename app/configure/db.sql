@@ -203,19 +203,30 @@ CREATE TABLE `app_sales` (
 
 /* Create Table App_Purchases_Invoices */
 CREATE TABLE `app_purchases_invoices` (
-  `InvoiceId` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `InvoiceId` int(10) UNSIGNED NOT NULL,
   `PaymentType` varchar(15) NOT NULL,
-  `PaymentStatus` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `PaymentStatus` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
+  `OrderDelivered` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
   `CreatedDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ModifyDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Discount` varchar(25) NOT NULL,
-  `SupplierId` smallint(5) unsigned NOT NULL,
-  `UserId` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`InvoiceId`),
-  KEY `SupplierId` (`SupplierId`),
-  KEY `UserId` (`UserId`),
-  CONSTRAINT `app_purchases_invoices_ibfk_1` FOREIGN KEY (`SupplierId`) REFERENCES `app_suppliers` (`SupplierId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `app_purchases_invoices_ibfk_2` FOREIGN KEY (`UserId`) REFERENCES `app_users` (`UserId`) ON DELETE CASCADE ON UPDATE CASCADE
+  `SupplierId` smallint(5) UNSIGNED NOT NULL,
+  `UserId` int(10) UNSIGNED NOT NULL,
+  `ModifyUser` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `app_purchases_invoices`
+  ADD PRIMARY KEY (`InvoiceId`),
+  ADD KEY `SupplierId` (`SupplierId`),
+  ADD KEY `UserId` (`UserId`);
+
+ALTER TABLE `app_purchases_invoices`
+  MODIFY `InvoiceId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `app_purchases_invoices`
+  ADD CONSTRAINT `app_purchases_invoices_ibfk_1` FOREIGN KEY (`SupplierId`) REFERENCES `app_suppliers` (`SupplierId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `app_purchases_invoices_ibfk_2` FOREIGN KEY (`UserId`) REFERENCES `app_users` (`UserId`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /* Create Table App_Purchases */
 CREATE TABLE `app_purchases` (

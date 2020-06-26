@@ -32,13 +32,13 @@
 
     <div class="input-group-s radio-g col-md-down-1 col-lg-up-1 col-md-up-2">
         <label >{ label_OrderDelivered } :</label>
-        <label class="checkmark-p" for="0">
-            <input type="radio" id="0" value="0" name="OrderDelivered" @if (#PurchasesInvoices->OrderDelivered == '0') checked @endif  >
-            { array_OrderDelivered[0] }
-        </label>
         <label class="checkmark-p" for="1">
-            <input type="radio" id="1" value="1" name="OrderDelivered" @if (#PurchasesInvoices->OrderDelivered == '1') checked @endif >
+            <input type="radio" id="1" value="1" name="OrderDelivered" @if (#PurchasesInvoices->OrderDelivered == '1') checked @endif  >
             { array_OrderDelivered[1] }
+        </label>
+        <label class="checkmark-p" for="2">
+            <input type="radio" id="2" value="2" name="OrderDelivered" @if (#PurchasesInvoices->OrderDelivered == '2') checked @endif >
+            { array_OrderDelivered[2] }
         </label>
     </div>
 

@@ -22,7 +22,7 @@ class PurchasesInvoicesModel extends AbsModel
     public function create()
     {
         $insetValues = [$this->PaymentType,$this->PaymentStatus,$this->OrderDelivered,$this->Discount,$this->SupplierId,$this->UserId];
-        return DB::insert('insert into '. self::TABLE .' (PaymentType,PaymentStatus,OrderDelivered,Discount,SupplierId,UserId,CreatedDate) values (?,?,?,?,?,now())',$insetValues);
+        return DB::insert('insert into '. self::TABLE .' (PaymentType,PaymentStatus,OrderDelivered,Discount,SupplierId,UserId,CreatedDate) values (?,?,?,?,?,?,now())',$insetValues);
     }
 
     public function update()

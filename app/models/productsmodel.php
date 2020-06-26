@@ -64,6 +64,20 @@ class ProductsModel extends AbsModel
 
     }
 
+    public function IncreaseQuantityOrder($increase)
+    {
+        if(is_numeric($increase))
+        {
+            $quantity = self::getColByKey('QuantityOrder',$this->ProductId) + $increase;
+
+            $updateValues = [$quantity ,$this->ProductId];
+
+            return DB::update("update ". self::TABLE ." set   QuantityOrder=? WHERE ProductId=?",$updateValues);
+        }
+        return false;
+
+    }
+
     public function ReduceQuantity($increase)
     {
         $Qold = self::getColByKey('Quantity',$this->ProductId);
@@ -75,6 +89,22 @@ class ProductsModel extends AbsModel
             $updateValues = [$quantity ,$this->ProductId];
 
             return DB::update("update ". self::TABLE ." set   Quantity=? WHERE ProductId=?",$updateValues);
+        }
+        return false;
+
+    }
+
+    public function ReduceQuantityOrder($increase)
+    {
+        $Qold = self::getColByKey('QuantityOrder',$this->ProductId);
+
+        if(is_numeric($increase) && $Qold >= $increase)
+        {
+            $quantity = $Qold - $increase;
+
+            $updateValues = [$quantity ,$this->ProductId];
+
+            return DB::update("update ". self::TABLE ." set   QuantityOrder=? WHERE ProductId=?",$updateValues);
         }
         return false;
 
@@ -101,6 +131,19 @@ class ProductsModel extends AbsModel
             $updateValues = [$quantity ,$this->ProductId];
 
             return DB::update("update ". self::TABLE ." set   Quantity=? WHERE ProductId=?",$updateValues);
+        }
+        return false;
+    }
+
+    public function UpdateQuantityOrder($new,$old)
+    {
+        if(is_numeric($new) && is_numeric($old))
+        {
+            $quantity = self::getColByKey('QuantityOrder',$this->ProductId) - $old + $new;
+
+            $updateValues = [$quantity ,$this->ProductId];
+
+            return DB::update("update ". self::TABLE ." set   QuantityOrder=? WHERE ProductId=?",$updateValues);
         }
         return false;
     }

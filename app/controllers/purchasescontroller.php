@@ -41,7 +41,7 @@ class PurchasesController extends AbsController
             $valid->data = $_POST;
             $valid->rules = [
                 'payment_type'  => 'required|list:1,2,3',
-                'OrderDelivered'=> 'required|list:0,1',
+                'OrderDelivered'=> 'required|list:1,2',
                 'discount'      => 'required|max:24|type:discount',
                 'supplier_name' => 'required|foreign:app_suppliers.SupplierId',
                 'product_name'  => 'required|foreign:app_products.ProductId',
@@ -58,6 +58,7 @@ class PurchasesController extends AbsController
                 $PurchasesInvoicesModel->Discount = self::decimal_insert($this->getPost('discount'));
                 $PurchasesInvoicesModel->SupplierId = $this->getPost('supplier_name');
                 $PurchasesInvoicesModel->UserId = $this->Session->User->UserId;
+                $OrderDeliveredTest = $_POST['OrderDelivered'][$key];
 
                 if($PurchasesInvoicesModel->create()){
                     $id = DB::connect()->lastInsertId() ;
@@ -68,10 +69,19 @@ class PurchasesController extends AbsController
                         $PurchasesModel->ProductId = $product;
                         $PurchasesModel->PurchasePrice = $_POST['price'][$key];
                         $PurchasesModel->QuantityPurchases = $_POST['quantity'][$key];
+						
                         if($_POST['quantity'][$key] > 0)
                         {
-                            $ProductsModel->ProductId = $product;
-                            $ProductsModel->IncreaseQuantity($_POST['quantity'][$key]);
+                            if($OrderDeliveredTest == 1)
+                            {
+                               $ProductsModel->ProductId = $product;
+                               $ProductsModel->IncreaseQuantityOrder($_POST['quantity'][$key]);
+                            }
+                            else if($OrderDeliveredTest == 2)
+                            {
+                               $ProductsModel->ProductId = $product;
+                               $ProductsModel->IncreaseQuantity($_POST['quantity'][$key]);
+                            }
                         }
                         $PurchasesModel->InvoiceId = $id;
                         if(!$PurchasesModel->create()){
@@ -104,9 +114,6 @@ class PurchasesController extends AbsController
         $this->Data['Suppliers'] = $Suppliers->getAll();
         $this->Data['Products'] = $Products->inner_join();
 
-
-
-
         if(self::has_get('id') && Validate::valid($id,Validate::REGEX_INT)){
             if(Validate::valid_unique($id,'app_purchases_invoices','InvoiceId')){
                 $this->Data['PurchasesInvoices'] = $PurchasesInvoicesModel->getByKey($id);
@@ -129,7 +136,7 @@ class PurchasesController extends AbsController
             $valid->rules = [
                 'payment_type'  => 'required|list:1,2,3',
                 'payment_status'=> 'required|list:0,1',
-                'OrderDelivered'=> 'required|list:0,1',
+                'OrderDelivered'=> 'required|list:1,2',
                 'discount'      => 'required|max:9|type:discount',
                 'supplier_name' => 'required|foreign:app_suppliers.SupplierId',
                 'product_id'    => 'required|is_array|foreign:app_products.ProductId|post_unq:product',
@@ -146,6 +153,8 @@ class PurchasesController extends AbsController
                 $PurchasesInvoicesModel->Discount = self::decimal_insert($this->getPost('discount'));
                 $PurchasesInvoicesModel->SupplierId = $this->getPost('supplier_name');
                 $PurchasesInvoicesModel->ModifyUser = $this->Session->User->Username;
+                $OrderDeliveredStatus = $PurchasesInvoicesModel->getByKey($id)->OrderDelivered;
+
                 if($PurchasesInvoicesModel->update()){
                     $PurchasesModel = new PurchasesModel();
                     $ProductsModel = new ProductsModel();
@@ -156,6 +165,7 @@ class PurchasesController extends AbsController
                     $purchases_add = $this->array_diff_multiple($old_purchases,$new_purchases);
 
                     $purchases_delete = $this->get_array_diff_removed($old_purchases,$new_purchases);
+                    $OrderDeliveredtest = $_POST['OrderDelivered'][$key];
 
 
                     if(!empty($purchases_add))
@@ -165,12 +175,34 @@ class PurchasesController extends AbsController
                             $PurchasesModel->ProductId          = $purchase_add;
                             $PurchasesModel->QuantityPurchases  = $purchases_add['quantity'][$key];
                             $PurchasesModel->PurchasePrice      = $purchases_add['price'][$key];
-
+                            $OldQuantity = $purchases_delete['quantity'][$key];
 
                             if($purchases_add['quantity'][$key] > 0)
                             {
-                                $ProductsModel->ProductId = $purchase_add;
-                                $ProductsModel->IncreaseQuantity($purchases_add['quantity'][$key]);
+                               if($OrderDeliveredtest == 1 && $OrderDeliveredStatus == (int) 1)
+                               {
+                                  $ProductsModel->ProductId = $purchase_add;
+                                  $ProductsModel->ReduceQuantityOrder($OldQuantity);
+                                  $ProductsModel->IncreaseQuantityOrder($_POST['quantity'][$key]);
+                               }
+                               else if($OrderDeliveredtest == 2 && $OrderDeliveredStatus == (int) 2)
+                               {
+                                  $ProductsModel->ProductId = $purchase_add;
+                                  $ProductsModel->ReduceQuantity($OldQuantity);
+                                  $ProductsModel->IncreaseQuantity($_POST['quantity'][$key]);
+                               }
+                               else if($OrderDeliveredtest == 1 && $OrderDeliveredStatus == (int) 2)
+                               {
+                                  $ProductsModel->ProductId = $purchase_add;
+                                  $ProductsModel->ReduceQuantity($OldQuantity);
+                                  $ProductsModel->IncreaseQuantityOrder($_POST['quantity'][$key]);
+                               }
+                               else if($OrderDeliveredtest == 2 && $OrderDeliveredStatus == (int) 1)
+                               {
+                                  $ProductsModel->ProductId = $purchase_add;
+                                  $ProductsModel->ReduceQuantityOrder($OldQuantity);
+                                  $ProductsModel->IncreaseQuantity($_POST['quantity'][$key]);
+							   }
                             }
                             $PurchasesModel->create();
 
@@ -184,10 +216,18 @@ class PurchasesController extends AbsController
                         foreach ($purchases_delete['products'] as $key => $product_delete) {
                             $PurchasesModel->PurchaseId = $PurchasesModel->getByCols(['ProductId'=>$product_delete,'InvoiceId'=>$this->getGet('id')])[0]->PurchaseId;
 
-                            if($purchases_delete['quantity'][$key] > 0)
+                            if($purchases_add['quantity'][$key] < 1)
                             {
-                                $ProductsModel->ProductId          = $product_delete;
-                                $ProductsModel->ReduceQuantity($purchases_delete['quantity'][$key]);
+                                if($OrderDeliveredStatus == (int) 1)
+                                {
+                                   $ProductsModel->ProductId = $product_delete;
+                                   $ProductsModel->ReduceQuantityOrder($purchases_delete['quantity'][$key]);
+                                }
+                                else if($OrderDeliveredStatus == (int) 2)
+                                {
+                                   $ProductsModel->ProductId = $product_delete;
+                                   $ProductsModel->ReduceQuantity($purchases_delete['quantity'][$key]);
+                                }
                             }
                             $PurchasesModel->Delete();
 
@@ -219,6 +259,7 @@ class PurchasesController extends AbsController
             $PurchasesInvoicesModel = new PurchasesInvoicesModel();
             $PurchasesInvoicesModel->InvoiceId = $id;
             $PaymentStatus = $PurchasesInvoicesModel->getByKey($id)->PaymentStatus;
+            $OrderDeliveredStatus = $PurchasesInvoicesModel->getByKey($id)->OrderDelivered;
             if($PaymentStatus == (int) 1)
             {
                 if($PurchasesInvoicesModel->delete())
@@ -232,11 +273,22 @@ class PurchasesController extends AbsController
                 foreach ($Purchases as $Purchase) {
                     if($Purchase->QuantityPurchases > 0)
                     {
-                        $ProductsModel->ProductId = $Purchase->ProductId;
-                        if (!$ProductsModel->ReduceQuantity($Purchase->QuantityPurchases))
+                        if($OrderDeliveredStatus == (int) 2)
                         {
-                            $error = true;
+                           $ProductsModel->ProductId = $Purchase->ProductId;
+                           if (!$ProductsModel->ReduceQuantity($Purchase->QuantityPurchases))
+                           {
+                               $error = true;
+                           }
                         }
+                        else if($OrderDeliveredStatus == (int) 1)
+                        {
+                           $ProductsModel->ProductId = $Purchase->ProductId;
+                           if (!$ProductsModel->ReduceQuantityOrder($Purchase->QuantityPurchases))
+                           {
+                               $error = true;
+                           }
+						}
                     }
                 }
                 if(!$error)

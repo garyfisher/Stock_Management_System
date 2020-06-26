@@ -202,7 +202,7 @@ class PurchasesController extends AbsController
                                   $ProductsModel->ProductId = $purchase_add;
                                   $ProductsModel->ReduceQuantityOrder($OldQuantity);
                                   $ProductsModel->IncreaseQuantity($_POST['quantity'][$key]);
-							   }
+                               }
                             }
                             $PurchasesModel->create();
 
@@ -288,7 +288,7 @@ class PurchasesController extends AbsController
                            {
                                $error = true;
                            }
-						}
+                        }
                     }
                 }
                 if(!$error)

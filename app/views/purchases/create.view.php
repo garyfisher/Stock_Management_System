@@ -29,10 +29,10 @@
         </label>
     </div>
 
-    <div class="input-group-s col-md-down-1 col-md-up-2">
+    <!-- <div class="input-group-s col-md-down-1 col-md-up-2">
         <label >{ label_discount }</label>
         <input type="text" name="discount" value="@post (discount)" max="10"  data-pattern="^[0-9]{1,18}(\.[0-9]{1,8})?$|^[0-9]{1,3}(\.[0-9]{1,2})?%$" >
-    </div>
+    </div> -->
 
     <div class="input-group-s col-md-down-1 col-md-up-2">
         <label>{ label_supplier_name }</label>

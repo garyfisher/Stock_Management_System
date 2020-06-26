@@ -42,7 +42,7 @@ class PurchasesController extends AbsController
             $valid->rules = [
                 'payment_type'  => 'required|list:1,2,3',
                 'OrderDelivered'=> 'required|list:1,2',
-                'discount'      => 'required|max:24|type:discount',
+                //'discount'      => 'required|max:24|type:discount',
                 'supplier_name' => 'required|foreign:app_suppliers.SupplierId',
                 'product_name'  => 'required|foreign:app_products.ProductId',
                 'product_id'    => 'required|is_array|foreign:app_products.ProductId|post_unq:product',
@@ -55,7 +55,7 @@ class PurchasesController extends AbsController
                 $PurchasesInvoicesModel->PaymentType = $this->getPost('payment_type');
                 $PurchasesInvoicesModel->PaymentStatus = 0;
                 $PurchasesInvoicesModel->OrderDelivered = $this->getPost('OrderDelivered');
-                $PurchasesInvoicesModel->Discount = self::decimal_insert($this->getPost('discount'));
+                //$PurchasesInvoicesModel->Discount = self::decimal_insert($this->getPost('discount'));
                 $PurchasesInvoicesModel->SupplierId = $this->getPost('supplier_name');
                 $PurchasesInvoicesModel->UserId = $this->Session->User->UserId;
                 $OrderDeliveredTest = $_POST['OrderDelivered'][$key];
@@ -137,7 +137,7 @@ class PurchasesController extends AbsController
                 'payment_type'  => 'required|list:1,2,3',
                 'payment_status'=> 'required|list:0,1',
                 'OrderDelivered'=> 'required|list:1,2',
-                'discount'      => 'required|max:9|type:discount',
+                //'discount'      => 'required|max:9|type:discount',
                 'supplier_name' => 'required|foreign:app_suppliers.SupplierId',
                 'product_id'    => 'required|is_array|foreign:app_products.ProductId|post_unq:product',
                 'quantity'      => 'required|is_array|type:int|max:9999999|custom_product:app_products.product_id',//|custom_max_col:app_products.product_id
@@ -150,7 +150,7 @@ class PurchasesController extends AbsController
                 $PurchasesInvoicesModel->PaymentType = $this->getPost('payment_type');
                 $PurchasesInvoicesModel->PaymentStatus = $this->getPost('payment_status');
                 $PurchasesInvoicesModel->OrderDelivered = $this->getPost('OrderDelivered');
-                $PurchasesInvoicesModel->Discount = self::decimal_insert($this->getPost('discount'));
+                //$PurchasesInvoicesModel->Discount = self::decimal_insert($this->getPost('discount'));
                 $PurchasesInvoicesModel->SupplierId = $this->getPost('supplier_name');
                 $PurchasesInvoicesModel->ModifyUser = $this->Session->User->Username;
                 $OrderDeliveredStatus = $PurchasesInvoicesModel->getByKey($id)->OrderDelivered;

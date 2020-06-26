@@ -48,6 +48,7 @@ class PurchasesController extends AbsController
                 'product_id'    => 'required|is_array|foreign:app_products.ProductId|post_unq:product',
                 'quantity'      => 'required|is_array|type:int|max:9999999',
                 'price'         => 'required|is_array|type:alpha_decimal|max:25',
+                'comment'       => 'max:1000|min:3|type:text',
             ];
             if($valid->check()){
 
@@ -59,6 +60,7 @@ class PurchasesController extends AbsController
                 $PurchasesInvoicesModel->SupplierId = $this->getPost('supplier_name');
                 $PurchasesInvoicesModel->UserId = $this->Session->User->UserId;
                 $OrderDeliveredTest = $_POST['OrderDelivered'][$key];
+                $PurchasesInvoicesModel->Comment = $this->getPost('comment');
 
                 if($PurchasesInvoicesModel->create()){
                     $id = DB::connect()->lastInsertId() ;
@@ -142,6 +144,7 @@ class PurchasesController extends AbsController
                 'product_id'    => 'required|is_array|foreign:app_products.ProductId|post_unq:product',
                 'quantity'      => 'required|is_array|type:int|max:9999999|custom_product:app_products.product_id',//|custom_max_col:app_products.product_id
                 'price'         => 'required|is_array|type:alpha_decimal|max:10',
+                'comment'       => 'max:1000|min:3|type:text',
             ];
 
             if($valid->check()){ // $valid->check()
@@ -154,6 +157,7 @@ class PurchasesController extends AbsController
                 $PurchasesInvoicesModel->SupplierId = $this->getPost('supplier_name');
                 $PurchasesInvoicesModel->ModifyUser = $this->Session->User->Username;
                 $OrderDeliveredStatus = $PurchasesInvoicesModel->getByKey($id)->OrderDelivered;
+                $PurchasesInvoicesModel->Comment = $this->getPost('comment');
 
                 if($PurchasesInvoicesModel->update()){
                     $PurchasesModel = new PurchasesModel();

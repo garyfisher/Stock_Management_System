@@ -238,6 +238,7 @@ CREATE TABLE `app_purchases_invoices` (
   `SupplierId` smallint(5) UNSIGNED NOT NULL,
   `UserId` int(10) UNSIGNED NOT NULL,
   `ModifyUser` varchar(255) NOT NULL,
+  `Comment` varchar(1000) NOT NULL,
   PRIMARY KEY (`InvoiceId`),
   KEY `SupplierId` (`SupplierId`),
   KEY `UserId` (`UserId`),

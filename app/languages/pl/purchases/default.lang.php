@@ -10,6 +10,7 @@ $_['text_OrderDelivered'] = 'Zamówienie dostarczone?';
 $_['text_created_date'] = 'Stworzył';
 $_['text_modify_date'] = 'Zmodyfikował';
 $_['text_discount'] = 'Rabat';
+$_['text_comment'] = 'Komentarz';
 $_['text_username'] = 'Created by';
 $_['text_supplier_name'] = 'Nazwa Dostawcy';
 $_['text_count_categories'] = 'Liczba kategorii';

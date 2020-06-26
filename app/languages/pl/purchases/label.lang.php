@@ -6,6 +6,7 @@ $_['label_payment_type'] = 'Typ płatności';
 $_['label_payment_status'] = 'Status płatności';
 $_['label_OrderDelivered'] = 'Zamówienie dostarczone?';
 $_['label_discount'] = 'Rabat';
+$_['label_comment'] = 'Komentarz';
 $_['label_supplier_name'] = 'Nazwa Dostawcy';
 $_['label_product_name'] = 'Nazwa produktu';
 $_['label_product'] = 'Produkt';

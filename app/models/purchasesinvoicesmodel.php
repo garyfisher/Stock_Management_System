@@ -7,7 +7,7 @@ use Store\core\Input;
 
 class PurchasesInvoicesModel extends AbsModel
 {
-    public $InvoiceId, $PaymentType , $PaymentStatus, $OrderDelivered, $CreatedDate, /*$Discount,*/ $SupplierId, $UserId, $ModifyUser;
+    public $InvoiceId, $PaymentType , $PaymentStatus, $OrderDelivered, $CreatedDate, /*$Discount,*/ $SupplierId, $UserId, $ModifyUser, $Comment;
     const TABLE = 'app_purchases_invoices';
     const ForeignKey = 'InvoiceId';
 
@@ -21,14 +21,14 @@ class PurchasesInvoicesModel extends AbsModel
 
     public function create()
     {
-        $insetValues = [$this->PaymentType,$this->PaymentStatus,$this->OrderDelivered,/*$this->Discount,*/$this->SupplierId,$this->UserId];
-        return DB::insert('insert into '. self::TABLE .' (PaymentType,PaymentStatus,OrderDelivered,/*Discount,*/SupplierId,UserId,CreatedDate) values (?,/*?,*/?,?,?,?,now())',$insetValues);
+        $insetValues = [$this->PaymentType,$this->PaymentStatus,$this->OrderDelivered,/*$this->Discount,*/$this->SupplierId,$this->UserId,$this->Comment];
+        return DB::insert('insert into '. self::TABLE .' (PaymentType,PaymentStatus,OrderDelivered,/*Discount,*/SupplierId,UserId,CreatedDate) values (?,/*?,*/?,?,?,?,?,now())',$insetValues);
     }
 
     public function update()
     {
-        $updateValues = [$this->PaymentType,$this->PaymentStatus,$this->OrderDelivered,/*$this->Discount,*/$this->SupplierId,$this->ModifyUser,$this->InvoiceId];
-        return DB::update("update ". self::TABLE ." set  PaymentType=?, PaymentStatus=? , OrderDelivered=?, /*Discount=? ,*/ SupplierId=?, ModifyUser=?, ModifyDate=now() WHERE InvoiceId=?",$updateValues);
+        $updateValues = [$this->PaymentType,$this->PaymentStatus,$this->OrderDelivered,/*$this->Discount,*/$this->SupplierId,$this->ModifyUser,$this->Comment,$this->InvoiceId];
+        return DB::update("update ". self::TABLE ." set  PaymentType=?, PaymentStatus=? , OrderDelivered=?, /*Discount=? ,*/ SupplierId=?, ModifyUser=?, Comment=?, ModifyDate=now() WHERE InvoiceId=?",$updateValues);
     }
 
     public function delete()

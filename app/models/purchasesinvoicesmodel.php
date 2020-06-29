@@ -21,8 +21,8 @@ class PurchasesInvoicesModel extends AbsModel
 
     public function create()
     {
-        $insetValues = [$this->PaymentType,$this->PaymentStatus,$this->OrderDelivered,/*$this->Discount,*/$this->SupplierId,$this->UserId,$this->Comment];
-        return DB::insert('insert into '. self::TABLE .' (PaymentType,PaymentStatus,OrderDelivered,/*Discount,*/SupplierId,UserId,CreatedDate) values (?,/*?,*/?,?,?,?,?,now())',$insetValues);
+        $insetValues = [$this->PaymentType,$this->PaymentStatus,$this->OrderDelivered,/*$this->Discount,*/$this->SupplierId,$this->Comment,$this->UserId];
+        return DB::insert('insert into '. self::TABLE .' (PaymentType,PaymentStatus,OrderDelivered,/*Discount,*/SupplierId,Comment,UserId,CreatedDate) values (?,/*?,*/?,?,?,?,?,now())',$insetValues);
     }
 
     public function update()

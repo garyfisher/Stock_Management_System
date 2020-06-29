@@ -114,7 +114,7 @@
 
     <div class="input-group-s col-md-down-1 col-lg-up-1 col-md-up-1">
         <label >{ label_comment }</label>
-        <input type="text" name="comment" value="{! $Purchase->Comment !}" min="3" max="1000"  data-pattern="^[\w\(\):?!\-\,\.\/\' 0-9\u0600-\u06FF]{3,1000}$" >
+        <input type="text" name="comment" value="{ PurchasesInvoices->Comment }" min="3" max="1000"  data-pattern="^[\w\(\):?!\-\,\.\/\' 0-9\u0600-\u06FF]{3,1000}$" >
     </div>
 
     <div class="input-submit-p">

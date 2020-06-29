@@ -30,7 +30,7 @@
     <tr>
         <!-- <td>{! $Product->ProductId !}</td> -->
 		<td data-cut-title="15">{! $Product->kod !}</td>
-        <td data-cut-title="15">{! $Product->Title !}</td>
+        <td data-cut-title="15"><a href="/products/Preview/?id={! $Product->ProductId !}" data-top-title="{ title_preview }">{! $Product->Title !}</a></td>
         <td>{! $Product->Name !}</td>
         <td>{! $Product->NameWarehouses !}</td>
         <!-- <td>{ countries[$Product->MadeCountry] }</td> -->

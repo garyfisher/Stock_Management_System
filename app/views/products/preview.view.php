@@ -1,7 +1,8 @@
 
 <div class="preview-products">
     <div class="actions">
-        <button class="b-primary-upt bn" id="print_products">{ text_print }</button>
+        <!-- <button class="b-primary-upt bn" id="print_products">{ text_print }</button> -->
+        <a class="b-primary-upt bn" href="javascript:history.back()" >{ title_back }</a>
         <a class="b-primary-upt bn" href="/products/Edit/?id={ products->ProductId }" >{ title_edit }</a>
         <a class="b-primary-upt bn" href="/products/Delete/?id={ products->ProductId }" onclick="return confirm('do you want delete this Product');" >{ title_delete }</a>
     </div>

@@ -13,6 +13,9 @@
             <i class="fas fa-tachometer-alt"></i>{ text_dashboard }</a>
         </li>
         @end
+        @is_permission_user (Products)
+        <li><a href="/Products/"><i class="fas fa-shopping-cart"></i>{ text_products }</a></li>
+        @end
         @is_permission_user (Products,ProductsCategories)
         <li class="<! $this->getClassActive(['products','productscategories']) !>"><a><i class="fas fa-store"></i>{ text_store }<i class="fas fa-angle-down icon-to-down"></i></a>
             <ul class="child-menu">
@@ -137,7 +140,7 @@
         </li>
         @end
 
-        @is_permission_user (Settings/System,Settings/Units,Auth/Logout)
+        @is_permission_user (Settings/System,Settings/Units)
         <li class="<! $this->getClassActive(['Settings']) !>"><a><i class="fas fa-cog"></i>{ text_settings }<i class="fas fa-angle-down icon-to-down"></i></a>
             <ul class="child-menu">
                 @is_permission_user (Settings/System)
@@ -148,9 +151,6 @@
                 @end
                 @is_permission_user (Settings/BackupDatabase)
                 <li><a href="/Settings/BackupDatabase"><i class="fas fa-database"></i>{ text_backup }</a></li>
-                @end
-                @is_permission_user (Auth/Logout)
-                <li><a href="/Auth/Logout"><i class="fas fa-sign-out-alt"></i>{ text_logout }</a></li>
                 @end
             </ul>
         </li>
@@ -163,6 +163,9 @@
                 <li><a href="/Settings/themes?theme=purple"><i class="fas fa-square purple"></i>{ text_purple  }</a></li>
             </ul>
         </li>
+        @is_permission_user (Auth/Logout)
+        <li><a href="/Auth/Logout"><i class="fas fa-sign-out-alt"></i>{ text_logout }</a></li>
+        @end
     </ul>
 </div>
 

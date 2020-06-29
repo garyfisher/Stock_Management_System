@@ -11,24 +11,35 @@
                 <img id="barcode_preview" data-barcode="{ products->Barcode }">
             </div>
 
+            <div class="col-2 property_products"><b>{ label_kod }</b> : { products->kod }</div>
+            <div class="col-2 property_products"><b>{ label_barcode }</b> : { products->Barcode }</div>
             <div class="col-2 property_products"><b>{ label_title }</b> : { products->Title }</div>
-			<div class="col-2 property_products"><b>{ label_kod }</b> : { products->kod }</div>
             <div class="col-2 property_products"><b>{ label_quantity_in }</b> : { products->UnitName }</div>
             <div class="col-2 property_products"><b>{ label_quantity }</b> : <bdi>@format_num (#products->Quantity) { products->UnitCode }</bdi></div>
             <div class="col-2 property_products"><b>{ label_quantity_order }</b> : <bdi>@format_num (#products->QuantityOrder) { products->UnitCode }</bdi></div>
             @if (#products->NotificationQuantity != '')
             <div class="col-2 property_products"><b>{ label_notification_quantity }</b> : <bdi>@format_num (#products->NotificationQuantity) { products->UnitCode }</bdi></div>
             @endif
+            @if (#products->MadeCountry != '')
             <div class="col-2 property_products"><b>{ label_made_country }</b> : {countries[#products->MadeCountry]}</div>
+            @endif
             <div class="col-2 property_products"><b>{ label_category_product }</b> : { products->Name }</div>
             <div class="col-2 property_products"><b>{ label_warehouse_product }</b> : { products->NameWarehouses }</div>
+            <div class="col-1 property_products"></div>
             <div class="col-2 property_products"><b>{ label_buy_price }</b> : @Currency (#products->BuyPrice)</div>
             <div class="col-2 property_products"><b>{ label_sell_price }</b> : @Currency (#products->SellPrice)</div>
-			<div class="col-2 property_products"><b>{ label_promo_price }</b> : @Currency (#products->SellPrice)</div>
+            <div class="col-2 property_products"><b>{ label_promo_price }</b> : @Currency (#products->SellPrice)</div>
             @if (#products->Tax != '')
             <div class="col-2 property_products"><b>{ label_tax }</b> : @number_parse (#products->Tax)</div>
             @endif
-            <div class="col-2 property_products"><b>{ label_barcode }</b> : { products->Barcode }</div>
+            <div class="col-1 property_products"></div>
+            <div class="col-2 property_products"><b>{ label_www }</b> : { array_www[#products->WwwId] }</div>
+            <div class="col-2 property_products"><b>{ label_type }</b> : { array_type[#products->TypeId] }</div>
+            <div class="col-2 property_products"><b>{ label_year }</b> : { array_year[#products->YearId] }</div>
+            <div class="col-2 property_products"><b>{ label_rims }</b> : { array_rims[#products->RimsId] }</div>
+            <div class="col-2 property_products"><b>{ label_frame }</b> : { array_frame[#products->FrameId] }</div>
+            <div class="col-1 property_products"><b>{ label_comment }</b> : { products->Comment }</div>
+            <div class="col-1 property_products"></div>
             <div class="col-2 property_products"><b>{ label_added_date }</b> : @full_date_format (#products->AddedDate)</div>
             <div class="col-2 property_products"><b>{ label_added_name }</b> : { products->AddedName }</div>
             <div class="col-2 property_products"><b>{ label_modify_date }</b> : @full_date_format (#products->ModifyDate)</div>

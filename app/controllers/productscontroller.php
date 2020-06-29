@@ -43,26 +43,32 @@ class ProductsController extends AbsController
             $valid->rules = [
                 'kod'           => 'required|max:240|min:3|type:text',
                 'title'         => 'required|max:240|min:3|type:text',
-                'madeCountry'   => 'max:40|key_exists:countries',
+                //'madeCountry'   => 'max:40|key_exists:countries',
                 //'quantity'      => 'required|max:23|type:quantity',
-                'notification_quantity'=> 'max:23|type:quantity',
-                'barcode'       => 'require|max:44|min:1|type:barcode|unique:app_products',
+                //'notification_quantity'=> 'max:23|type:quantity',
+                'barcode'       => 'max:44|min:1|type:barcode|unique:app_products',
                 'sell_price'    => 'required|max:25|type:alpha_decimal',
                 'buy_price'     => 'required|max:25|type:alpha_decimal',
-                'promo_price'   => 'required|max:25|type:alpha_decimal',
+                'promo_price'   => 'max:25|type:alpha_decimal',
                 'unit_id'       => 'required|foreign:app_units.UnitId',
-                'tax'           => 'max:25|type:discount',
+                //'tax'           => 'max:25|type:discount',
                 'categoryId'    => 'required|foreign:app_products_categories.ProductCategoryId',
-                'warehouseId'    => 'required|foreign:app_products_warehouses.ProductWarehouseId',
+                'warehouseId'   => 'required|foreign:app_products_warehouses.ProductWarehouseId',
+                'comment'       => 'max:1000|min:3|type:text',
+                'wwwId'           => 'required|list:1,2',
+                'typeId'          => 'required|list:1,2,3,4',
+                'yearId'          => 'required|list:1,2,3,4,5,6',
+                'rimsId'          => 'required|list:1,2,3,4,5,6,7,8,9',
+                'frameId'         => 'required|list:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34',
             ];
             if($valid->check()){ // $valid->check()
                 $ProductsModel = new ProductsModel();
                 $ProductsModel->kod = $this->getPost('kod');
                 $ProductsModel->Title = $this->getPost('title');
-                $ProductsModel->MadeCountry = $this->getPost('madeCountry');
+                //$ProductsModel->MadeCountry = $this->getPost('madeCountry');
                 //$ProductsModel->Quantity = $this->getPost('quantity');
-                $ProductsModel->NotificationQuantity = $this->getPost('notification_quantity');
-                $ProductsModel->Tax = self::decimal_insert($this->getPost('tax'));
+                //$ProductsModel->NotificationQuantity = $this->getPost('notification_quantity');
+                //$ProductsModel->Tax = self::decimal_insert($this->getPost('tax'));
                 $ProductsModel->UnitId = $this->getPost('unit_id');
                 $ProductsModel->Barcode = $this->getPost('barcode');
                 $ProductsModel->SellPrice = $this->Currency->inside_currency($this->getPost('sell_price'));
@@ -70,6 +76,12 @@ class ProductsController extends AbsController
                 $ProductsModel->PromoPrice = $this->Currency->inside_currency($this->getPost('promo_price'));
                 $ProductsModel->CategoryId = $this->getPost('categoryId');
                 $ProductsModel->WarehouseId = $this->getPost('warehouseId');
+                $ProductsModel->WwwId = $this->getPost('wwwId');
+                $ProductsModel->TypeId = $this->getPost('typeId');
+                $ProductsModel->YearId = $this->getPost('yearId');
+                $ProductsModel->RimsId = $this->getPost('rimsId');
+                $ProductsModel->FrameId = $this->getPost('frameId');
+                $ProductsModel->Comment = $this->getPost('comment');
                 $ProductsModel->AddedName = $this->Session->User->Username;
                 if($ProductsModel->create()){ /// $usersModel->create()
                     Messenger::getInstance()->create($this->Language->get('success_product_added'),Messenger::APP_TYPE_SUCCESS);
@@ -101,35 +113,47 @@ class ProductsController extends AbsController
             $valid->primary = ['ProductId'=>$id];
             $valid->data = $_POST;
             $valid->rules = [
-                'kod'         => 'required|max:255|min:3|type:text',
+                'kod'           => 'required|max:255|min:3|type:text',
                 'title'         => 'required|max:50|min:3|type:text',
-                'madeCountry'   => 'max:40|key_exists:countries',
+                //'madeCountry'   => 'max:40|key_exists:countries',
                 //'quantity'      => 'required|max:23|type:quantity',
-                'notification_quantity'=> 'max:23|type:quantity',
-                'tax'           => 'max:25|type:discount',
-                'barcode'       => 'require|max:44|min:1|type:barcode|same_unq:app_products',
+                //'notification_quantity'=> 'max:23|type:quantity',
+                //'tax'           => 'max:25|type:discount',
+                'barcode'       => 'max:44|min:1|type:barcode|same_unq:app_products',
                 'sell_prince'   => 'max:25|type:alpha_decimal',
-                'buy_prince'   => 'max:25|type:alpha_decimal',
-                'promo_prince'   => 'max:25|type:alpha_decimal',
+                'buy_prince'    => 'max:25|type:alpha_decimal',
+                'promo_prince'  => 'max:25|type:alpha_decimal',
                 'unit_id'       => 'required|foreign:app_units.UnitId',
                 'categoryId'    => 'required|foreign:app_products_categories.ProductCategoryId',
-                'warehouseId'    => 'required|foreign:app_products_warehouses.ProductWarehouseId',
+                'warehouseId'   => 'required|foreign:app_products_warehouses.ProductWarehouseId',
+                'comment'       => 'max:1000|min:3|type:text',
+                'wwwId'           => 'required|list:1,2',
+                'typeId'          => 'required|list:1,2,3,4',
+                'yearId'          => 'required|list:1,2,3,4,5,6',
+                'rimsId'          => 'required|list:1,2,3,4,5,6,7,8,9',
+                'frameId'         => 'required|list:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34',
             ];
             if($valid->check()){ // $valid->check()
                 $ProductsModel->ProductId = $this->getGet('id');
                 $ProductsModel->kod = $this->getPost('kod');
                 $ProductsModel->Title = $this->getPost('title');
-                $ProductsModel->MadeCountry = $this->getPost('madeCountry');
+                //$ProductsModel->MadeCountry = $this->getPost('madeCountry');
                 $ProductsModel->CategoryId  = $this->getPost('categoryId');
                 $ProductsModel->WarehouseId = $this->getPost('warehouseId');
+                $ProductsModel->WwwId = $this->getPost('wwwId');
+                $ProductsModel->TypeId = $this->getPost('typeId');
+                $ProductsModel->YearId = $this->getPost('yearId');
+                $ProductsModel->RimsId = $this->getPost('rimsId');
+                $ProductsModel->FrameId = $this->getPost('frameId');
+                $ProductsModel->Comment = $this->getPost('comment');
                 $ProductsModel->SellPrice   = $this->Currency->inside_currency($this->getPost('sell_price'));
                 $ProductsModel->BuyPrice    = $this->Currency->inside_currency($this->getPost('buy_price'));
                 $ProductsModel->PromoPrice    = $this->Currency->inside_currency($this->getPost('promo_price'));
                 $ProductsModel->UnitId      = $this->getPost('unit_id');
                 $ProductsModel->Barcode     = $this->getPost('barcode');
                 //$ProductsModel->Quantity    = $this->getPost('quantity');
-                $ProductsModel->NotificationQuantity = $this->getPost('notification_quantity');
-                $ProductsModel->Tax         = self::decimal_insert($this->getPost('tax'));
+                //$ProductsModel->NotificationQuantity = $this->getPost('notification_quantity');
+                //$ProductsModel->Tax         = self::decimal_insert($this->getPost('tax'));
                 $ProductsModel->ModifyName  = $this->Session->User->Username;
                 if($ProductsModel->update()){
                     Messenger::getInstance()->create($this->Language->get('success_product_updated'),Messenger::APP_TYPE_SUCCESS);

@@ -83,7 +83,7 @@
 
             <div class="input-group-s col-3 price">
                 <label >{ label_price }</label>
-                <input type="text" name="price[]" value="@currency_input ($products->PurchasePrice)" max="10"  data-pattern="^(?=^.{1,7}$)[0-9]+(\.[0-9]{1,8})?$" >
+                <input type="text" name="price[]" value="@number_zero ($products->PurchasePrice)" max="10"  data-pattern="^(?=^.{1,7}$)[0-9]+(\.[0-9]{1,8})?$" >
             </div>
             <span class="action-close"><i class="far fa-trash-alt"></i></span>
         </div>

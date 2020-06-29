@@ -28,7 +28,7 @@
         <td>{ array_payment_type[$Purchase->PaymentType] }</td>
         <td>{ array_payment_status[$Purchase->PaymentStatus]  }</td>
         <td>{ array_OrderDelivered[$Purchase->OrderDelivered]  }</td>
-        <td>@total_invoice ($Purchase->Sum,$Purchase->Discount)</td>
+        <td>@number_zero ($Purchase->Sum)</td>
         <!-- <td>{! $Purchase->CountCategories  !}</td>
         <td>@number_parse ($Purchase->Discount)</td> -->
         <td data-bottom-title="{ on_time } @time_format ($Purchase->CreatedDate)">@date_format ($Purchase->CreatedDate) - {! $Purchase->Username !}</td>

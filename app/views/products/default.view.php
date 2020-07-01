@@ -20,7 +20,8 @@
         <th>{ text_buy_price }</th>
         <th>{ text_sell_price }</th>
 		<th>{ text_promo_price }</th>
-        <th>{ text_added_date }</th>
+        <!-- <th>{ text_added_date }</th> -->
+        <th>{ text_reservation }</th>
         <th>{ text_control }</th>
     </tr>
     </thead>
@@ -29,7 +30,7 @@
     @foreach (#Products as $Product)
     <tr>
         <!-- <td>{! $Product->ProductId !}</td> -->
-		<td data-cut-title="15">{! $Product->kod !}</td>
+		<td data-cut-title="15"><a href="/products/Preview/?id={! $Product->ProductId !}" data-top-title="{ title_preview }">{! $Product->kod !}</a></td>
         <td data-cut-title="15"><a href="/products/Preview/?id={! $Product->ProductId !}" data-top-title="{ title_preview }">{! $Product->Title !}</a></td>
         <td>{! $Product->Name !}</td>
         <td>{! $Product->NameWarehouses !}</td>
@@ -43,7 +44,9 @@
         <td>@Currency ($Product->BuyPrice)</td>
         <td>@Currency ($Product->SellPrice)</td>
 		<td>@Currency ($Product->PromoPrice)</td>
-        <td data-bottom-title="{ on_time } @time_format ($Product->AddedDate)">@date_format ($Product->AddedDate)</td>
+        <td @if ($Product->ReservationId == '2')
+				data-bottom-title="{! $Product->Comment !}" @endif >{ array_reservation[$Product->ReservationId] } @if ($Product->ReservationId == '2') INFO @endif </td>
+        <!-- <td data-bottom-title="{ on_time } @time_format ($Product->AddedDate)">@date_format ($Product->AddedDate)</td> -->
         <td>
             <a href="/products/Preview/?id={! $Product->ProductId !}" data-top-title="{ title_preview }"><i class="far fa-eye"></i></a>
             <a href="/products/Edit/?id={! $Product->ProductId !}" data-top-title="{ title_edit }"><i class="far fa-edit"></i></a>

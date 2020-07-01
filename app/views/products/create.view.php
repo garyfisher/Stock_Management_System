@@ -182,6 +182,15 @@
             <option value="2">{ array_www[2] }</option>
         </select>
     </div>
+
+    <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
+        <label >{ label_reservation }</label>
+        <select name="reservationId">
+            <option value="0" disabled selected>{ label_reservation }</option>
+            <option value="1">{ array_reservation[1] }</option>
+            <option value="2">{ array_reservation[2] }</option>
+        </select>
+    </div>
 	
     <div class="input-group-s col-md-down-1 col-lg-up-1 col-md-up-1">
         <label >{ label_comment }</label>

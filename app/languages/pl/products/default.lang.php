@@ -19,4 +19,5 @@ $_['text_warehouse_name'] = 'Magazyn';
 $_['text_quantity_in'] = 'Jednostka';
 $_['text_tax'] = 'VAT';
 $_['text_barcode'] = 'Kod EAN';
-
+$_['text_reservation'] = 'Rezerwacja';
+$_['array_reservation'] = [1 => 'nie', 2 => 'tak'];

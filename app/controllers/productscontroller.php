@@ -60,6 +60,7 @@ class ProductsController extends AbsController
                 'yearId'          => 'required|list:1,2,3,4,5,6',
                 'rimsId'          => 'required|list:1,2,3,4,5,6,7,8,9',
                 'frameId'         => 'required|list:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34',
+                'reservationId'   => 'required|list:1,2',
             ];
             if($valid->check()){ // $valid->check()
                 $ProductsModel = new ProductsModel();
@@ -81,6 +82,7 @@ class ProductsController extends AbsController
                 $ProductsModel->YearId = $this->getPost('yearId');
                 $ProductsModel->RimsId = $this->getPost('rimsId');
                 $ProductsModel->FrameId = $this->getPost('frameId');
+                $ProductsModel->ReservationId = $this->getPost('reservationId');
                 $ProductsModel->Comment = $this->getPost('comment');
                 $ProductsModel->AddedName = $this->Session->User->Username;
                 if($ProductsModel->create()){ /// $usersModel->create()
@@ -132,6 +134,7 @@ class ProductsController extends AbsController
                 'yearId'          => 'required|list:1,2,3,4,5,6',
                 'rimsId'          => 'required|list:1,2,3,4,5,6,7,8,9',
                 'frameId'         => 'required|list:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34',
+                'reservationId'   => 'required|list:1,2',
             ];
             if($valid->check()){ // $valid->check()
                 $ProductsModel->ProductId = $this->getGet('id');
@@ -145,6 +148,7 @@ class ProductsController extends AbsController
                 $ProductsModel->YearId = $this->getPost('yearId');
                 $ProductsModel->RimsId = $this->getPost('rimsId');
                 $ProductsModel->FrameId = $this->getPost('frameId');
+                $ProductsModel->ReservationId = $this->getPost('reservationId');
                 $ProductsModel->Comment = $this->getPost('comment');
                 $ProductsModel->SellPrice   = $this->Currency->inside_currency($this->getPost('sell_price'));
                 $ProductsModel->BuyPrice    = $this->Currency->inside_currency($this->getPost('buy_price'));

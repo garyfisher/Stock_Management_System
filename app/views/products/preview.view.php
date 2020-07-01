@@ -35,6 +35,7 @@
             @endif
             <div class="col-1 property_products"></div>
             <div class="col-2 property_products"><b>{ label_www }</b> : { array_www[#products->WwwId] }</div>
+            <div class="col-2 property_products"><b>{ label_reservation }</b> : { array_www[#products->ReservationId] }</div>
             <div class="col-1 property_products"></div>
             <div class="col-2 property_products"><b>{ label_type }</b> : { array_type[#products->TypeId] }</div>
             <div class="col-2 property_products"><b>{ label_year }</b> : { array_year[#products->YearId] }</div>

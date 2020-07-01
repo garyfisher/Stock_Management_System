@@ -21,12 +21,13 @@ function isJson(str) {
 
         lang = {
             quantity_instock: "The current quantity is",
-        } else if(langType == 'pl'){
+        } 
+		
+	}else if(langType == 'pl'){
 
         lang = {
             quantity_instock: "Obecna ilość to",
         }
-
     }
     window.lang = lang;
 }());
@@ -280,8 +281,64 @@ if ($('table').length > 0 && getSettings('setting-site') != ''){
 
             }
         };
-    }else{
+    }
+	else if($('#products').length > 0)
+	{
+        
+        TableLang = {
+			buttons:[
+            'searchPanes'
+            ],
+			dom: 'frtipP',
+			columnDefs:[
+            {
+                searchPanes:{
+                    show: true,
+                },
+                targets: [4],
+            },
+            {
+                searchPanes:{
+                    show: true,
+                },
+                targets: [2],
+            },
+			{
+                searchPanes:{
+                    show: false,
+                },
+                targets: [10],
+            },
+			{
+				responsivePriority: 10001, targets: 2
+			}
+			],
+            pageLength : Number(getSettings('setting-site').TableRows),
+            "language": {
+                "lengthMenu": "Display _MENU_ records per page",
+                "zeroRecords": "Nothing found - sorry",
+                "info": "Showing page _PAGE_ of _PAGES_",
+                "infoEmpty": "No records available",
+                "infoFiltered": "(filtered from _MAX_ total records)",
+                "sSearch": "",
+                "decimal": ",",
+                "thousands": ".",
+                'searchPlaceholder': "Search ...",
+                "sProcessing": "Please Wait...",
+                "sInfoEmpty": "Table is Empty",
+                "oPaginate": {
+                    "sFirst":    	"First",
+                    "sPrevious": 	"Previous",
+                    "sNext":     	"Next",
+                    "sLast":     	"Last"
+                },
 
+            }
+        };
+
+
+    }else{
+        
         TableLang = {
             pageLength : Number(getSettings('setting-site').TableRows),
             "language": {
@@ -1077,9 +1134,9 @@ class Barcode {
             }
         });
 
-        this.button_scanner.addEventListener('click',function () {
+        /*this.button_scanner.addEventListener('click',function () {
             $this.barcode.focus();
-        });
+        });*/
         this.body.addEventListener('keydown',function (e) {
             if(e.keyCode == 83 && $this.keycodeold == 17)
             {

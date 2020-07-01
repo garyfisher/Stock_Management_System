@@ -2,7 +2,7 @@
     <a class="b-primary-upt bn" href="/products/Create/">{ text_new_product }</a>
 </div>
 
-<table class="display dataTableEnable">
+<table id="products" class="display compact responsive dataTableEnable">
     <thead>
     <tr>
         <!-- <th width="100px">{ text_product_id }</th> -->
@@ -10,6 +10,7 @@
         <th>{ text_title }</th>
         <th>{ text_category_name }</th>
         <th>{ text_warehouse_name }</th>
+        <th>{ text_frame }</th>
         <!-- <th>{ text_made_country }</th> -->
         <th>{ text_quantity }</th>
         <th>{ text_quantity_order }</th>
@@ -34,6 +35,7 @@
         <td data-cut-title="15"><a href="/products/Preview/?id={! $Product->ProductId !}" data-top-title="{ title_preview }">{! $Product->Title !}</a></td>
         <td>{! $Product->Name !}</td>
         <td>{! $Product->NameWarehouses !}</td>
+        <td>{ array_frame[$Product->FrameId] }</td>
         <!-- <td>{ countries[$Product->MadeCountry] }</td> -->
         <td data-bottom-title="{! self::format_quantity($Product->Quantity) _ $Product->UnitName !}" ><bdi>{! self::format_quantity($Product->Quantity) _ $Product->UnitCode !}</bdi></td>
         <td data-bottom-title="{! self::format_quantity($Product->QuantityOrder) _ $Product->UnitName !}" ><bdi>{! self::format_quantity($Product->QuantityOrder) _ $Product->UnitCode !}</bdi></td>
@@ -45,7 +47,7 @@
         <td>@Currency ($Product->SellPrice)</td>
 		<td>@Currency ($Product->PromoPrice)</td>
         <td @if ($Product->ReservationId == '2')
-				data-bottom-title="{! $Product->Comment !}" @endif >{ array_reservation[$Product->ReservationId] } @if ($Product->ReservationId == '2') INFO @endif </td>
+				data-bottom-title="{! $Product->Comment !}" @endif >{ array_reservation[$Product->ReservationId] } @if ($Product->ReservationId == '2') <b>INFO</b> @endif </td>
         <!-- <td data-bottom-title="{ on_time } @time_format ($Product->AddedDate)">@date_format ($Product->AddedDate)</td> -->
         <td>
             <a href="/products/Preview/?id={! $Product->ProductId !}" data-top-title="{ title_preview }"><i class="far fa-eye"></i></a>

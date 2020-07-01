@@ -35,10 +35,12 @@
             @endif
             <div class="col-1 property_products"></div>
             <div class="col-2 property_products"><b>{ label_www }</b> : { array_www[#products->WwwId] }</div>
+            <div class="col-1 property_products"></div>
             <div class="col-2 property_products"><b>{ label_type }</b> : { array_type[#products->TypeId] }</div>
             <div class="col-2 property_products"><b>{ label_year }</b> : { array_year[#products->YearId] }</div>
             <div class="col-2 property_products"><b>{ label_rims }</b> : { array_rims[#products->RimsId] }</div>
             <div class="col-2 property_products"><b>{ label_frame }</b> : { array_frame[#products->FrameId] }</div>
+            <div class="col-1 property_products"></div>
             <div class="col-1 property_products"><b>{ label_comment }</b> : { products->Comment }</div>
             <div class="col-1 property_products"></div>
             <div class="col-2 property_products"><b>{ label_added_date }</b> : @full_date_format (#products->AddedDate)</div>

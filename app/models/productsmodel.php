@@ -29,7 +29,7 @@ class ProductsModel extends AbsModel
 
     public function update()
     {
-        $updateValues = [$this->kod,$this->Title,$this->MadeCountry,/*$this->Tax,*/$this->UnitId,$this->CategoryId,$this->WarehouseId,/*$this->Quantity,*/$this->NotificationQuantity,$this->Barcode,$this->SellPrice,$this->BuyPrice,$this->PromoPrice,$this->ModifyName,$this->Comment,$this->WwwId,$this->TypeId,$this->YearId,$this->RimsId,$this->ProductId,$this->FrameId];
+        $updateValues = [$this->kod,$this->Title,$this->MadeCountry,/*$this->Tax,*/$this->UnitId,$this->CategoryId,$this->WarehouseId,/*$this->Quantity,*/$this->NotificationQuantity,$this->Barcode,$this->SellPrice,$this->BuyPrice,$this->PromoPrice,$this->ModifyName,$this->Comment,$this->WwwId,$this->TypeId,$this->YearId,$this->RimsId,$this->FrameId,$this->ProductId];
         return DB::update("update ". self::TABLE ." set  kod=?, Title=?, MadeCountry=?, /*Tax=?,*/ UnitId=? , CategoryId=? , WarehouseId=? , /*Quantity=?,*/ NotificationQuantity=?, Barcode=?, SellPrice=?, BuyPrice=?, PromoPrice=?, ModifyDate = now(), ModifyName=?, Comment=?, WwwId=?, TypeId=?, YearId=?, RimsId=?, FrameId=? WHERE ProductId=?",$updateValues);
     }
 

@@ -1,32 +1,23 @@
 <form class="f-row form-style purchases-invoice-create" method="post" autocomplete="off">
     <span class="form-title bn">{ text_title_form }</span>
 
-    <div class="input-group-s radio-g col-md-down-2 col-md-up-2">
-        <label >{ label_payment_type } :</label>
-        <label class="checkmark-p" for="1">
-            <input type="radio" id="1" value="1" name="payment_type" @if ($this->getPost('payment_type') == '1') checked @endif  >
-            { array_payment_type[1] }
-        </label>
-        <label class="checkmark-p" for="2">
-            <input type="radio" id="2" value="2" name="payment_type" @if ($this->getPost('payment_type') == '2') checked @endif >
-            { array_payment_type[2] }
-        </label>
-        <label class="checkmark-p" for="3">
-            <input type="radio" id="3" value="3" name="payment_type" @if ($this->getPost('payment_type') == '3') checked @endif >
-            { array_payment_type[3] }
-        </label>
+    <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
+        <label >{ label_payment_type }</label>
+        <select name="payment_type">
+            <option value="0" disabled selected>{ label_payment_type }</option>
+            <option value="1">{ array_payment_type[1] }</option>
+            <option value="2">{ array_payment_type[2] }</option>
+            <option value="3">{ array_payment_type[3] }</option>
+        </select>
     </div>
 
-    <div class="input-group-s radio-g col-md-down-1 col-lg-up-2 col-md-up-2">
-        <label >{ label_OrderDelivered } :</label>
-        <label class="checkmark-p" for="1">
-            <input type="radio" id="1" value="1" name="OrderDelivered" @if (#PurchasesInvoices->OrderDelivered == '1') checked @endif  >
-            { array_OrderDelivered[1] }
-        </label>
-        <label class="checkmark-p" for="2">
-            <input type="radio" id="2" value="2" name="OrderDelivered" @if (#PurchasesInvoices->OrderDelivered == '2') checked @endif >
-            { array_OrderDelivered[2] }
-        </label>
+    <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
+        <label >{ label_OrderDelivered }</label>
+        <select name="OrderDelivered">
+            <option value="0" disabled selected>{ label_OrderDelivered }</option>
+            <option value="1">{ array_OrderDelivered[1] }</option>
+            <option value="2">{ array_OrderDelivered[2] }</option>
+        </select>
     </div>
 
     <!-- <div class="input-group-s col-md-down-1 col-md-up-2">

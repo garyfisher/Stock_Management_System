@@ -12,19 +12,20 @@ function isJson(str) {
 
     var lang;
 
-    if(langType == 'ar'){ // set lang in tables arabic
-
+    if(langType == 'ar')
+    { // set lang in tables arabic
         lang = {
             quantity_instock: "الكمية الموجودة حاليا هي",
         }
-    }else if(langType == 'en'){
-
+    }
+    else if(langType == 'en')
+    {
         lang = {
             quantity_instock: "The current quantity is",
         } 
-		
-	}else if(langType == 'pl'){
-
+    }
+    else if(langType == 'pl')
+    {
         lang = {
             quantity_instock: "Obecna ilość to",
         }
@@ -254,9 +255,10 @@ if(getCookie('sideMenu') == 'close'){
 
 
 var TableLang;
-if ($('table').length > 0 && getSettings('setting-site') != ''){
-    if(dirCssHtml == 'rtl'){ // set lang in tables arabic
-
+if ($('table').length > 0 && getSettings('setting-site') != '')
+{
+    if(dirCssHtml == 'rtl')
+    { // set lang in tables arabic
         TableLang = {
             pageLength : Number(getSettings('setting-site').TableRows),
             "language": {
@@ -282,15 +284,11 @@ if ($('table').length > 0 && getSettings('setting-site') != ''){
             }
         };
     }
-	else if($('#products').length > 0)
-	{
-        
+    else if($('#products').length > 0)
+    {
         TableLang = {
-			buttons:[
-            'searchPanes'
-            ],
-			dom: 'frtipP',
-			columnDefs:[
+            dom: 'frtipP',
+            columnDefs:[
             {
                 searchPanes:{
                     show: true,
@@ -303,16 +301,16 @@ if ($('table').length > 0 && getSettings('setting-site') != ''){
                 },
                 targets: [2],
             },
-			{
+            {
                 searchPanes:{
                     show: false,
                 },
                 targets: [10],
             },
-			{
-				responsivePriority: 10001, targets: 2
-			}
-			],
+            {
+                responsivePriority: 10001, targets: 2
+            }
+            ],
             pageLength : Number(getSettings('setting-site').TableRows),
             "language": {
                 "lengthMenu": "Display _MENU_ records per page",

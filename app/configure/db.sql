@@ -211,6 +211,8 @@ CREATE TABLE `app_sales_invoices` (
   `Discount` varchar(25) NOT NULL,
   `ClientId` smallint(5) unsigned NOT NULL,
   `UserId` int(10) unsigned NOT NULL,
+  `ModifyDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ModifyUser` varchar(255) NOT NULL,
   PRIMARY KEY (`InvoiceId`),
   KEY `UserId` (`UserId`),
   KEY `ClientId` (`ClientId`),

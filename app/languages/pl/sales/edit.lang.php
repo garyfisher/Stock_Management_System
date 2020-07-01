@@ -1,13 +1,9 @@
 <?php
 
 
-$_['text_title_form'] = 'Edit sales invoice';
-$_['title_page'] = 'Edit Purchases invoice';
+$_['text_title_form'] = 'Edytuj fakturę sprzedaży';
+$_['title_page'] = 'Edytuj fakturę sprzedaży';
 
-$_['array_payment_type'] = [1 => 'Term', 2 => 'Cash', 3 =>'Bank transfer'];
-$_['array_payment_status'] = ['unpaid' , 'paid'];
-$_['text_product_notfound'] = 'Product does not exist';
-
-
-
-
+$_['array_payment_type'] = [1 => 'Terminal', 2 => 'Gotówka', 3 =>'Przelew'];
+$_['array_payment_status'] = ['niezapłacone' , 'zapłacone'];
+$_['text_product_notfound'] = 'Produkt nie istnieje';

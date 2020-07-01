@@ -54,7 +54,7 @@ class SalesController extends AbsController
             $valid->data = $_POST;
             $valid->rules = [
                 'payment_type'  => 'required|list:1,2,3',
-                'discount'      => 'required|max:25|type:discount',
+                //'discount'      => 'required|max:25|type:discount',
                 'client_name'   => 'required|foreign:app_clients.ClientId',
                 'product_name'  => 'required|foreign:app_products.ProductId',
                 'product_id'    => 'required|is_array|foreign:app_products.ProductId|post_unq:product',
@@ -66,7 +66,7 @@ class SalesController extends AbsController
                 $SalesInvoicesModel = new SalesInvoicesModel();
                 $SalesInvoicesModel->PaymentType = $this->getPost('payment_type');
                 $SalesInvoicesModel->PaymentStatus = 0;
-                $SalesInvoicesModel->Discount = self::decimal_insert($this->getPost('discount'));
+                //$SalesInvoicesModel->Discount = self::decimal_insert($this->getPost('discount'));
                 $SalesInvoicesModel->ClientId = $this->getPost('client_name');
                 $SalesInvoicesModel->UserId = $this->Session->User->UserId;
 
@@ -150,7 +150,7 @@ class SalesController extends AbsController
             $valid->rules = [
                 'payment_type'  => 'required|list:1,2,3',
                 'payment_status'=> 'required|list:0,1',
-                'discount'      => 'required|max:9|type:discount',
+                //'discount'      => 'required|max:9|type:discount',
                 'client_name'   => 'required|foreign:app_clients.ClientId',
                 'product_id'    => 'required|is_array|foreign:app_products.ProductId|post_unq:product',
                 'quantity'      => 'required|is_array|type:quantity|max:22|custom_sales:app_products.ProductId',
@@ -162,9 +162,9 @@ class SalesController extends AbsController
                 $SalesInvoicesModel->InvoiceId = $this->getGet('id');
                 $SalesInvoicesModel->PaymentType = $this->getPost('payment_type');
                 $SalesInvoicesModel->PaymentStatus = $this->getPost('payment_status');
-                $SalesInvoicesModel->Discount = self::decimal_insert($this->getPost('discount'));
+                //$SalesInvoicesModel->Discount = self::decimal_insert($this->getPost('discount'));
                 $SalesInvoicesModel->ClientId = $this->getPost('client_name');
-                $SalesInvoicesModel->UserId = $this->Session->User->UserId;
+                $SalesInvoicesModel->ModifyUser = $this->Session->User->Username;
                 if($SalesInvoicesModel->update()){
                     $SalesModel = new SalesModel();
                     $ProductsModel = new ProductsModel();

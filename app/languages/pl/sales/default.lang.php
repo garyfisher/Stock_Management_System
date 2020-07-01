@@ -2,19 +2,20 @@
 
 
 
-$_['title_page'] = 'Sales invoice';
-$_['text_new_sale'] = 'New sales invoice';
+$_['title_page'] = 'Faktura sprzedaży';
+$_['text_new_sale'] = 'Nowa faktura sprzedaży';
 $_['text_sale_id'] = 'id';
-$_['text_payment_type'] = 'Payment type';
-$_['text_payment_status'] = 'Payment status';
-$_['text_created_date'] = 'Created';
-$_['text_discount'] = 'Discount';
-$_['text_username'] = 'Created by';
-$_['text_supplier_name'] = 'Supplier name';
-$_['text_client_name'] = 'Client name';
-$_['text_tax'] = 'Tax';
-$_['text_count_categories'] = 'Number of categories';
-$_['text_sum_invoice'] = 'Total invoice';
+$_['text_payment_type'] = 'Typ płatności';
+$_['text_payment_status'] = 'Status płatności';
+$_['text_created_date'] = 'Utworzony';
+$_['text_modify_date'] = 'Zmodyfikowany';
+$_['text_discount'] = 'Rabat';
+$_['text_username'] = 'Stworzone przez';
+$_['text_supplier_name'] = 'Nazwa Dostawcy';
+$_['text_client_name'] = 'Nazwa klienta';
+$_['text_tax'] = 'Podatek';
+$_['text_count_categories'] = 'Liczba kategorii';
+$_['text_sum_invoice'] = 'Całkowita suma';
 
-$_['array_payment_type'] = [1 => 'Term', 2 => 'Cash', 3 =>'Bank transfer'];
-$_['array_payment_status'] = ['unpaid' , 'paid'];
+$_['array_payment_type'] = [1 => 'Terminal', 2 => 'Gotówka', 3 =>'Przelew'];
+$_['array_payment_status'] = ['niezapłacone' , 'zapłacone'];

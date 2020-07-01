@@ -1,25 +1,25 @@
 <?php
-$_['title_page'] = 'Sales Invoice';
+$_['title_page'] = 'Faktura sprzedaży';
 
-$_['text_company_name'] = 'Company name';
-$_['text_company_address'] = 'Title';
-$_['text_company_phone'] = 'Phone number';
-$_['text_company_email'] = 'Email';
-$_['text_date'] = 'Date';
+$_['text_company_name'] = 'Nazwa firmy';
+$_['text_company_address'] = 'Tytuł';
+$_['text_company_phone'] = 'Numer telefonu';
+$_['text_company_email'] = 'E-mail';
+$_['text_date'] = 'Data';
 $_['text_invoice_id'] = 'id';
-$_['text_client_name'] = 'Client name';
+$_['text_client_name'] = 'Nazwa klienta';
 $_['text_client_id'] = 'id';
 
-$_['text_quantity'] = 'Quantity';
-$_['text_description'] = 'Description';
-$_['text_price'] = 'Price';
-$_['text_total'] = 'Total';
-$_['text_invoice_total'] = 'Total invoice';
+$_['text_quantity'] = 'Ilość';
+$_['text_description'] = 'Opis';
+$_['text_price'] = 'Cena';
+$_['text_total'] = 'Suma';
+$_['text_invoice_total'] = 'Suma faktury';
 
-$_['text_sub_total'] = 'Sub total';
-$_['text_discount'] = 'Discount';
-$_['text_print'] = 'Print';
-$_['text_tax'] = 'Tax';
+$_['text_sub_total'] = 'Suma częściowa';
+$_['text_discount'] = 'Rabat';
+$_['text_print'] = 'Drukuj';
+$_['text_tax'] = 'Podatek';
 
 
 

@@ -1,26 +1,20 @@
 <form class="f-row form-style sales-invoice-create" method="post" autocomplete="off">
     <span class="form-title bn">{ text_title_form }</span>
 
-    <div class="input-group-s radio-g col-md-down-1 col-md-up-2">
-        <label >{ label_payment_type } :</label>
-        <label class="checkmark-p" for="1">
-            <input type="radio" id="1" value="1" name="payment_type" @if ($this->getPost('payment_type') == '1') checked @endif  >
-            { array_payment_type[1] }
-        </label>
-        <label class="checkmark-p" for="2">
-            <input type="radio" id="2" value="2" name="payment_type" @if ($this->getPost('payment_type') == '2') checked @endif >
-            { array_payment_type[2] }
-        </label>
-        <label class="checkmark-p" for="3">
-            <input type="radio" id="3" value="3" name="payment_type" @if ($this->getPost('payment_type') == '3') checked @endif >
-            { array_payment_type[3] }
-        </label>
+     <div class="input-group-s col-md-down-1 col-lg-up-1 col-md-up-1">
+        <label >{ label_payment_type }</label>
+        <select name="payment_type">
+            <option value="0" disabled selected>{ label_payment_type }</option>
+            <option value="1">{ array_payment_type[1] }</option>
+            <option value="2">{ array_payment_type[2] }</option>
+            <option value="3">{ array_payment_type[3] }</option>
+        </select>
     </div>
 
-    <div class="input-group-s col-md-down-1 col-md-up-2">
+    <!-- <div class="input-group-s col-md-down-1 col-md-up-2">
         <label>{ label_discount }</label>
         <input type="text" name="discount" value="@post (discount)" max="10"  data-pattern="^[0-9]{1,18}(\.[0-9]{1,8})?$|^[0-9]{1,3}(\.[0-9]{1,2})?%$" >
-    </div>
+    </div> -->
 
     <div class="input-group-s col-md-down-1 col-md-up-2">
         <label>{ label_client_name }</label>
@@ -66,7 +60,7 @@
         </div>
     @endforeach
 
-    @elseif (!empty(#Barcode))
+    <!-- elseif (!empty(#Barcode))
 
     <div class="action-product f-row w-100" id="action-product">
         <div class="input-group-s col-3 name">
@@ -85,7 +79,7 @@
             <input type="text" name="price[]" value="@currency_input (#Barcode->SellPrice)" max="10"  data-pattern="^(?=^.{1,10}$)[0-9]+(\.[0-9]{1,8})?$" >
         </div>
         <span class="action-close"><i class="far fa-trash-alt"></i></span>
-    </div>
+    </div> -->
 
     @else
 

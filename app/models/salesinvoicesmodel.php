@@ -8,7 +8,7 @@ use Store\core\Input;
 
 class SalesInvoicesModel extends AbsModel
 {
-    public $InvoiceId, $PaymentType , $PaymentStatus, $CreatedDate, $Discount, $ClientId, $UserId;
+    public $InvoiceId, $PaymentType , $PaymentStatus, $CreatedDate, /*$Discount,*/ $ClientId, $UserId, $ModifyUser;
     const TABLE = 'app_sales_invoices';
     const ForeignKey = 'InvoiceId';
 
@@ -22,14 +22,14 @@ class SalesInvoicesModel extends AbsModel
 
     public function create()
     {
-        $insetValues = [$this->PaymentType,$this->PaymentStatus,$this->Discount,$this->ClientId,$this->UserId];
-        return DB::insert('insert into '. self::TABLE .' (PaymentType,PaymentStatus,Discount,ClientId,UserId,CreatedDate) values (?,?,?,?,?,now())',$insetValues);
+        $insetValues = [$this->PaymentType,$this->PaymentStatus,/*$this->Discount,*/$this->ClientId,$this->UserId];
+        return DB::insert('insert into '. self::TABLE .' (PaymentType,PaymentStatus,/*Discount,*/ClientId,UserId,CreatedDate) values (?,?,/*?,*/?,?,now())',$insetValues);
     }
 
     public function update()
     {
-        $updateValues = [$this->PaymentType,$this->PaymentStatus,$this->Discount,$this->ClientId,$this->UserId,$this->InvoiceId];
-        return DB::update("update ". self::TABLE ." set  PaymentType=?, PaymentStatus=? , Discount=? , ClientId=?, UserId=? WHERE InvoiceId=?",$updateValues);
+        $updateValues = [$this->PaymentType,$this->PaymentStatus,/*$this->Discount,*/$this->ClientId,$this->ModifyUser,$this->InvoiceId];
+        return DB::update("update ". self::TABLE ." set  PaymentType=?, PaymentStatus=? , /*Discount=? ,*/ ClientId=?, ModifyUser=?, ModifyDate=now()  WHERE InvoiceId=?",$updateValues);
     }
 
     public function delete()

@@ -1,39 +1,34 @@
 <form class="f-row form-style sales-invoice-edit" method="post" autocomplete="off">
     <span class="form-title bn">{ text_title_form }</span>
 
-    <div class="input-group-s radio-g col-md-down-1 col-lg-up-3 col-md-up-2">
+    <div class="input-group-s col-md-down-1 col-lg-up-2 col-md-up-2">
         <label >{ label_payment_type }</label>
-        <label class="checkmark-p" for="1">
-            <input type="radio" id="1" value="1" name="payment_type" @if (#SalesInvoices->PaymentType == '1') checked @endif   >
-            { array_payment_type[1] }
-        </label>
-        <label class="checkmark-p" for="2">
-            <input type="radio" id="2" value="2" name="payment_type" @if (#SalesInvoices->PaymentType == '2') checked @endif  >
-            { array_payment_type[2] }
-        </label>
-        <label class="checkmark-p" for="3">
-            <input type="radio" id="3" value="3" name="payment_type" @if (#SalesInvoices->PaymentType == '3') checked @endif  >
-            { array_payment_type[3] }
-        </label>
+        <select name="payment_type">
+            <option value="0" disabled selected>{ label_payment_type }</option>
+            <option value="1" @if (#SalesInvoices->PaymentType == '1')
+				selected @endif >{ array_payment_type[1] }</option>
+            <option value="2" @if (#SalesInvoices->PaymentType == '2')
+				selected @endif >{ array_payment_type[2] }</option>
+            <option value="3" @if (#SalesInvoices->PaymentType == '3')
+				selected @endif >{ array_payment_type[3] }</option>
+        </select>
     </div>
 
-
-    <div class="input-group-s radio-g col-md-down-1 col-lg-up-3 col-md-up-2">
-        <label >{ label_payment_status } :</label>
-        <label class="checkmark-p" for="0">
-            <input type="radio" id="0" value="0" name="payment_status" @if (#SalesInvoices->PaymentStatus == '0') checked @endif   >
-            { array_payment_status[0] }
-        </label>
-        <label class="checkmark-p" for="1">
-            <input type="radio" id="1" value="1" name="payment_status" @if (#SalesInvoices->PaymentStatus == '1') checked @endif  >
-            { array_payment_status[1] }
-        </label>
+    <div class="input-group-s col-md-down-1 col-lg-up-2 col-md-up-2">
+        <label >{ label_payment_status }</label>
+        <select name="payment_status">
+            <option value="" disabled selected>{ label_payment_status }</option>
+            <option value="0" @if (#SalesInvoices->PaymentStatus == '0')
+				selected @endif >{ array_payment_status[0] }</option>
+            <option value="1" @if (#SalesInvoices->PaymentStatus == '1')
+				selected @endif >{ array_payment_status[1] }</option>
+        </select>
     </div>
 
-    <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
+    <!-- <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
         <label >{ label_discount }</label>
         <input type="text" name="discount" value="@number_parse_inp (#SalesInvoices->Discount,false)" max="10"  data-pattern="^[0-9]{1,18}(\.[0-9]{1,8})?$|^[0-9]{1,3}(\.[0-9]{1,2})?%$" >
-    </div>
+    </div> -->
 
     <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
         <label>{ label_client_name }</label>

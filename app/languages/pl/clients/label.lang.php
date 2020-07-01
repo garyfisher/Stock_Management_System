@@ -3,9 +3,9 @@
 
 
 $_['label_id']          = 'Id';
-$_['label_firstName']   = 'First name';
-$_['label_lastName']    = 'Last Name';
-$_['label_email']       = 'Email';
-$_['label_phone']       = 'Phone Number';
-$_['label_address']     = 'Address';
+$_['label_firstName']   = 'Imię';
+$_['label_lastName']    = 'Nazwisko';
+$_['label_email']       = 'E-mail';
+$_['label_phone']       = 'Numer telefonu';
+$_['label_address']     = 'Adres';
 

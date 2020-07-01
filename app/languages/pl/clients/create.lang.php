@@ -1,8 +1,8 @@
 <?php
 
 
-$_['text_title_form'] = 'New client';
-$_['title_page'] = 'New client';
+$_['text_title_form'] = 'Nowy klient';
+$_['title_page'] = 'Nowy klient';
 
 
 

@@ -1,10 +1,10 @@
 <?php
 
 $_['title_page'] = 'Strona Główna';
-$_['text_sold'] = 'Sprzedaż';
-$_['text_buyer'] = 'Zakupy';
-$_['text_client'] = 'Klienci';
-$_['text_supplier'] = 'Dostawcy';
+$_['text_sold'] = 'Sprzednych produktów';
+$_['text_buyer'] = 'Kupionych produktów';
+$_['text_client'] = 'Klientów';
+$_['text_supplier'] = 'Dostawców';
 $_['text_sales_count'] = 'Ilość sprzedaży';
 $_['text_purchases_count'] = 'Ilość zakupów';
 

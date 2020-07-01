@@ -43,9 +43,9 @@
         @tax_allow
         <td>@number_parse ($Product->Tax)</td>
         @end -->
-        <td>@Currency ($Product->BuyPrice)</td>
-        <td>@Currency ($Product->SellPrice)</td>
-		<td>@Currency ($Product->PromoPrice)</td>
+        <td>@currency_input ($Product->BuyPrice)</td>
+        <td>@currency_input ($Product->SellPrice)</td>
+        <td>@currency_input ($Product->PromoPrice)</td>
         <td @if ($Product->ReservationId == '2')
 				data-bottom-title="{! $Product->Comment !}" @endif >{ array_reservation[$Product->ReservationId] } @if ($Product->ReservationId == '2') <b>INFO</b> @endif </td>
         <!-- <td data-bottom-title="{ on_time } @time_format ($Product->AddedDate)">@date_format ($Product->AddedDate)</td> -->

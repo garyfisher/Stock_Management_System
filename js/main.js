@@ -287,6 +287,14 @@ if ($('table').length > 0 && getSettings('setting-site') != '')
     else if($('#products').length > 0)
     {
         TableLang = {
+			responsive: {
+                breakpoints: [
+                    { name: 'desktop', width: Infinity },
+                    { name: 'tablet',  width: 1024 },
+                    { name: 'fablet',  width: 768 },
+                    { name: 'phone',   width: 480 }
+                ]
+            },
             dom: 'frtipP',
             columnDefs:[
             {

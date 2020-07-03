@@ -24,7 +24,7 @@ class ProductsModel extends AbsModel
     public function create()
     {
         $insetValues = [$this->kod,$this->Title,/*$this->MadeCountry,$this->Tax,*/$this->UnitId,$this->CategoryId,$this->WarehouseId,/*$this->Quantity,$this->NotificationQuantity,*/$this->Barcode,$this->SellPrice,$this->BuyPrice,$this->PromoPrice,$this->AddedName,$this->Comment,$this->WwwId,$this->TypeId,$this->YearId,$this->RimsId,$this->FrameId,$this->ReservationId];
-        return DB::insert('insert into '. self::TABLE .' (kod,Title,/*MadeCountry,Tax,*/UnitId,CategoryId,WarehouseId, /*Quantity, NotificationQuantity,*/Barcode,SellPrice,BuyPrice,PromoPrice,AddedDate,AddedName,Comment,WwwId,TypeId,YearId,RimsId,FrameId) values (?,?,?,?,?,?,?,?,?,now(),?,?,?,?,?,?,?,?)',$insetValues);
+        return DB::insert('insert into '. self::TABLE .' (kod,Title,/*MadeCountry,Tax,*/UnitId,CategoryId,WarehouseId, /*Quantity, NotificationQuantity,*/Barcode,SellPrice,BuyPrice,PromoPrice,AddedDate,AddedName,Comment,WwwId,TypeId,YearId,RimsId,FrameId,ReservationId) values (?,?,?,?,?,?,?,?,?,now(),?,?,?,?,?,?,?,?)',$insetValues);
     }
 
     public function update()

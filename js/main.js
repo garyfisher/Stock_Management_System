@@ -287,7 +287,7 @@ if ($('table').length > 0 && getSettings('setting-site') != '')
     else if($('#products').length > 0)
     {
         TableLang = {
-			responsive: {
+            responsive: {
                 breakpoints: [
                     { name: 'desktop', width: Infinity },
                     { name: 'tablet',  width: 1024 },

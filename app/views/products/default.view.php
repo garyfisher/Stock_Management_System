@@ -46,8 +46,8 @@
         <td>@currency_input ($Product->BuyPrice)</td>
         <td>@currency_input ($Product->SellPrice)</td>
         <td>@currency_input ($Product->PromoPrice)</td>
-        <td @if ($Product->ReservationId == '2')
-				data-bottom-title="{! $Product->Comment !}" @endif >{ array_reservation[$Product->ReservationId] } @if ($Product->ReservationId == '2') <b>INFO</b> @endif </td>
+        <td @if (!empty($Product->Comment))
+			     data-bottom-title="{! $Product->Comment !}" @endif >{ array_reservation[$Product->ReservationId] } @if (!empty($Product->Comment)) <b>INFO</b> @endif </td>
         <!-- <td data-bottom-title="{ on_time } @time_format ($Product->AddedDate)">@date_format ($Product->AddedDate)</td> -->
         <td>
             <a href="/products/Preview/?id={! $Product->ProductId !}" data-top-title="{ title_preview }"><i class="far fa-eye"></i></a>

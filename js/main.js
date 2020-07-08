@@ -302,9 +302,9 @@ if ($('table').length > 0 && getSettings('setting-site') != '')
                     cascadePanes: true
                 }
             }
-			],
-			dom: 'Bfrtip',
-			"order": [[ 5, "desc" ]],
+            ],
+            dom: 'Bfrtip',
+            "order": [[ 5, "desc" ]],
             columnDefs:[
             {
                 searchPanes:{

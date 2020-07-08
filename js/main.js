@@ -295,7 +295,16 @@ if ($('table').length > 0 && getSettings('setting-site') != '')
                     { name: 'phone',   width: 480 }
                 ]
             },
-            dom: 'frtipP',
+            buttons:[
+            {
+                extend: 'searchPanes',
+                config: {
+                    cascadePanes: true
+                }
+            }
+			],
+			dom: 'Bfrtip',
+			"order": [[ 5, "desc" ]],
             columnDefs:[
             {
                 searchPanes:{
@@ -308,6 +317,18 @@ if ($('table').length > 0 && getSettings('setting-site') != '')
                     show: true,
                 },
                 targets: [2],
+            },
+            {
+                searchPanes:{
+                    show: true,
+                },
+                targets: [5],
+            },
+            {
+                searchPanes:{
+                    show: true,
+                },
+                targets: [6],
             },
             {
                 searchPanes:{

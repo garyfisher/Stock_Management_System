@@ -8,7 +8,7 @@
 
     <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
         <label >{ label_title }</label>
-        <input type="text" name="title" value="@post (title)" min="3" max="240"  data-pattern="^[\w\(\):?!\-\,\.\/\' 0-9\u0600-\u06FF]{3,240}$" >
+        <input type="text" name="title" value="@post (title)" min="3" max="240" >
     </div>
 
     <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">

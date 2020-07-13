@@ -304,7 +304,7 @@ if ($('table').length > 0 && getSettings('setting-site') != '')
             }
             ],
             dom: 'Bfrtip',
-            "order": [[ 5, "desc" ]],
+            "order": [[ 12, "desc" ]],
             columnDefs:[
             {
                 searchPanes:{
@@ -344,22 +344,25 @@ if ($('table').length > 0 && getSettings('setting-site') != '')
             "language": {
                 "lengthMenu": "Display _MENU_ records per page",
                 "zeroRecords": "Nothing found - sorry",
-                "info": "Showing page _PAGE_ of _PAGES_",
-                "infoEmpty": "No records available",
+                "info": "Wyświetlana strona _PAGE_ z _PAGES_",
+                "infoEmpty": "Brak dostępnych zapisów",
                 "infoFiltered": "(filtered from _MAX_ total records)",
                 "sSearch": "",
                 "decimal": ",",
                 "thousands": ".",
-                'searchPlaceholder': "Search ...",
-                "sProcessing": "Please Wait...",
-                "sInfoEmpty": "Table is Empty",
+                'searchPlaceholder': "Szukaj ...",
+                "sProcessing": "Czekaj...",
+                "sInfoEmpty": "Tabela jest pusta",
                 "oPaginate": {
-                    "sFirst":    	"First",
-                    "sPrevious": 	"Previous",
-                    "sNext":     	"Next",
-                    "sLast":     	"Last"
+                    "sFirst":    	"Pierwszy",
+                    "sPrevious": 	"Poprzedni",
+                    "sNext":     	"Kolejny",
+                    "sLast":     	"Ostatni"
                 },
-
+                searchPanes: {
+                    clearMessage: 'Obliterate Selections',
+                    collapse: {0: 'Filtry', _: 'Filtry (%d)'}
+                },
             }
         };
 

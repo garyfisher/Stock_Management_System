@@ -1657,7 +1657,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (min-width: 1199.98px) {
   .container {
-    max-width: 1140px;
+    /*max-width: 1140px;*/
+    max-width: 1280px;
   }
 }
 
@@ -1702,7 +1703,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .side-menu {
-  width: 18%;
+  width: 12%;
   height: 100%;
   background: #fff;
   position: fixed;
@@ -1824,7 +1825,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .up-menu {
-  width: 82%;
+  width: 88%;
   position: fixed;
   right: 0;
   top: 0;
@@ -2092,7 +2093,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-  width: 82%;
+  width: 88%;
   float: right;
   padding: 20px;
 }

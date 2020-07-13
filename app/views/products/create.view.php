@@ -184,6 +184,15 @@
     </div>
 
     <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
+        <label >{ label_status }</label>
+        <select name="statusId">
+            <option value="0" disabled selected>{ label_status }</option>
+            <option value="1">{ array_status[1] }</option>
+            <option value="2">{ array_status[2] }</option>
+        </select>
+    </div>
+
+    <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
         <label >{ label_reservation }</label>
         <select name="reservationId">
             <option value="0" disabled selected>{ label_reservation }</option>

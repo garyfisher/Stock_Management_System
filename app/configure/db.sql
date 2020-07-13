@@ -161,6 +161,7 @@ CREATE TABLE `app_products` (
   `BuyPrice` decimal(24,8) NOT NULL,
   `PromoPrice` decimal(24,8) NOT NULL,
   `Comment` VARCHAR(1000) NOT NULL,
+  `StatusId` tinyint(3) UNSIGNED NOT NULL,
   `WwwId` tinyint(3) UNSIGNED NOT NULL,
   `TypeId` tinyint(3) UNSIGNED NOT NULL,
   `YearId` tinyint(3) UNSIGNED NOT NULL,

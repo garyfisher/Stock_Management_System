@@ -55,12 +55,13 @@ class ProductsController extends AbsController
                 'categoryId'    => 'required|foreign:app_products_categories.ProductCategoryId',
                 'warehouseId'   => 'required|foreign:app_products_warehouses.ProductWarehouseId',
                 'comment'       => 'max:1000|min:3|type:text',
-                'wwwId'           => 'required|list:1,2',
-                'typeId'          => 'required|list:1,2,3,4',
-                'yearId'          => 'required|list:1,2,3,4,5,6',
-                'rimsId'          => 'required|list:1,2,3,4,5,6,7,8,9',
-                'frameId'         => 'required|list:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34',
-                'reservationId'   => 'required|list:1,2',
+                'statusId'      => 'required|list:1,2',
+                'wwwId'         => 'required|list:1,2',
+                'typeId'        => 'required|list:1,2,3,4',
+                'yearId'        => 'required|list:1,2,3,4,5,6',
+                'rimsId'        => 'required|list:1,2,3,4,5,6,7,8,9',
+                'frameId'       => 'required|list:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34',
+                'reservationId' => 'required|list:1,2',
             ];
             if($valid->check()){ // $valid->check()
                 $ProductsModel = new ProductsModel();
@@ -77,6 +78,7 @@ class ProductsController extends AbsController
                 $ProductsModel->PromoPrice = $this->Currency->inside_currency($this->getPost('promo_price'));
                 $ProductsModel->CategoryId = $this->getPost('categoryId');
                 $ProductsModel->WarehouseId = $this->getPost('warehouseId');
+                $ProductsModel->StatusId = $this->getPost('statusId');
                 $ProductsModel->WwwId = $this->getPost('wwwId');
                 $ProductsModel->TypeId = $this->getPost('typeId');
                 $ProductsModel->YearId = $this->getPost('yearId');
@@ -129,12 +131,13 @@ class ProductsController extends AbsController
                 'categoryId'    => 'required|foreign:app_products_categories.ProductCategoryId',
                 'warehouseId'   => 'required|foreign:app_products_warehouses.ProductWarehouseId',
                 'comment'       => 'max:1000|min:3|type:text',
-                'wwwId'           => 'required|list:1,2',
-                'typeId'          => 'required|list:1,2,3,4',
-                'yearId'          => 'required|list:1,2,3,4,5,6',
-                'rimsId'          => 'required|list:1,2,3,4,5,6,7,8,9',
-                'frameId'         => 'required|list:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34',
-                'reservationId'   => 'required|list:1,2',
+                'statusId'      => 'required|list:1,2',
+                'wwwId'         => 'required|list:1,2',
+                'typeId'        => 'required|list:1,2,3,4',
+                'yearId'        => 'required|list:1,2,3,4,5,6',
+                'rimsId'        => 'required|list:1,2,3,4,5,6,7,8,9',
+                'frameId'       => 'required|list:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34',
+                'reservationId' => 'required|list:1,2',
             ];
             if($valid->check()){ // $valid->check()
                 $ProductsModel->ProductId = $this->getGet('id');
@@ -143,6 +146,7 @@ class ProductsController extends AbsController
                 //$ProductsModel->MadeCountry = $this->getPost('madeCountry');
                 $ProductsModel->CategoryId  = $this->getPost('categoryId');
                 $ProductsModel->WarehouseId = $this->getPost('warehouseId');
+                $ProductsModel->StatusId = $this->getPost('statusId');
                 $ProductsModel->WwwId = $this->getPost('wwwId');
                 $ProductsModel->TypeId = $this->getPost('typeId');
                 $ProductsModel->YearId = $this->getPost('yearId');

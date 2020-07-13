@@ -366,7 +366,6 @@ if ($('table').length > 0 && getSettings('setting-site') != '')
             }
         };
 
-
     }else{
         
         TableLang = {
@@ -403,7 +402,14 @@ if(pathname == "settings/backupdatabase" && $('.dataTableEnable').length > 0)
     TableLang.order = [[ 2, "desc" ]];
 }
 
-if($('.dataTableEnable').length > 0)
+if($('#products').length > 0)
+{
+   //$('#products').DataTable(TableLang);
+   var table = $('#products').DataTable(TableLang);
+       table.search( 'Dostępny' ).draw();
+   //$('#products').DataTable(TableLang).column(1).search('xduro').draw();
+}
+else if($('.dataTableEnable').length > 0)
 {
 
     $('.dataTableEnable').DataTable(TableLang);

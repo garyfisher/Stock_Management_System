@@ -261,6 +261,11 @@
 				selected @endif >{ array_reservation[2] }</option>
         </select>
     </div>
+
+    <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
+        <label >{ label_quantity_reservation }</label>
+        <input type="text" name="quantityreservation" value="@number_zero (#Products->QuantityReservation)" max="10"  data-pattern="^[0-9]{1,16}(\.[0-9]{1,6})?$" >
+    </div>
 	
     <div class="input-group-s col-md-down-1 col-lg-up-1 col-md-up-1">
         <label >{ label_comment }</label>

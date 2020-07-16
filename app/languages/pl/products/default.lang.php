@@ -10,6 +10,7 @@ $_['text_added_date'] = 'Dodany';
 $_['text_made_country'] = 'Zrobiono w';
 $_['text_quantity'] = 'Ilość fizyczna';
 $_['text_quantity_order'] = 'Ilość zamówiona';
+$_['text_quantity_reservation'] = 'Ilość rezerwacji';
 $_['text_piece'] = 'piece';
 $_['text_sell_price'] = 'Cena sprzedaży brutto';
 $_['text_buy_price'] = 'Cena zakupu brutto';

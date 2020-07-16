@@ -18,6 +18,7 @@
             <div class="col-2 property_products"><b>{ label_quantity_in }</b> : { products->UnitName }</div>
             <div class="col-2 property_products"><b>{ label_quantity }</b> : <bdi>@format_num (#products->Quantity) { products->UnitCode }</bdi></div>
             <div class="col-2 property_products"><b>{ label_quantity_order }</b> : <bdi>@format_num (#products->QuantityOrder) { products->UnitCode }</bdi></div>
+            <div class="col-2 property_products"><b>{ label_quantity_reservation }</b> : <bdi>@format_num (#products->QuantityReservation) { products->UnitCode }</bdi></div>
             @if (#products->NotificationQuantity != '')
             <div class="col-2 property_products"><b>{ label_notification_quantity }</b> : <bdi>@format_num (#products->NotificationQuantity) { products->UnitCode }</bdi></div>
             @endif

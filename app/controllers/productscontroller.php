@@ -46,6 +46,7 @@ class ProductsController extends AbsController
                 //'madeCountry'   => 'max:40|key_exists:countries',
                 //'quantity'      => 'required|max:23|type:quantity',
                 //'notification_quantity'=> 'max:23|type:quantity',
+                'quantityreservation' => 'max:23|type:quantity',
                 'barcode'       => 'max:44|min:1|type:barcode|unique:app_products',
                 'sell_price'    => 'required|max:25|type:alpha_decimal',
                 'buy_price'     => 'required|max:25|type:alpha_decimal',
@@ -71,6 +72,7 @@ class ProductsController extends AbsController
                 //$ProductsModel->Quantity = $this->getPost('quantity');
                 //$ProductsModel->NotificationQuantity = $this->getPost('notification_quantity');
                 //$ProductsModel->Tax = self::decimal_insert($this->getPost('tax'));
+                $ProductsModel->QuantityReservation = $this->getPost('quantityreservation');
                 $ProductsModel->UnitId = $this->getPost('unit_id');
                 $ProductsModel->Barcode = $this->getPost('barcode');
                 $ProductsModel->SellPrice = $this->Currency->inside_currency($this->getPost('sell_price'));
@@ -123,6 +125,7 @@ class ProductsController extends AbsController
                 //'quantity'      => 'required|max:23|type:quantity',
                 //'notification_quantity'=> 'max:23|type:quantity',
                 //'tax'           => 'max:25|type:discount',
+                'quantityreservation' => 'max:23|type:quantity',
                 'barcode'       => 'max:44|min:1|type:barcode|same_unq:app_products',
                 'sell_prince'   => 'max:25|type:alpha_decimal',
                 'buy_prince'    => 'max:25|type:alpha_decimal',
@@ -144,6 +147,7 @@ class ProductsController extends AbsController
                 $ProductsModel->kod = $this->getPost('kod');
                 $ProductsModel->Title = $this->getPost('title');
                 //$ProductsModel->MadeCountry = $this->getPost('madeCountry');
+                $ProductsModel->QuantityReservation = $this->getPost('quantityreservation');
                 $ProductsModel->CategoryId  = $this->getPost('categoryId');
                 $ProductsModel->WarehouseId = $this->getPost('warehouseId');
                 $ProductsModel->StatusId = $this->getPost('statusId');

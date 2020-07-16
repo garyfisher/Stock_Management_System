@@ -7,6 +7,7 @@ $_['label_kod'] = 'Kod produktu';
 $_['label_made_country'] = 'Zrobiono w';
 $_['label_quantity'] = 'Ilość fizyczna';
 $_['label_quantity_order'] = 'Ilość zamówiona';
+$_['label_quantity_reservation'] = 'Ilość rezerwacji';
 $_['label_category_product'] = 'Kategoria';
 $_['label_warehouse_product'] = 'Magazyn';
 $_['label_sell_price'] = 'Cena sprzedaży brutto';

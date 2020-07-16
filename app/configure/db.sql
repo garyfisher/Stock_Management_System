@@ -156,6 +156,7 @@ CREATE TABLE `app_products` (
   `WarehouseId` tinyint(3) UNSIGNED NOT NULL,
   `Quantity` decimal(22,6) NOT NULL,
   `QuantityOrder` decimal(22,6) NOT NULL,
+  `QuantityReservation` decimal(22,6) DEFAULT NULL,
   `Barcode` varchar(45) NOT NULL,
   `SellPrice` decimal(24,8) NOT NULL,
   `BuyPrice` decimal(24,8) NOT NULL,

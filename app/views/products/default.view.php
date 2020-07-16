@@ -14,6 +14,7 @@
         <!-- <th>{ text_made_country }</th> -->
         <th>{ text_quantity }</th>
         <th>{ text_quantity_order }</th>
+        <th>{ text_quantity_reservation }</th>
         <!--<th>{ text_barcode }</th>
         @tax_allow
         <th>{ text_tax }</th>
@@ -43,6 +44,7 @@
             @if ($Product->TypeId == 1) style="background-color: violet;" @endif
                  data-bottom-title="{! self::format_quantity($Product->Quantity) _ $Product->UnitName !}" ><bdi>{! self::format_quantity($Product->Quantity) _ $Product->UnitCode !}</bdi></td>
         <td data-bottom-title="{! self::format_quantity($Product->QuantityOrder) _ $Product->UnitName !}" ><bdi>{! self::format_quantity($Product->QuantityOrder) _ $Product->UnitCode !}</bdi></td>
+        <td data-bottom-title="{! self::format_quantity($Product->QuantityReservation) _ $Product->UnitName !}" ><bdi>{! self::format_quantity($Product->QuantityReservation) _ $Product->UnitCode !}</bdi></td>
         <!-- <td>{! $Product->Barcode !}</td>
         @tax_allow
         <td>@number_parse ($Product->Tax)</td>

@@ -215,7 +215,7 @@ $('.control-menu').click(function toggleMenu() {
         }else {
             sideMenu.animate({left: 0},500);
             if(window.windowislarger) {
-                upMenuBody.animate({width: '82%'}, 500);
+                upMenuBody.animate({width: '88%'}, 500);
             }
             am.toggleClass('fa-chevron-left fa-chevron-right');
             setCookie('sideMenu','open',7)
@@ -234,7 +234,7 @@ $('.control-menu').click(function toggleMenu() {
         }else {
             sideMenu.animate({right: 0},500);
             if(window.windowislarger) {
-                upMenuBody.animate({width: '82%'},500);
+                upMenuBody.animate({width: '88%'},500);
             }
             am.toggleClass('fa-chevron-left fa-chevron-right');
             setCookie('sideMenu','open',7)

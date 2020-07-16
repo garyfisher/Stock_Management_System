@@ -34,8 +34,8 @@
         @if ($Product->TypeId == 1) style="background-color: violet;" @endif >
         <!-- <td>{! $Product->ProductId !}</td> -->
         <td data-cut-title="15"><a href="/products/Preview/?id={! $Product->ProductId !}" data-top-title="{ title_preview }">{! $Product->kod !}</a></td>
-        <td data-cut-title="15"><a href="/products/Preview/?id={! $Product->ProductId !}" data-top-title="{ title_preview }">{! $Product->Title !}</a></td>
-        <td>{! $Product->Name !}</td>
+        <td data-cut-title="45"><a href="/products/Preview/?id={! $Product->ProductId !}" data-top-title="{ title_preview }">{! $Product->Title !}</a></td>
+        <td data-cut-title="45">{! $Product->Name !}</td>
         <td>{! $Product->NameWarehouses !}</td>
         <td>{ array_frame[$Product->FrameId] }</td>
         <!-- <td>{ countries[$Product->MadeCountry] }</td> -->

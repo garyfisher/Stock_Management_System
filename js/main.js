@@ -369,6 +369,7 @@ if ($('table').length > 0 && getSettings('setting-site') != '')
     }else{
         
         TableLang = {
+            "order": [[ 0, "desc" ]],
             pageLength : Number(getSettings('setting-site').TableRows),
             "language": {
                 "lengthMenu": "Display _MENU_ records per page",
@@ -406,7 +407,7 @@ if($('#products').length > 0)
 {
    //$('#products').DataTable(TableLang);
    var table = $('#products').DataTable(TableLang);
-       table.search( 'Dostępny' ).draw();
+       table.search( 'Dostepny' ).draw();
    //$('#products').DataTable(TableLang).column(1).search('xduro').draw();
 }
 else if($('.dataTableEnable').length > 0)

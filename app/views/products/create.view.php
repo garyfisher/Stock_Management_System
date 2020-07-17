@@ -154,6 +154,7 @@
         <label >{ label_year }</label>
         <select name="yearId">
             <option value="0" disabled selected>{ label_year }</option>
+            <option value="6">{ array_year[7] }</option>
             <option value="1">{ array_year[1] }</option>
             <option value="2">{ array_year[2] }</option>
             <option value="3">{ array_year[3] }</option>

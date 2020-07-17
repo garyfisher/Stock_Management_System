@@ -199,6 +199,8 @@
         <label >{ label_year }</label>
         <select name="yearId">
             <option value="0" disabled selected>{ label_year }</option>
+            <option value="7" @if (#Products->YearId == '7')
+				selected @endif >{ array_year[7] }</option>
             <option value="1" @if (#Products->YearId == '1')
 				selected @endif >{ array_year[1] }</option>
             <option value="2" @if (#Products->YearId == '2')

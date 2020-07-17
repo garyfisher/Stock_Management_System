@@ -19,10 +19,10 @@
         @tax_allow
         <th>{ text_tax }</th>
         @end -->
+        <th>{ text_reservation }</th>
         <th>{ text_buy_price }</th>
         <th>{ text_sell_price }</th>
         <th>{ text_promo_price }</th>
-        <th>{ text_reservation }</th>
         <th>{ text_added_date }</th>
         <th>{ text_status }</th>
         <th>{ text_control }</th>
@@ -45,7 +45,9 @@
                  data-bottom-title="{! self::format_quantity($Product->Quantity) _ $Product->UnitName !}" ><bdi>{! self::format_quantity($Product->Quantity) _ $Product->UnitCode !}</bdi></td>
         <td data-bottom-title="{! self::format_quantity($Product->QuantityOrder) _ $Product->UnitName !}" ><bdi>{! self::format_quantity($Product->QuantityOrder) _ $Product->UnitCode !}</bdi></td>
         <td data-bottom-title="{! self::format_quantity($Product->QuantityReservation) _ $Product->UnitName !}" ><bdi>{! self::format_quantity($Product->QuantityReservation) _ $Product->UnitCode !}</bdi></td>
-        <!-- <td>{! $Product->Barcode !}</td>
+        <td @if (!empty($Product->Comment))
+                 data-bottom-title="{! $Product->Comment !}" @endif >{ array_reservation[$Product->ReservationId] } @if (!empty($Product->Comment)) <b>INFO</b> @endif </td>
+		<!-- <td>{! $Product->Barcode !}</td>
         @tax_allow
         <td>@number_parse ($Product->Tax)</td>
         @end -->
@@ -56,8 +58,6 @@
         @else
             <td>brak</td>
         @endif
-        <td @if (!empty($Product->Comment))
-                 data-bottom-title="{! $Product->Comment !}" @endif >{ array_reservation[$Product->ReservationId] } @if (!empty($Product->Comment)) <b>INFO</b> @endif </td>
         <td data-bottom-title="{ on_time } @time_format ($Product->AddedDate)">@date_format ($Product->AddedDate)</td>
         <td>{ array_status[$Product->StatusId] }</td>
         <td>

@@ -23,7 +23,7 @@
 
 @foreach (#Purchases as $Purchase)
     <tr>
-        <td>{! $Purchase->InvoiceId !}</td>
+        <td><a href="/Purchases/Edit/?id={! $Purchase->InvoiceId !}" data-top-title="{ title_edit }">{! $Purchase->InvoiceId !}</a></td>
         <td>{! $Purchase->FirstName # $Purchase->LastName !}</td>
         <td>{ array_payment_type[$Purchase->PaymentType] }</td>
         <td>{ array_payment_status[$Purchase->PaymentStatus]  }</td>

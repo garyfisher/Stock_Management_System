@@ -57,13 +57,13 @@ body {
   -webkit-box-shadow: 0 4px 8px #afafaf ;
   -moz-box-shadow: 0 4px 8px #afafaf ;
   box-shadow: 0 4px 8px #afafaf ;
-  background: #545454;
+  background: #ffffff;
 }
 .up-menu .menu-end .profile-cog .U-menu::before {
   border-bottom-color: #545454;
 }
 .up-menu .menu-end .profile-cog .U-menu li a:hover {
-  background-color: #474747;
+  background-color: #b9b9b9;
 }
 .up-menu .menu-end .notifications .notification-box {
   -webkit-box-shadow: 0 4px 8px #afafaf ;

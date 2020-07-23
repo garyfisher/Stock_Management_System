@@ -1,6 +1,6 @@
 <div class="side-menu">
     <div class="user-info">
-        <img src="{! $this->imageUser() !}" width="100" height="100" >
+        <!-- <img src="{! $this->imageUser() !}" width="100" height="100" > -->
         @if (isset($this->Session->Profile) && $this->Session->Profile->LastName != '' && $this->Session->Profile->FirstName != '')
         <span>{! $this->Session->Profile->FirstName _ $this->Session->Profile->LastName !}</span>
         @endif

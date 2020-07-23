@@ -343,10 +343,10 @@ if ($('table').length > 0 && getSettings('setting-site') != '')
             pageLength : Number(getSettings('setting-site').TableRows),
             "language": {
                 "lengthMenu": "Display _MENU_ records per page",
-                "zeroRecords": "Nothing found - sorry",
+                "zeroRecords": "Brak wyników - sorry :(",
                 "info": "Wyświetlana strona _PAGE_ z _PAGES_",
                 "infoEmpty": "Brak dostępnych zapisów",
-                "infoFiltered": "(filtered from _MAX_ total records)",
+                "infoFiltered": "(wyfiltrowane z wszystkich _MAX_ produktów)",
                 "sSearch": "",
                 "decimal": ",",
                 "thousands": ".",

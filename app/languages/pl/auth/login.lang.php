@@ -5,4 +5,4 @@ $_['label_username'] = 'Login';
 $_['label_password'] = 'Hasło';
 $_['text_login'] = 'Login form';
 $_['text_login_button'] = 'Login';
-$_['text_captcha'] = 'Captcha';
+$_['text_captcha'] = 'Wpisz wynik równania';

@@ -6,6 +6,18 @@
     </div>
 
     <div class="input-group-s col-md-down-1 col-md-up-2">
+        <label>{ label_sub_category_name }</label>
+        <select name="subcategory">
+            <option value="0" selected>{ label_sub_category }</option>
+                @foreach (#ProductsCategories as $ProductCategory)
+                    @if ($ProductCategory->ProductCategoryParentId == 0)
+                        <option value="{! $ProductCategory->ProductCategoryId !}" @if ($this->getPost('subcategory') == $ProductCategory->ProductCategoryId): selected @endif > {! $ProductCategory->Name !} </option>
+                    @endif
+                @endforeach
+        </select>
+    </div>
+
+    <div class="input-group-s col-md-down-1 col-md-up-2">
         <label >{ label_description }</label>
         <input type="text" name="description" value="@post (description)" min="0" max="5000"  data-pattern="^[\w\(\):?!\- \u0600-\u06FF]{0,5000}$" >
     </div>

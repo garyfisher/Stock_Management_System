@@ -25,15 +25,19 @@ class ProductsCategoriesController extends AbsController
         $this->Language->load('template.messengers');
         $this->Language->load('ProductsCategories.create');
         $this->Language->load('ProductsCategories.label');
+        $ProductsCategories = new ProductsCategoriesModel();
+        $this->Data['ProductsCategories'] = $ProductsCategories->getAll();
         if($this->has_post('submit')){
             $valid = new Validate($this->Language);
             $valid->data = $_POST;
             $valid->rules = [
+                'subcategory'   => 'is_array|foreign:app_products_categories.ProductCategoryId',
                 'name'          => 'required|max:40|min:3|type:words|unique:app_products_categories',
                 'description'   => 'max:5000|type:text',
             ];
             if($valid->check()){ // $valid->check()
                 $ProductsCategories = new ProductsCategoriesModel();
+                $ProductsCategories->ProductCategoryParentId = $this->getPost('subcategory');
                 $ProductsCategories->Name = $this->getPost('name');
                 $ProductsCategories->Description = $this->getPost('description');
                 if($ProductsCategories->create()){ /// $usersModel->create()
@@ -53,6 +57,8 @@ class ProductsCategoriesController extends AbsController
         $this->Language->load('ProductsCategories.label');
         $this->Language->load('ProductsCategories.edit');
         $SuppliersModel = new ProductsCategoriesModel();
+        $ProductsCategories = new ProductsCategoriesModel();
+        $this->Data['ProductsCategories'] = $ProductsCategories->getAll();
         $id = self::getGet('id');
 
 
@@ -61,11 +67,13 @@ class ProductsCategoriesController extends AbsController
             $valid->primary = ['ProductCategoryId'];
             $valid->data = $_POST;
             $valid->rules = [
+                'subcategory'   => 'is_array|foreign:app_products_categories.ProductCategoryId',
                 'name'          => 'required|max:25|min:3|type:words|same_unq:app_products_categories',
                 'description'   => 'max:5000|type:text',
             ];
             if($valid->check()){ // $valid->check()
                 $SuppliersModel->ProductCategoryId = $this->getGet('id');
+                $SuppliersModel->ProductCategoryParentId = $this->getPost('subcategory');
                 $SuppliersModel->Name = $this->getPost('name');
                 $SuppliersModel->Description = $this->getPost('description');
                 if($SuppliersModel->update()){

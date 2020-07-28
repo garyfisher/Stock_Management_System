@@ -9,7 +9,7 @@ use Store\Core\Validate;
 class ProductsModel extends AbsModel
 {
 
-    public $ProductId, $kod, $Title, $Tax, $UnitId , $MadeCountry, $AddedDate, $CategoryId, $WarehouseId, /*$Quantity,*/ $QuantityReservation, /*$NotificationQuantity,*/ $Barcode, $SellPrice, $BuyPrice, $PromoPrice, $AddedName, $ModifyDate, $ModifyName, $Comment, $WwwId, $TypeId, $StatusId, $YearId, $RimsId, $FrameId, $ReservationId;
+    public $ProductId, $kod, $Title, $Tax, $UnitId , $MadeCountry, $AddedDate, $CategoryId, $SubCategoryId, $WarehouseId, /*$Quantity,*/ $QuantityReservation, /*$NotificationQuantity,*/ $Barcode, $SellPrice, $BuyPrice, $PromoPrice, $AddedName, $ModifyDate, $ModifyName, $Comment, $WwwId, $TypeId, $StatusId, $YearId, $RimsId, $FrameId, $ReservationId;
     const TABLE = 'app_products';
     const ForeignKey = 'ProductId';
 
@@ -23,14 +23,14 @@ class ProductsModel extends AbsModel
 
     public function create()
     {
-        $insetValues = [$this->kod,$this->Title,/*$this->MadeCountry,$this->Tax,*/$this->UnitId,$this->CategoryId,$this->WarehouseId,/*$this->Quantity,$this->NotificationQuantity,*/$this->QuantityReservation,$this->Barcode,$this->SellPrice,$this->BuyPrice,$this->PromoPrice,$this->AddedName,$this->Comment,$this->StatusId,$this->WwwId,$this->TypeId,$this->YearId,$this->RimsId,$this->FrameId,$this->ReservationId];
-        return DB::insert('insert into '. self::TABLE .' (kod,Title,/*MadeCountry,Tax,*/UnitId,CategoryId,WarehouseId, /*Quantity, NotificationQuantity,*/QuantityReservation,Barcode,SellPrice,BuyPrice,PromoPrice,AddedDate,AddedName,Comment,StatusId,WwwId,TypeId,YearId,RimsId,FrameId,ReservationId) values (?,?,?,?,?,?,?,?,?,?,now(),?,?,?,?,?,?,?,?,?)',$insetValues);
+        $insetValues = [$this->kod,$this->Title,/*$this->MadeCountry,$this->Tax,*/$this->UnitId,$this->CategoryId,$this->SubCategoryId,$this->WarehouseId,/*$this->Quantity,$this->NotificationQuantity,*/$this->QuantityReservation,$this->Barcode,$this->SellPrice,$this->BuyPrice,$this->PromoPrice,$this->AddedName,$this->Comment,$this->StatusId,$this->WwwId,$this->TypeId,$this->YearId,$this->RimsId,$this->FrameId,$this->ReservationId];
+        return DB::insert('insert into '. self::TABLE .' (kod,Title,/*MadeCountry,Tax,*/UnitId,CategoryId,SubCategoryId,WarehouseId, /*Quantity, NotificationQuantity,*/QuantityReservation,Barcode,SellPrice,BuyPrice,PromoPrice,AddedDate,AddedName,Comment,StatusId,WwwId,TypeId,YearId,RimsId,FrameId,ReservationId) values (?,?,?,?,?,?,?,?,?,?,?,now(),?,?,?,?,?,?,?,?,?)',$insetValues);
     }
 
     public function update()
     {
-        $updateValues = [$this->kod,$this->Title,$this->MadeCountry,/*$this->Tax,*/$this->UnitId,$this->CategoryId,$this->WarehouseId,/*$this->Quantity,$this->NotificationQuantity,*/$this->QuantityReservation,$this->Barcode,$this->SellPrice,$this->BuyPrice,$this->PromoPrice,$this->ModifyName,$this->Comment,$this->StatusId,$this->WwwId,$this->TypeId,$this->YearId,$this->RimsId,$this->FrameId,$this->ReservationId,$this->ProductId];
-        return DB::update("update ". self::TABLE ." set  kod=?, Title=?, MadeCountry=?, /*Tax=?,*/ UnitId=? , CategoryId=? , WarehouseId=? , /*Quantity=?, NotificationQuantity=?,*/ QuantityReservation=?, Barcode=?, SellPrice=?, BuyPrice=?, PromoPrice=?, ModifyDate = now(), ModifyName=?, Comment=?, StatusId=?, WwwId=?, TypeId=?, YearId=?, RimsId=?, FrameId=?, ReservationId=? WHERE ProductId=?",$updateValues);
+        $updateValues = [$this->kod,$this->Title,$this->MadeCountry,/*$this->Tax,*/$this->UnitId,$this->CategoryId,$this->SubCategoryId,$this->WarehouseId,/*$this->Quantity,$this->NotificationQuantity,*/$this->QuantityReservation,$this->Barcode,$this->SellPrice,$this->BuyPrice,$this->PromoPrice,$this->ModifyName,$this->Comment,$this->StatusId,$this->WwwId,$this->TypeId,$this->YearId,$this->RimsId,$this->FrameId,$this->ReservationId,$this->ProductId];
+        return DB::update("update ". self::TABLE ." set  kod=?, Title=?, MadeCountry=?, /*Tax=?,*/ UnitId=? , CategoryId=? , SubCategoryId=? , WarehouseId=? , /*Quantity=?, NotificationQuantity=?,*/ QuantityReservation=?, Barcode=?, SellPrice=?, BuyPrice=?, PromoPrice=?, ModifyDate = now(), ModifyName=?, Comment=?, StatusId=?, WwwId=?, TypeId=?, YearId=?, RimsId=?, FrameId=?, ReservationId=? WHERE ProductId=?",$updateValues);
     }
 
     public function delete()

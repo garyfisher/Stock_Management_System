@@ -1,8 +1,8 @@
 <?php
 
 
-$_['text_title_form'] = 'New category';
-$_['title_page'] = 'New category';
+$_['text_title_form'] = 'Nowa kategoria';
+$_['title_page'] = 'Nowa kategoria';
 
 
 

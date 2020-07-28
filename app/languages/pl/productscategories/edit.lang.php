@@ -1,7 +1,7 @@
 <?php
 
-$_['text_title_form'] = 'Edit category';
-$_['title_page'] = 'Edit category';
+$_['text_title_form'] = 'Edycja kategori';
+$_['title_page'] = 'Edycja kategori';
 
 
 

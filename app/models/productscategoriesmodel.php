@@ -8,7 +8,7 @@ use Store\core\Input;
 class ProductsCategoriesModel extends AbsModel
 {
 
-    public $ProductCategoryId, $Name , $Description;
+    public $ProductCategoryId, $ProductCategoryParentId, $Name , $Description;
     const TABLE = 'app_products_categories';
     const ForeignKey = 'ProductCategoryId';
 
@@ -22,14 +22,14 @@ class ProductsCategoriesModel extends AbsModel
 
     public function create()
     {
-        $insetValues = [$this->Name, $this->Description];
-        return DB::insert('insert into '. self::TABLE .' (`Name`,Description) values (?,?)',$insetValues);
+        $insetValues = [$this->ProductCategoryParentId, $this->Name, $this->Description];
+        return DB::insert('insert into '. self::TABLE .' (`ProductCategoryParentId`, `Name`,Description) values (?,?,?)',$insetValues);
     }
 
     public function update()
     {
-        $updateValues = [$this->Name, $this->Description, $this->ProductCategoryId];
-        return DB::update("update ". self::TABLE ." set Name=? , Description=? WHERE ProductCategoryId=?",$updateValues);
+        $updateValues = [$this->ProductCategoryParentId, $this->Name, $this->Description, $this->ProductCategoryId];
+        return DB::update("update ". self::TABLE ." set ProductCategoryParentId=?, Name=? , Description=? WHERE ProductCategoryId=?",$updateValues);
     }
 
     public function delete()
@@ -37,6 +37,16 @@ class ProductsCategoriesModel extends AbsModel
         return DB::table(self::TABLE)->where(self::ForeignKey,'=',$this->ProductCategoryId)->delete();
     }
 
+	public static function getColByKey($col,$id)
+    {
+        if(is_numeric($id)){
+            if(DB::table(self::TABLE)->select($col)->where(self::ForeignKey,'=',$id)->getColumn() != '' )
+            {
+                return DB::table(self::TABLE)->select($col)->where(self::ForeignKey,'=',$id)->getColumn()->{$col};
+            }
+        }
+        return false;
 
+    }
 
 }

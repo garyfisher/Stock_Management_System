@@ -9,6 +9,7 @@ $_['label_quantity'] = 'Ilość fizyczna';
 $_['label_quantity_order'] = 'Ilość zamówiona';
 $_['label_quantity_reservation'] = 'Ilość rezerwacji';
 $_['label_category_product'] = 'Kategoria';
+$_['label_sub_category_product'] = 'Podkategoria';
 $_['label_warehouse_product'] = 'Magazyn';
 $_['label_sell_price'] = 'Cena sprzedaży brutto';
 $_['label_buy_price'] = 'Cena zakupu brutto';

@@ -16,6 +16,7 @@ $_['text_sell_price'] = 'Cena sprzedaży brutto';
 $_['text_buy_price'] = 'Cena zakupu brutto';
 $_['text_promo_price'] = 'Cena promocyjna brutto';
 $_['text_category_name'] = 'Nazwa Kategorii';
+$_['text_sub_category_name'] = 'Nazwa Podkategorii';
 $_['text_warehouse_name'] = 'Magazyn';
 $_['text_quantity_in'] = 'Jednostka';
 $_['text_tax'] = 'VAT';

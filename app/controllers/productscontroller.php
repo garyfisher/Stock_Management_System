@@ -18,6 +18,7 @@ class ProductsController extends AbsController
         $this->Language->load('template.countries');
         $this->Language->load('products.default');
         $products = new ProductsModel();
+        $ProductsCategories = new ProductsCategoriesModel();
         $this->Data['Products'] = $products->inner_join();
         $this->View();
     }
@@ -54,6 +55,7 @@ class ProductsController extends AbsController
                 'unit_id'       => 'required|foreign:app_units.UnitId',
                 //'tax'           => 'max:25|type:discount',
                 'categoryId'    => 'required|foreign:app_products_categories.ProductCategoryId',
+                'subcategoryId' => 'foreign:app_products_categories.ProductCategoryId',
                 'warehouseId'   => 'required|foreign:app_products_warehouses.ProductWarehouseId',
                 'comment'       => 'max:1000|min:3|type:text',
                 'statusId'      => 'required|list:1,2',
@@ -79,6 +81,7 @@ class ProductsController extends AbsController
                 $ProductsModel->BuyPrice = $this->Currency->inside_currency($this->getPost('buy_price'));
                 $ProductsModel->PromoPrice = $this->Currency->inside_currency($this->getPost('promo_price'));
                 $ProductsModel->CategoryId = $this->getPost('categoryId');
+                $ProductsModel->SubCategoryId = $this->getPost('subcategoryId');
                 $ProductsModel->WarehouseId = $this->getPost('warehouseId');
                 $ProductsModel->StatusId = $this->getPost('statusId');
                 $ProductsModel->WwwId = $this->getPost('wwwId');
@@ -132,6 +135,7 @@ class ProductsController extends AbsController
                 'promo_prince'  => 'max:25|type:alpha_decimal',
                 'unit_id'       => 'required|foreign:app_units.UnitId',
                 'categoryId'    => 'required|foreign:app_products_categories.ProductCategoryId',
+                'subcategoryId' => 'foreign:app_products_categories.ProductCategoryId',
                 'warehouseId'   => 'required|foreign:app_products_warehouses.ProductWarehouseId',
                 'comment'       => 'max:1000|min:3|type:text',
                 'statusId'      => 'required|list:1,2',
@@ -149,6 +153,7 @@ class ProductsController extends AbsController
                 //$ProductsModel->MadeCountry = $this->getPost('madeCountry');
                 $ProductsModel->QuantityReservation = $this->getPost('quantityreservation');
                 $ProductsModel->CategoryId  = $this->getPost('categoryId');
+                $ProductsModel->SubCategoryId = $this->getPost('subcategoryId');
                 $ProductsModel->WarehouseId = $this->getPost('warehouseId');
                 $ProductsModel->StatusId = $this->getPost('statusId');
                 $ProductsModel->WwwId = $this->getPost('wwwId');

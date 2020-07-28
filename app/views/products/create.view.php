@@ -67,11 +67,26 @@
 
     <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
         <label>{ label_category_product }</label>
-        <select name="categoryId">
+        <select name="categoryId" id="category">
             <option value="0" disabled selected>{ label_category_product }</option>
             @foreach (#Categories as $Category)
-                <option value="{! $Category->ProductCategoryId; !}" @if ($this->getPost('categoryId') == $Category->ProductCategoryId)
+                @if ($Category->ProductCategoryParentId == 0)
+                    <option value="{! $Category->ProductCategoryId; !}" @if ($this->getPost('categoryId') == $Category->ProductCategoryId)
+                        selected @endif > {! $Category->Name !}</option>
+                @endif
+            @endforeach
+        </select>
+    </div>
+
+    <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
+        <label>{ label_sub_category_product }</label>
+        <select name="subcategoryId" id="subcategory">
+            <option value="0" disabled selected>{ label_sub_category_product }</option>
+            @foreach (#Categories as $Category)
+                @if ($Category->ProductCategoryParentId > 0)
+                <option value="{! $Category->ProductCategoryId; !}" class="subcat" id="{! $Category->ProductCategoryParentId; !}" style="display: none;" @if ($this->getPost('subcategoryId') == $Category->ProductCategoryId)
                     selected @endif > {! $Category->Name !}</option>
+                @endif
             @endforeach
         </select>
     </div>

@@ -337,7 +337,9 @@ if ($('table').length > 0 && getSettings('setting-site') != '')
                 targets: [10],
             },
             {
-                responsivePriority: 10001, targets: 2,
+                responsivePriority: 10001, targets: 2
+			},
+			{
                 responsivePriority: 10001, targets: 3
             }
             ],

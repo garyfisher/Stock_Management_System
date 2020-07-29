@@ -143,7 +143,7 @@ CREATE TABLE `app_products_warehouses` (
 CREATE TABLE `app_products` (
   `ProductId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `kod` varchar(255) NOT NULL,
-  `Title` varchar(50) NOT NULL,
+  `Title` varchar(255) NOT NULL,
   `Tax` varchar(25) NOT NULL DEFAULT '0',
   `MadeCountry` varchar(40) NOT NULL,
   `AddedDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,

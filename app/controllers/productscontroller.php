@@ -123,7 +123,7 @@ class ProductsController extends AbsController
             $valid->data = $_POST;
             $valid->rules = [
                 'kod'           => 'required|max:255|min:3|type:text',
-                'title'         => 'required|max:50|min:3|type:all',
+                'title'         => 'required|max:240|min:3|type:all',
                 //'madeCountry'   => 'max:40|key_exists:countries',
                 //'quantity'      => 'required|max:23|type:quantity',
                 //'notification_quantity'=> 'max:23|type:quantity',

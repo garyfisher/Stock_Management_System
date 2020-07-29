@@ -37,6 +37,12 @@
             @endif
             <div class="col-1 property_products"></div>
             <div class="col-2 property_products"><b>{ label_www }</b> : { array_www[#products->WwwId] }</div>
+            @if (!empty(#products->WwwUrl))
+                <div class="col-2 property_products"><b>{ title_wwwurl }</b> :<a href="{ products->WwwUrl }" data-top-title="{ title_wwwurl }" target="_blank"><i class="fa fa-globe"></i></a></div>
+            @endif
+            @if (#products->Allegro > 0)
+                <div class="col-2 property_products"><b>{ title_allegro }</b> :<a href="https://allegro.pl/oferta/{ products->Allegro }" data-top-title="{ title_allegro }" target="_blank"><i class="fa fa-balance-scale"></i></a></div>
+            @endif
             <div class="col-2 property_products"><b>{ label_reservation }</b> : { array_www[#products->ReservationId] }</div>
             <div class="col-2 property_products"><b>{ label_status }</b> : { array_status[#products->StatusId] }</div>
             <div class="col-1 property_products"></div>

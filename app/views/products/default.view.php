@@ -49,7 +49,7 @@
         <td data-bottom-title="{! self::format_quantity($Product->QuantityReservation) _ $Product->UnitName !}" ><bdi>{! self::format_quantity($Product->QuantityReservation) _ $Product->UnitCode !}</bdi></td>
         <td @if (!empty($Product->Comment))
                  data-bottom-title="{! $Product->Comment !}" @endif >{ array_reservation[$Product->ReservationId] } @if (!empty($Product->Comment)) <b>INFO</b> @endif </td>
-		<!-- <td>{! $Product->Barcode !}</td>
+        <!-- <td>{! $Product->Barcode !}</td>
         @tax_allow
         <td>@number_parse ($Product->Tax)</td>
         @end -->
@@ -63,6 +63,12 @@
         <td data-bottom-title="{ on_time } @time_format ($Product->AddedDate)">@date_format ($Product->AddedDate)</td>
         <td>{ array_status[$Product->StatusId] }</td>
         <td>
+        @if (!empty($Product->WwwUrl))
+            <a href="{! $Product->WwwUrl !}" data-top-title="{ title_wwwurl }" target="_blank"><i class="fa fa-globe"></i></a>
+        @endif
+        @if ($Product->Allegro > 0)
+            <a href="https://allegro.pl/oferta/{! $Product->Allegro !}" data-top-title="{ title_allegro }" target="_blank"><i class="fa fa-balance-scale"></i></a>
+        @endif
             <a href="/products/Preview/?id={! $Product->ProductId !}" data-top-title="{ title_preview }"><i class="far fa-eye"></i></a>
             <a href="/products/Edit/?id={! $Product->ProductId !}" data-top-title="{ title_edit }"><i class="far fa-edit"></i></a>
             <a href="/products/Delete/?id={! $Product->ProductId !}" data-top-title="{ title_delete }" onclick="return confirm('do you want delete this Product')"><i class="far fa-trash-alt"></i></a>

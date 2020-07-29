@@ -65,6 +65,8 @@ class ProductsController extends AbsController
                 'rimsId'        => 'required|list:1,2,3,4,5,6,7,8,9',
                 'frameId'       => 'required|list:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34',
                 'reservationId' => 'required|list:1,2',
+                'wwwurl'        => 'max:1000|min:3|type:all',
+                'allegro'       => 'max:12|min:9|type:all',
             ];
             if($valid->check()){ // $valid->check()
                 $ProductsModel = new ProductsModel();
@@ -91,6 +93,8 @@ class ProductsController extends AbsController
                 $ProductsModel->FrameId = $this->getPost('frameId');
                 $ProductsModel->ReservationId = $this->getPost('reservationId');
                 $ProductsModel->Comment = $this->getPost('comment');
+                $ProductsModel->WwwUrl = $this->getPost('wwwurl');
+                $ProductsModel->Allegro = $this->getPost('allegro');
                 $ProductsModel->AddedName = $this->Session->User->Username;
                 if($ProductsModel->create()){ /// $usersModel->create()
                     Messenger::getInstance()->create($this->Language->get('success_product_added'),Messenger::APP_TYPE_SUCCESS);
@@ -145,6 +149,8 @@ class ProductsController extends AbsController
                 'rimsId'        => 'required|list:1,2,3,4,5,6,7,8,9',
                 'frameId'       => 'required|list:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34',
                 'reservationId' => 'required|list:1,2',
+                'wwwurl'        => 'max:1000|min:3|type:all',
+                'allegro'       => 'max:12|min:9|type:all',
             ];
             if($valid->check()){ // $valid->check()
                 $ProductsModel->ProductId = $this->getGet('id');
@@ -168,6 +174,8 @@ class ProductsController extends AbsController
                 $ProductsModel->PromoPrice    = $this->Currency->inside_currency($this->getPost('promo_price'));
                 $ProductsModel->UnitId      = $this->getPost('unit_id');
                 $ProductsModel->Barcode     = $this->getPost('barcode');
+                $ProductsModel->WwwUrl = $this->getPost('wwwurl');
+                $ProductsModel->Allegro = $this->getPost('allegro');
                 //$ProductsModel->Quantity    = $this->getPost('quantity');
                 //$ProductsModel->NotificationQuantity = $this->getPost('notification_quantity');
                 //$ProductsModel->Tax         = self::decimal_insert($this->getPost('tax'));

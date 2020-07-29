@@ -200,6 +200,16 @@
     </div>
 
     <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
+        <label >{ label_www_url }</label>
+        <input type="text" name="wwwurl" value="{ Products->WwwUrl }" min="3" max="1000" >
+    </div>
+
+    <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
+        <label >{ label_allegro }</label>
+        <input type="text" name="allegro" value="{ Products->Allegro }" min="9" max="12" >
+    </div>
+
+    <div class="input-group-s col-md-down-1 col-lg-up-3 col-md-up-2">
         <label >{ label_status }</label>
         <select name="statusId">
             <option value="0" disabled selected>{ label_status }</option>

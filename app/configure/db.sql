@@ -170,6 +170,8 @@ CREATE TABLE `app_products` (
   `RimsId` tinyint(3) UNSIGNED NOT NULL,
   `FrameId` tinyint(3) UNSIGNED NOT NULL,
   `ReservationId` tinyint(3) UNSIGNED NOT NULL,
+  `WwwUrl` varchar(1000) NOT NULL,
+  `Allegro` varchar(15) NOT NULL,
   PRIMARY KEY (`ProductId`),
   UNIQUE KEY `Barcode` (`Barcode`),
   KEY `kod` (`kod`) USING BTREE,

@@ -26,6 +26,7 @@
             <div class="col-2 property_products"><b>{ label_made_country }</b> : {countries[#products->MadeCountry]}</div>
             @endif
             <div class="col-2 property_products"><b>{ label_category_product }</b> : { products->Name }</div>
+            <div class="col-2 property_products"><b>{ label_sub_category_product }</b> : @if (\Store\Models\ProductsCategoriesModel::getColByKey('Name',#products->SubCategoryId)): {! \Store\Models\ProductsCategoriesModel::getColByKey('Name',#products->SubCategoryId) !} @endif </div>
             <div class="col-2 property_products"><b>{ label_warehouse_product }</b> : { products->NameWarehouses }</div>
             <div class="col-1 property_products"></div>
             <div class="col-2 property_products"><b>{ label_buy_price }</b> : @Currency (#products->BuyPrice)</div>

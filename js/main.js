@@ -338,8 +338,8 @@ if ($('table').length > 0 && getSettings('setting-site') != '')
             },
             {
                 responsivePriority: 10001, targets: 2
-			},
-			{
+            },
+            {
                 responsivePriority: 10001, targets: 3
             }
             ],

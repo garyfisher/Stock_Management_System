@@ -2,7 +2,7 @@
     <a class="b-primary-upt bn" href="/products/Create/">{ text_new_product }</a>
 </div>
 
-<table id="products" class="display compact responsive dataTableEnable" style="width:100%">
+<table id="products" class="display compact responsive dataTableEnable" style="width:100%;font-size: 14px;">
     <thead>
     <tr>
         <!-- <th width="100px">{ text_product_id }</th> -->

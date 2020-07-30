@@ -24,7 +24,7 @@ class ProductsModel extends AbsModel
     public function create()
     {
         $insetValues = [$this->kod,$this->Title,/*$this->MadeCountry,$this->Tax,*/$this->UnitId,$this->CategoryId,$this->SubCategoryId,$this->WarehouseId,/*$this->Quantity,$this->NotificationQuantity,*/$this->QuantityReservation,$this->Barcode,$this->SellPrice,$this->BuyPrice,$this->PromoPrice,$this->AddedName,$this->Comment,$this->StatusId,$this->WwwId,$this->TypeId,$this->YearId,$this->RimsId,$this->FrameId,$this->ReservationId,$this->WwwUrl,$this->Allegro];
-        return DB::insert('insert into '. self::TABLE .' (kod,Title,/*MadeCountry,Tax,*/UnitId,CategoryId,SubCategoryId,WarehouseId, /*Quantity, NotificationQuantity,*/QuantityReservation,Barcode,SellPrice,BuyPrice,PromoPrice,AddedDate,AddedName,Comment,StatusId,WwwId,TypeId,YearId,RimsId,FrameId,ReservationId) values (?,?,?,?,?,?,?,?,?,?,?,now(),?,?,?,?,?,?,?,?,?,?,?)',$insetValues);
+        return DB::insert('insert into '. self::TABLE .' (kod,Title,/*MadeCountry,Tax,*/UnitId,CategoryId,SubCategoryId,WarehouseId, /*Quantity, NotificationQuantity,*/QuantityReservation,Barcode,SellPrice,BuyPrice,PromoPrice,AddedDate,AddedName,Comment,StatusId,WwwId,TypeId,YearId,RimsId,FrameId,ReservationId,WwwUrl,Allegro) values (?,?,?,?,?,?,?,?,?,?,?,now(),?,?,?,?,?,?,?,?,?,?,?)',$insetValues);
     }
 
     public function update()

@@ -66,7 +66,7 @@
         <div class="action-product f-row w-100" >
             <div class="input-group-s col-3 name">
                 <label class="is_focus">{ label_product_name }</label>
-                <label data-cut-title="35" class="name-label">@if (\Store\Models\ProductsModel::getColByKey('Title',$products->ProductId)): {! \Store\Models\ProductsModel::getColByKey('Title',$products->ProductId) !} @else { text_product_notfound } @endif </label>
+                <label data-cut-title="35" class="name-label">@if (\Store\Models\ProductsModel::getColByKey('Title',$products->ProductId)): {! \Store\Models\ProductsModel::getColByKey('kod',$products->ProductId) !} {! \Store\Models\ProductsModel::getColByKey('Title',$products->ProductId) !} @else { text_product_notfound } @endif </label>
                 <input type="hidden" name="product_id[]" value="{! $products->ProductId !}" >
             </div>
 

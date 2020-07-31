@@ -58,8 +58,108 @@
             <div class="col-2 property_products"><b>{ label_modify_date }</b> : @full_date_format (#products->ModifyDate)</div>
             <div class="col-2 property_products"><b>{ label_modify_name }</b> : { products->ModifyName }</div>
 
+            <div class="col-2 property_products"><b>{ text_purchases_invoices }</b></div>
+            <table class="display preview-products table-custom" style="font-size: 14px;width: 100%;">
+                <thead>
+                    <tr>
+                        <th width="50px">{ text_purchase_id }</th>
+                        <th>{ text_quantity }</th>
+                        <th>{ text_payment_type }</th>
+                        <th>{ text_payment_status }</th>
+                        <th>{ text_OrderDelivered }</th>
+                        <th>{ text_created_date }</th>
+                        <th>{ text_modify_date }</th>
+                        <th>{ text_comment }</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (#Purchases as $Purchase)
+                        <tr>
+                            <td><a href="/Purchases/Edit/?id={! $Purchase->InvoiceId !}" data-top-title="{ title_edit }">{! $Purchase->InvoiceId !}</a></td>
+                            <td>{! self::format_quantity($Purchase->QuantityPurchases) !}</td>
+                            <td>
+                                @if ((\Store\Models\PurchasesInvoicesModel::getColByKey('PaymentType',$Purchase->InvoiceId)) == 1)
+                                    Terminal
+                                @else
+                                    @if ((\Store\Models\PurchasesInvoicesModel::getColByKey('PaymentType',$Purchase->InvoiceId)) == 2)
+                                        Gotówka
+                                    @else
+                                        @if ((\Store\Models\PurchasesInvoicesModel::getColByKey('PaymentType',$Purchase->InvoiceId)) == 3)
+                                            Przelew
+                                        @endif
+                                    @endif
+                                @endif
+                            </td>
+                            <td>
+                                @if ((\Store\Models\PurchasesInvoicesModel::getColByKey('PaymentStatus',$Purchase->InvoiceId)) == 0)
+                                    niezapłacone
+                                @else
+                                    @if ((\Store\Models\PurchasesInvoicesModel::getColByKey('PaymentStatus',$Purchase->InvoiceId)) == 1)
+                                        zapłacone
+                                    @endif
+                                @endif
+                            </td>
+                            <td>
+                                @if ((\Store\Models\PurchasesInvoicesModel::getColByKey('OrderDelivered',$Purchase->InvoiceId)) == 1)
+                                    nie
+                                @else
+                                    @if ((\Store\Models\PurchasesInvoicesModel::getColByKey('OrderDelivered',$Purchase->InvoiceId)) == 2)
+                                        tak
+                                    @endif
+                                @endif
+                            </td>
+                            <td data-bottom-title="{ on_time } @time_format ($Purchase->CreatedDate)">@date_format ($Purchase->CreatedDate)</td>
+                            <td data-bottom-title="{ on_time } @time_format ($Purchase->ModifyDate)">@date_format ($Purchase->ModifyDate) - {! Store\Models\PurchasesInvoicesModel::getColByKey('ModifyUser',$Purchase->InvoiceId) !}</td>
+                            <td data-bottom-title="{! Store\Models\PurchasesInvoicesModel::getColByKey('Comment',$Purchase->InvoiceId) !}">INFO</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            <div class="col-2 property_products"><b>{ text_sales_invoices }</b></div>
+            <table class="display preview-products table-custom" style="font-size: 14px;width: 100%;margin-bottom: 10px;">
+                <thead>
+                    <tr>
+                        <th width="50px">{ text_purchase_id }</th>
+                        <th>{ text_quantity }</th>
+                        <th>{ text_payment_type }</th>
+                        <th>{ text_payment_status }</th>
+                        <th>{ text_created_date }</th>
+                        <th>{ text_modify_date }</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (#Sales as $Sale)
+                        <tr>
+                            <td><a href="/Sales/Edit//?id={! $Sale->InvoiceId !}" data-top-title="{ title_edit }">{! $Sale->InvoiceId !}</a></td>
+                            <td>{! self::format_quantity($Sale->QuantitySales) !}</td>
+                            <td>
+                                @if ((\Store\Models\SalesInvoicesModel::getColByKey('PaymentType',$Sale->InvoiceId)) == 1)
+                                    Terminal
+                                @else
+                                    @if ((\Store\Models\SalesInvoicesModel::getColByKey('PaymentType',$Sale->InvoiceId)) == 2)
+                                        Gotówka
+                                    @else
+                                        @if ((\Store\Models\SalesInvoicesModel::getColByKey('PaymentType',$Sale->InvoiceId)) == 3)
+                                            Przelew
+                                        @endif
+                                    @endif
+                                @endif
+                            </td>
+                            <td>
+                                @if ((\Store\Models\SalesInvoicesModel::getColByKey('PaymentStatus',$Sale->InvoiceId)) == 0)
+                                    niezapłacone
+                                @else
+                                    @if ((\Store\Models\SalesInvoicesModel::getColByKey('PaymentStatus',$Sale->InvoiceId)) == 1)
+                                        zapłacone
+                                    @endif
+                                @endif
+                            </td>
+                            <td data-bottom-title="{ on_time } @time_format ($Sale->CreatedDate)">@date_format ($Sale->CreatedDate)</td>
+                            <td data-bottom-title="{ on_time } @time_format ($Sale->ModifyDate)">@date_format ($Sale->ModifyDate) - {! Store\Models\SalesInvoicesModel::getColByKey('ModifyUser',$Sale->SaleId) !}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
-
     </div>
 </div>
-

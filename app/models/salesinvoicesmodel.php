@@ -48,6 +48,17 @@ class SalesInvoicesModel extends AbsModel
         return DB::statement("select $select from " . self::TABLE . " inner join app_users on app_users.UserId = app_sales_invoices.UserId inner join app_clients on app_clients.ClientId = app_sales_invoices.ClientId ",[],true)->get();
     }
 
+    public static function getColByKey($col,$id)
+    {
+        if(is_numeric($id)){
+            if(DB::table(self::TABLE)->select($col)->where(self::ForeignKey,'=',$id)->getColumn() != '' )
+            {
+                return DB::table(self::TABLE)->select($col)->where(self::ForeignKey,'=',$id)->getColumn()->{$col};
+            }
+        }
+        return false;
+    }
+
     public function getLastInsertId()
     {
         return DB::getLastInsertId();

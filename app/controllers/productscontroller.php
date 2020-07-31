@@ -7,6 +7,10 @@ use Store\Core\Messenger;
 use Store\Core\Validate;
 use Store\Models\ProductsCategoriesModel;
 use Store\Models\ProductsWarehousesModel;
+use Store\Models\PurchasesInvoicesModel;
+use Store\Models\PurchasesModel;
+use Store\Models\SalesInvoicesModel;
+use Store\Models\SalesModel;
 use Store\Models\ProductsModel;
 use Store\Models\UnitsModel;
 
@@ -233,13 +237,16 @@ class ProductsController extends AbsController
         $this->Language->load('products.preview');
         $this->Language->load('products.label');
         $this->Language->load('template.countries');
+        $PurchasesModel = new PurchasesModel();
+        $SalesModel = new SalesModel();
 
         $id = self::getGet('id');
         if(self::has_get('id') && Validate::valid($id,Validate::REGEX_INT) && Validate::valid_unique($id,'app_products','ProductId'))
         {
             $products = new ProductsModel();
             $this->Data['products'] = $products->inner_join('ProductId',$id);
-
+            $this->Data['Purchases'] = $PurchasesModel->getByCols(['ProductId'=>$this->Data['products']->ProductId]);
+            $this->Data['Sales'] = $SalesModel->getByCols(['ProductId'=>$this->Data['products']->ProductId]);
         }else{
             Messenger::getInstance()->create($this->Language->get('warning_product_not_exist'),Messenger::APP_TYPE_WARNING);
             self::redirect('/Products/');

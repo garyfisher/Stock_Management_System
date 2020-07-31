@@ -305,6 +305,7 @@ if ($('table').length > 0 && getSettings('setting-site') != '')
             ],
             dom: 'Bfrtip',
             "order": [[ 12, "desc" ]],
+            stateSave: true,
             columnDefs:[
             {
                 searchPanes:{
@@ -363,7 +364,7 @@ if ($('table').length > 0 && getSettings('setting-site') != '')
                     "sLast":     	"Ostatni"
                 },
                 searchPanes: {
-                    clearMessage: 'Obliterate Selections',
+                    clearMessage: 'Wyłącz wszystkie filtry',
                     collapse: {0: 'Filtry', _: 'Filtry (%d)'}
                 },
             }

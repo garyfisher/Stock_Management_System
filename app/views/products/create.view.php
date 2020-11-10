@@ -215,6 +215,7 @@
             <option value="0" disabled selected>{ label_status }</option>
             <option value="1">{ array_status[1] }</option>
             <option value="2">{ array_status[2] }</option>
+            <option value="3">{ array_status[3] }</option>
         </select>
     </div>
 

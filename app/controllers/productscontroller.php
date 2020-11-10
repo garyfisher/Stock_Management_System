@@ -62,7 +62,7 @@ class ProductsController extends AbsController
                 'subcategoryId' => 'foreign:app_products_categories.ProductCategoryId',
                 'warehouseId'   => 'required|foreign:app_products_warehouses.ProductWarehouseId',
                 'comment'       => 'max:1000|min:3|type:text',
-                'statusId'      => 'required|list:1,2',
+                'statusId'      => 'required|list:1,2,3',
                 'wwwId'         => 'required|list:1,2',
                 'typeId'        => 'required|list:1,2,3,4',
                 'yearId'        => 'required|list:1,2,3,4,5,6,7',

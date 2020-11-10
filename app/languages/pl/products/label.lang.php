@@ -32,7 +32,7 @@ $_['label_allegro'] = 'Numer aukcji na allegro';
 $_['label_status'] = 'Status';
 $_['label_reservation'] = 'Rezerwacja?';
 $_['label_comment'] = 'Komentarz / Uwagi';
-$_['array_status'] = [1 => 'Sprzedany', 2 => 'Dostepny'];
+$_['array_status'] = [1 => 'Sprzedany', 2 => 'Dostepny', 3 => 'Zamówiony'];
 $_['array_www'] = [1 => 'nie', 2 => 'tak'];
 $_['array_reservation'] = [1 => 'nie', 2 => 'tak'];
 $_['array_type'] = [1 => 'damski', 2 => 'męski', 3 => 'dziecięcy', 4 => 'unisex'];

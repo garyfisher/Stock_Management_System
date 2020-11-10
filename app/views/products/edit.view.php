@@ -282,6 +282,8 @@
                 selected @endif >{ array_status[1] }</option>
             <option value="2" @if (#Products->StatusId == '2')
                 selected @endif >{ array_status[2] }</option>
+            <option value="3" @if (#Products->StatusId == '3')
+                selected @endif >{ array_status[3] }</option>
         </select>
     </div>
 

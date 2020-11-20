@@ -154,7 +154,7 @@ class ProductsModel extends AbsModel
             $re = DB::statement("select app_products_categories.* , app_products_warehouses.Name as NameWarehouses , app_products.* , app_units.Name as UnitName, app_units.Code as UnitCode from " . self::TABLE . " inner join app_products_categories on app_products_categories.ProductCategoryId = app_products.CategoryId inner join app_products_warehouses on app_products_warehouses.ProductWarehouseId = app_products.WarehouseId inner join app_units on app_units.UnitId = app_products.UnitId WHERE $col $magic ?",[$val],true)->get();
             return $re[0];
         }
-        return DB::statement("select app_products_categories.* , app_products_warehouses.Name as NameWarehouses , app_products.* , app_units.Name as UnitName, app_units.Code as UnitCode from " . self::TABLE . " inner join app_products_categories on app_products_categories.ProductCategoryId = app_products.CategoryId inner join app_products_warehouses on app_products_warehouses.ProductWarehouseId = app_products.WarehouseId inner join app_units on app_units.UnitId = app_products.UnitId",[],true)->get();
+        return DB::statement("select app_products_categories.* , app_products_warehouses.Name as NameWarehouses , app_products.* , app_units.Name as UnitName, app_units.Code as UnitCode from " . self::TABLE . " inner join app_products_categories on app_products_categories.ProductCategoryId = app_products.CategoryId inner join app_products_warehouses on app_products_warehouses.ProductWarehouseId = app_products.WarehouseId inner join app_units on app_units.UnitId = app_products.UnitId ORDER BY app_products.kod DESC",[],true)->get();
     }
 
 
